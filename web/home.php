@@ -28,12 +28,12 @@
         fclose($fh);
     }
 
-    # write to a file and append at the end (a)
-    if ($file = fopen('test.txt', 'a')) {
-        $data = 'this is what is supposed to be written in the file';
-        fwrite($file, $data);
-        fclose($file);
-    }
+    // # write to a file and append at the end (a)
+    // if ($file = fopen('test.txt', 'a')) {
+    //     $data = 'this is what is supposed to be written in the file';
+    //     fwrite($file, $data);
+    //     fclose($file);
+    // }
 
     # put all the lines of the file into an array
     $file_lines = file('test.txt');
