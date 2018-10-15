@@ -1,10 +1,12 @@
 <?php
+require_once('words.php');
 
 class TranslationCreator
 {
     public $words_to_translate = array();
     public $translations = array();
     public $file_lines = array();
+    public $wordObjects = array();
     private $lines = array();
 
     function __construct($file_location)
@@ -36,6 +38,22 @@ class TranslationCreator
         foreach ($this->translations as $translation) {
             echo $translation . "<br>";
         }
+    }
+
+    function createWordObjects()
+    {
+        for ($i = 0; $i < count($this->words_to_translate); $i++) {
+            $wordPair = new Words($this->words_to_translate[$i], $this->translations[$i]);
+            array_push($this->wordObjects, $wordPair);
+        }
+    }
+
+    public function getWordObjects()
+    {
+        if ($this->wordObjects == null) {
+            return;
+        }
+        return $this->wordObjects;
     }
 
     /**

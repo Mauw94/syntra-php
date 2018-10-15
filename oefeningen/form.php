@@ -1,47 +1,44 @@
 <!doctype html>
-
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-
-  <title>form.php</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
-
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <script src="js/scripts.js"></script>
+    <title>form.php</title>
 </head>
-
 <body>
-<?php
-if (empty($_GET['naam'])) { ?> 
-    <form action=""method="get">
-        <p>Naam: <input type="text" name="naam" required></p>
-        <p>Voornaam: <input type="text" name="voornaam"></p>
-        <p>Leeftijd: <input type="number" name="leeftijd"></p>
-        <p>Datum: <input type="date" name="datum"></p>
-        <input type="submit" value="Druk ticket">
-    </form>
 <?php 
-} else { ?> 
-<h2>Ticket LoungeResort Playa Grande</h2>
-<p>Naam: <?php echo $_GET['naam']; ?></p>
-<p>Voornaam: <?php echo $_GET['voornaam']; ?></p>
-<p>Leeftijd: 
-<?php 
-echo $_GET['leeftijd'];
-$leeftijd = $_GET['leeftijd'];
-?></p>
-<?php if ($leeftijd >= 18) { ?> 
-<p><?php echo $_GET['naam']; ?> mag tequilla drinken </p>
-<?php 
-} elseif ($leeftijd >= 16) { ?>
-<p><?php echo $_GET['naam']; ?> mag bier drinken. </p>
-<?php 
-} else { ?>
-<p><?php echo $_GET['naam']; ?> mag geen alcohol. </p>
-<?php 
+function toegang()
+{
+    if ($_GET['leeftijd'] < 16) {
+        echo 'speeltuin';
+    } elseif ($_GET['leeftijd'] < 19 && $_GET['leeftijd'] > 15) {
+        echo 'Party: BEER';
+    } else {
+        echo 'Party: BEER/TEQUILA';
+    }
 }
+
+if (!empty($_GET['naam'])) {
+    $naam = $_GET['naam'];
+    $vnaam = $_GET['vnaam'];
+    $leeftijd = $_GET['leeftijd'];
+    ?>
+    <h2>Ticket LoungeResort Playa Grande</h2>
+    <p>Naam: <?php echo $naam; ?></p>
+    <p>Voornaam: <?php echo $vnaam; ?> </p>
+    <p>Locatie: <?php toegang(); ?> </p>
+    <p>-----------------------------------------------</p>
+    <h2>Voucher</h2>
+    <p><?php toegang(); ?></p>
+<?php 
+} else {
+    ?>
+<form action="" method="get">
+    <p>Naam: <input type="text" name="naam" required></p>
+    <p>Voornaam: <input type="text" name="vnaam"></p>
+    <p>Leeftijd: <input type="number" name="leeftijd" required></p>
+    <p>Datum: <input type="date" name="datum"></p>
+    <input type="submit" value="Druk ticket">
+</form>
+<?php 
 } ?>
 </body>
 </html>

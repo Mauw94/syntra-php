@@ -11,21 +11,23 @@
   <link rel="stylesheet" href="css/styles.css?v=1.0">
   <script src="js/scripts.js"></script>
 </head>
-
-<body>
-
-</body>
-</html>
-
 <?php
 require_once('translationCreator.php');
 
 $translation_creator = new TranslationCreator('test.txt');
 $translation_creator->create_word_arrays();
-$translation_creator->print_wordsToTranslate();
-$wordsToTranslate = $translation_creator->getWords_to_translate();
+$translation_creator->createWordObjects();
+$words = $translation_creator->getWordObjects();
 
-foreach ($wordsToTranslate as $translate) {
-    echo $translate . " ";
-}
+#var_dump($words);
 ?>
+<body>
+<?php 
+foreach ($words as $word) {
+  echo '<label>' . $word->getWordToTranslate() . '</label>';
+  #echo $word->getTranslation() . '<br>';
+  ?><input type="text" name="translation" value="<?php echo $word->getTranslation()?>"> 
+  <?php 
+} ?>
+</body>
+</html>
