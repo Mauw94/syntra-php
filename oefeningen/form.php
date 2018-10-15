@@ -23,14 +23,25 @@ if (empty($_GET['naam'])) { ?>
         <input type="submit" value="Druk ticket">
     </form>
 <?php 
-} ?> 
+} else { ?> 
 <h2>Ticket LoungeResort Playa Grande</h2>
 <p>Naam: <?php echo $_GET['naam']; ?></p>
 <p>Voornaam: <?php echo $_GET['voornaam']; ?></p>
 <p>Leeftijd: 
 <?php 
+echo $_GET['leeftijd'];
 $leeftijd = $_GET['leeftijd'];
-    
 ?></p>
+<?php if ($leeftijd >= 18) { ?> 
+<p><?php echo $_GET['naam']; ?> mag tequilla drinken </p>
+<?php 
+} elseif ($leeftijd >= 16) { ?>
+<p><?php echo $_GET['naam']; ?> mag bier drinken. </p>
+<?php 
+} else { ?>
+<p><?php echo $_GET['naam']; ?> mag geen alcohol. </p>
+<?php 
+}
+} ?>
 </body>
 </html>
