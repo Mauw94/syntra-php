@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>The HTML5 Herald</title>
+  <title>Translation Exercise</title>
   <meta name="description" content="The HTML5 Herald">
   <meta name="author" content="SitePoint">
 
@@ -14,31 +14,18 @@
 
 <body>
 
-  <h1>Welcome</h1>
 </body>
 </html>
 
 <?php
-    # constant stream of the file untill there are no more lines to read
-    if ($fh = fopen('test.txt', 'r')) {
-        while (!feof($fh)) {
-            $line = fgets($fh);
-            echo $line . '<br>';
-        }
-        fclose($fh);
-    }
+require_once('translationCreator.php');
 
-    // # write to a file and append at the end (a)
-    // if ($file = fopen('test.txt', 'a')) {
-    //     $data = 'this is what is supposed to be written in the file';
-    //     fwrite($file, $data);
-    //     fclose($file);
-    // }
+$translation_creator = new TranslationCreator('test.txt');
+$translation_creator->create_word_arrays();
+$translation_creator->print_wordsToTranslate();
+$wordsToTranslate = $translation_creator->getWords_to_translate();
 
-    # put all the lines of the file into an array
-    $file_lines = file('test.txt');
-    foreach($file_lines as $line) {        
-        echo $line.'<br>';
-    }
-
+foreach ($wordsToTranslate as $translate) {
+    echo $translate . " ";
+}
 ?>
