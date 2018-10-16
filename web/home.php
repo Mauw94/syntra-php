@@ -18,16 +18,40 @@ $translation_creator = new TranslationCreator('test.txt');
 $translation_creator->create_word_arrays();
 $translation_creator->createWordObjects();
 $words = $translation_creator->getWordObjects();
-
+shuffle($words);
 #var_dump($words);
 ?>
 <body>
-<?php 
+<?php
+$i = 0;
 foreach ($words as $word) {
-  echo '<label>' . $word->getWordToTranslate() . '</label>';
-  #echo $word->getTranslation() . '<br>';
-  ?><input type="text" name="translation" value="<?php echo $word->getTranslation()?>"> 
+    ?>
+    <br><label><?php echo $word->getWordToTranslate(); ?></label><br>
+    <input type="hidden" name="wordToTranslate<?php echo $i ?>" value="<?php echo $word->getWordToTranslate(); ?>">
+    <input type="text" name="translation">
+    <input type="hidden" name="translation<?php echo $i ?>" value="<?php echo $word->getTranslation(); ?>">
+    <button name="ok" onclick="<?php check(); ?>">Check</button>
   <?php 
-} ?>
+    $i++;
+}
+?>
 </body>
 </html>
+
+<?php
+function check()
+{
+    echo 'called';
+    var_dump($_GET);
+    if (isset($_GET['ok'])) {
+        for ($i = 0; $i < count($words); $i++) {
+            $wordToTranslate = $_GET['wordToTranslate' . $i];
+            $translation = $_GET['translation' . $i];
+            echo $words[$i]->getTranslation() . ' ';
+            if ($words[$i]->getTranslation() == $translation) {
+                echo 'CORRECT!';
+            }
+        }
+    }
+}
+?>
