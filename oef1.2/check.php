@@ -28,7 +28,11 @@ if (array_key_exists($username, $users)) {
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="1; URL='secure.php'"/>
+<?php if ($correctPasswd) { ?>
+    <meta http-equiv="refresh" content="1; URL='secure.php'"/>
+<?php 
+} ?>
+
 </head>
 <body>
 <!-- <?php
