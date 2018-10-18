@@ -12,7 +12,7 @@
   <script src="js/scripts.js"></script>
 </head>
 <?php
-require_once('translationCreator.php');
+require 'translationCreator.php';
 
 $translation_creator = new TranslationCreator('test.txt');
 $translation_creator->create_word_arrays();
