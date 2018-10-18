@@ -28,14 +28,15 @@ if (array_key_exists($username, $users)) {
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="refresh" content="1; URL='secure.php'"/>
 </head>
 <body>
-<?php
-if ($correctPasswd) { ?>
-    <a href="secure.php">ga door naar de gebruiker pagina</a>
-<?php 
-}
-?>
+<!-- <?php
+// if ($correctPasswd) { ?>
+//     <a href="secure.php">ga door naar de gebruiker pagina</a>
+// <?php 
+// }
+// ?> -->
     
 </body>
 </html>
