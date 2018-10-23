@@ -17,7 +17,7 @@
     $melk = 0;
     $aantal = 0;
     $naam = '';
-    while ($output = mysqli_fetch_assoc($result)) {
+        while ($output = mysqli_fetch_assoc($result)) {
         $aantal++;
         $melk += $output['melk'];        
         $naam = $output['naam'];
