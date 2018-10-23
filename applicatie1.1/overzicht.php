@@ -14,15 +14,28 @@ include 'database.php';
     <?php include 'navigate.php'; ?>
     <h1>Koe-log</h1>
     <?php  
-    $sql = 'SELECT * FROM koe';
+    $sql = 'SELECT * FROM koe ORDER BY datum ASC';
     $result = mysqli_query($con, $sql);
+    echo '<table>';
+    echo '<tr><th>Naam</th><th>L melk</th><th>Opmerking</th><th>Datum</th></tr>';
     while ($output = mysqli_fetch_assoc($result)) {
-        echo '<br> ' . $output['naam'] . ' ' . $output['melk'] . 'L melk ' . $output['datum'] . ' ' . $output['opmerking'];
+        echo '<tr>';
+        echo '<td>' . $output['naam'] . '</td>';
+        echo '<td>' . $output['melk'] . '</td>';
+        echo '<td>' . $output['opmerking'] . '</td>';
+        echo '<td>' . $output['datum'] . '</td>';
+        echo '</tr>';
+        # echo '<br> ' . $output['naam'] . ' ' . $output['melk'] . 'L melk ' . $output['datum'] . ' ' . $output['opmerking'];
     }
+    echo '</table>';
     ?>
     <form action="zoek.php" method="post">
         <p>Overzicht van één koe:</p>
-        <input type="text" name="naam">
+        <select name="naam">
+            <option value="bella">Bella</option>
+            <option value="germaine">Germaine</option>
+            <option value="marie-fleure">Marie-Fleure</option>
+        </select>
         <input type="submit" value="zoeken">
     </form>
 </body>

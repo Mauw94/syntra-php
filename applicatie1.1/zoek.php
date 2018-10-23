@@ -19,7 +19,7 @@
     while ($output = mysqli_fetch_assoc($result)) {
         $melk += $output['melk'];        
         $naam = $output['naam'];
-    }      
+    } 
     echo $naam . '<br> Aantal liters melk ' . $melk . 'L';
     ?>    
 </body>
