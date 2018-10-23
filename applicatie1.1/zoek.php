@@ -15,12 +15,15 @@
     $sql = "SELECT * FROM koe WHERE naam LIKE '%$zoek%'";
     $result = mysqli_query($con, $sql);
     $melk = 0;
+    $aantal = 0;
     $naam = '';
     while ($output = mysqli_fetch_assoc($result)) {
+        $aantal++;
         $melk += $output['melk'];        
         $naam = $output['naam'];
     } 
-    echo $naam . '<br> Aantal liters melk ' . $melk . 'L';
+    echo '<b>'.strtoupper($naam).'</b>' . '<br> Aantal liters melk ' . $melk . 'L';
+    echo '<br>Aantal melk afnames: ' . $aantal;
     ?>    
 </body>
 </html>
