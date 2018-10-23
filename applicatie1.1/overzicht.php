@@ -9,10 +9,9 @@ include 'database.php';
     <title>Overzicht</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-    <br>
-    <?php include 'navigate.php'; ?>
+<body>    
     <h1>Koe-log</h1>
+    <?php include 'navigate.php'; ?>
     <?php  
     $sql = 'SELECT * FROM koe ORDER BY datum ASC';
     $result = mysqli_query($con, $sql);
