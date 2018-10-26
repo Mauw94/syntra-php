@@ -1,12 +1,19 @@
 <?php
 include 'database.php';
+include 'koe.php';
 $add = false;
-$naam = strtolower($_POST['naam']);
-$melk = $_POST['melk'];
-$datum = $_POST['date'];
-$opmerking = $_POST['opmerking'];
+$koe = new Koe();
+$koe->setNaam(strtolower($_POST['naam']));
+$koe->setLitersMelk($_POST['melk']);
+$koe->setDatumIngave($_POST['date']);
+$koe->setOpmerking($_POST['opmerking']);
 
-if (dateCheck($datum)) {
+$naam = $koe->getNaam();
+$melk = $koe->getLitersMelk();
+$datum = $koe->getDatumIngave();
+$opmerking = $koe->getOpmerking();
+
+if (dateCheck($koe->getDatumIngave())) {
     $sql = "INSERT INTO koe VALUES(NULL, '$naam', '$melk', '$datum', '$opmerking')";
     if (mysqli_query($con, $sql)) {
         echo '<br> added!';
