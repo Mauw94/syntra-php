@@ -7,6 +7,7 @@ class Broodje {
     public $groeten = array();
     public $saus;
     public $aantal;
+    public $bestelDatum;
     
     function __construct()
     {
@@ -15,7 +16,7 @@ class Broodje {
 
     function __toString()
     {
-        return $this->soort . ' ' . $this->brood . ' ' . $this->groeten . ' ' . $this->saus . ' ' . $this->aantal;
+        return $this->soort . ' ' . $this->brood . ' ' . $this->groeten . ' ' . $this->saus . ' ' . $this->aantal . ' ' . $this->bestelDatum;
     }
 
     /**
@@ -134,6 +135,26 @@ class Broodje {
     public function setAantal($aantal)
     {
         $this->aantal = $aantal;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of bestelDatum
+     */ 
+    public function getBestelDatum()
+    {
+        return $this->bestelDatum;
+    }
+
+    /**
+     * Set the value of bestelDatum
+     *
+     * @return  self
+     */ 
+    public function setBestelDatum($bestelDatum)
+    {
+        $this->bestelDatum = $bestelDatum;
 
         return $this;
     }

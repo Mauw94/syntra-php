@@ -4,7 +4,7 @@ include 'session-manager.php';
 $sessionManager = new SessionManager();
 $accessLevel = $sessionManager->getAccessLevel();
 
-if ($accessLevel <= 1) { ?>
+if ($accessLevel <= 2) { ?>
 <!DOCTYPE html>
 <html>
 <head>
