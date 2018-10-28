@@ -41,4 +41,7 @@ if (mysqli_query($con, $sql)) {
 <?php } else {
     echo '<br>error adding broodje';
 }
+
+
+#link broodje met de klant
 ?>
