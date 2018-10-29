@@ -2,6 +2,7 @@
 include 'database.php';
 include 'broodje.php';
 include 'klant.php';
+include 'orders.php';
 
 $klant = new Klant();
 $broodje = new Broodje();
@@ -27,14 +28,20 @@ $naam = $klant->getNaam();
 $tel = $klant->getTel();
 $email = $klant->getEmail();
 
-$sqlKlant = "INSERT INTO klant VALUES(NULL, '$naam', '$tel', '$email')";
+# increment order
+# update order for customer and bread and orders table
+$orders = new Orders($con);
+$besterlNr = $orders->getBestelNr();
+
+
+$sqlKlant = "INSERT INTO klant VALUES(NULL, '$naam', '$tel', '$email', '$besterlNr')";
 if (mysqli_query($con, $sqlKlant)) {
     echo 'added klant<br>';
 } else {
     echo 'error adding klant<br>';
 }
 
-$sql = "INSERT INTO broodje VALUES (NULL, 0, '$soort', '$brood', '$groenten', '$saus', '$aantal', '$bestelDatum')";
+$sql = "INSERT INTO broodje VALUES (NULL, 0, '$soort', '$brood', '$groenten', '$saus', '$aantal', '$bestelDatum', 'FALSE', '$besterlNr')";
 if (mysqli_query($con, $sql)) {
     echo 'added broodje <br>'; ?>
     <meta http-equiv="refresh" content="1; URL='input.php'"/>

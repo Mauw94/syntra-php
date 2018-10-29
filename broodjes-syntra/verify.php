@@ -1,5 +1,4 @@
 <?php
-include 'navigate.php';
 include 'session-manager.php';
 $sessionManager = new SessionManager();
 $users = [
