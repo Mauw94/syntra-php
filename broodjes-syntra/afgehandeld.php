@@ -11,8 +11,8 @@ if (isset($_POST['afgehaald'])) {
 # update broodje table
 $sql = "UPDATE broodje SET afgehaald = '$afgehaald' WHERE id = '$id'";
 if (mysqli_query($con, $sql)) {
-    echo '<label class="warning">Updated</label>'; ?> 
-     <meta http-equiv="refresh" content="1; URL='list.php'"/>
+    echo '<label class="warning">updated</label>'; ?> 
+     <meta http-equiv="refresh" content="0.5; URL='list.php'"/>
     <?php
 } else {
     echo 'Something went wrong.'; ?>

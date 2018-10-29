@@ -33,22 +33,24 @@ $email = $klant->getEmail();
 $orders = new Orders($con);
 $besterlNr = $orders->getBestelNr();
 
+if ($klant->canOrder($con, $email)) {
+    $sqlKlant = "INSERT INTO klant VALUES(NULL, '$naam', '$tel', '$email', '$besterlNr')";
+    if (mysqli_query($con, $sqlKlant)) {
+        #$klant->emailVerification();
+        echo 'E-mail verification sent.';
+    } else {
+        echo 'error adding klant<br>';
+    }
 
-$sqlKlant = "INSERT INTO klant VALUES(NULL, '$naam', '$tel', '$email', '$besterlNr')";
-if (mysqli_query($con, $sqlKlant)) {
-    echo 'added klant<br>';
+    $sql = "INSERT INTO broodje VALUES (NULL, 0, '$soort', '$brood', '$groenten', '$saus', '$aantal', '$bestelDatum', 'FALSE', '$besterlNr')";
+    if (mysqli_query($con, $sql)) {
+        echo 'added broodje <br>'; ?>
+        <meta http-equiv="refresh" content="1; URL='input.php'"/>
+    <?php } else {
+        echo '<br>error adding broodje';
+    }
 } else {
-    echo 'error adding klant<br>';
+    echo 'Already ordered';
 }
 
-$sql = "INSERT INTO broodje VALUES (NULL, 0, '$soort', '$brood', '$groenten', '$saus', '$aantal', '$bestelDatum', 'FALSE', '$besterlNr')";
-if (mysqli_query($con, $sql)) {
-    echo 'added broodje <br>'; ?>
-    <meta http-equiv="refresh" content="1; URL='input.php'"/>
-<?php } else {
-    echo '<br>error adding broodje';
-}
-
-
-#link broodje met de klant
 ?>

@@ -1,3 +1,5 @@
 <?PHP
-echo "<a href='index.php'>Login</a> - <a href='input.php'>New input</a> - <a href='list.php'>Cafeteria</a><br><br>";
+echo "<a href='index.php' class='btn btn-sm btn-primary'>Login</a> - 
+<a href='input.php' class='btn btn-sm btn-success'>New input</a> - 
+<a href='list.php' class='btn btn-sm btn-info'>Cafeteria</a><br><br>";
 ?>

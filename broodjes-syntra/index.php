@@ -4,7 +4,9 @@ include 'head.php';
 <body>
 <?php 
 session_start();
-$_SESSION['login'] = 3;
+if (!isset($_SESSION['login'])) {
+    $_SESSION['login'] = 3;
+}
 ?>
 <div class="container">
     <?php include 'navigate.php'; ?>
@@ -15,11 +17,13 @@ $_SESSION['login'] = 3;
         <div class="form-group" style="max-width: 25%">
             <p>Password: </p> <input type="password" name="passwd" class="form-control">
     </div>
+    <div class="form-group">
         <input type="submit" value="Login" class="btn btn-primary">
+    </div>
     </form>
     <form action="logout.php" method="post">
         <div class="form-group">
-        <input type="submit" value="Logout" class="btn btn-danger">
+            <input type="submit" value="Logout" class="btn btn-danger">
         </div>
     </form>
 </div>

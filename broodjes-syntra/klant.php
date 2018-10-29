@@ -11,7 +11,38 @@ class Klant {
         
     }
 
+    public function emailVerification() {
+        $from = "le_from@example.com";
+        $to = "le_to@example.com";
+        $bcc = "le_bcc@example.com";
 
+        $header = "FROM: " . $from . "\r\n".
+            "Reply-To: " . $from . "\r\n".
+            "Return-Path: " . $from . "\r\n".
+            "Message-ID: <" . time() . "." . $from . ">\r\n".
+            "BCC: " . $bcc;
+
+        $msg = "Click the link below to verify your e-mail.";
+        $msg = wordwrap($msg, 70);
+        mail($to, "Verify e-mail", $msg, $header);
+    }
+
+    public function canOrder($con, $email) {
+        $today = date("Y-m-d");
+        $sql = "SELECT bestelnr FROM broodje WHERE besteldatum = '$today'";
+        $result = mysqli_query($con, $sql);        
+        $output = mysqli_fetch_assoc($result);
+        $bestelNr = $output['bestelnr'];
+
+        $sqlFindNr = "SELECT * FROM klant WHERE bestelnr = '$bestelNr' AND email = '$email'";
+        $resultNr = mysqli_query($con, $sqlFindNr);
+        $output = mysqli_fetch_assoc($resultNr);
+        if ($output != null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     /**
      * Get the value of email

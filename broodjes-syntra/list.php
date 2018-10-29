@@ -18,7 +18,8 @@
                 $result = mysqli_query($con, $sql);
                 echo '<table class="table">';
                 echo '<tr><th>Soort</th><th>Brood</th><th>Groenten</th><th>Saus</th>
-                <th>Besteldatum</th><th>Bestelnr</th><th>Afgehaald?</th><th>Update</th><th>Archiveer</th></tr>';
+                <th>Besteldatum</th><th>Bestelnr</th><th>Afgehaald?</th><th>Update</th><th>Archiveer</th>
+                <th>Klant-details</th></tr>';
                 while ($output = mysqli_fetch_assoc($result)) {
                     echo '<tr>';
                     echo '<td>' . $output['soort'] . '</td>';
@@ -35,7 +36,11 @@
                     </form>
                     <form action="archive.php" method="post">
                     <input type="hidden" name="id" value="<?php  echo $output['id'] ?>">
-                    <td><input type="submit" name="archiveer" value="Archiveer" class="btn btn-primary"></td>
+                    <td><input type="submit" name="archiveer" value="archiveer" class="btn btn-primary"></td>
+                    </form>
+                    <form action="klant-details.php" method="post">
+                    <input type="hidden" name="id" value="<?php  echo $output['id'] ?>">
+                    <td><input type="submit" value="Klant details" class="btn btn-warning"></td>
                     </form>
                     <?php
                     echo '</tr>';
