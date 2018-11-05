@@ -50,7 +50,8 @@ if ($klant->canOrder($con, $email)) {
         echo '<br>error adding broodje';
     }
 } else {
-    echo 'Already ordered';
+    echo 'You already ordered something today.';
+    ?> <meta http-equiv="refresh" content="2; URL='input.php'"/> <?php
 }
 
 ?>

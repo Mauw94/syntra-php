@@ -12,8 +12,8 @@ class Klant {
     }
 
     public function emailVerification() {
-        $from = "le_from@example.com";
-        $to = "le_to@example.com";
+        $from = "mauritsseelen@gmail.com";
+        $to = "mauritsseelen@gmail.com";
         $bcc = "le_bcc@example.com";
 
         $header = "FROM: " . $from . "\r\n".
