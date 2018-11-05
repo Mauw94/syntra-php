@@ -36,7 +36,7 @@ $besterlNr = $orders->getBestelNr();
 if ($klant->canOrder($con, $email)) {
     $sqlKlant = "INSERT INTO klant VALUES(NULL, '$naam', '$tel', '$email', '$besterlNr')";
     if (mysqli_query($con, $sqlKlant)) {
-        #$klant->emailVerification();
+         $klant->emailVerification();
         echo 'E-mail verification sent.';
     } else {
         echo 'error adding klant<br>';

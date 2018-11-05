@@ -1,7 +1,0 @@
-een,one
-twee,two
-drie,three
-vier,four
-vijf,five
-zes,six
-zeven,seven
