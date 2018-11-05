@@ -1,6 +1,8 @@
+<?php
 // 2 invulvelden, 2data, bereken het verschil tussen 
 // deze data. Verschil tussen data = jaren maanden dagen
 // maak gebruik van DateTime class! en instantieer!
+?>
 
 <!DOCTYPE html>
 <html>
@@ -13,19 +15,17 @@
     <form method="post">
     <input type="date" name="date1">
     <input type="date" name="date2">
-    <input type="submit" value="Bereken verschil">
+    <input type="submit" value="Bereken verschil" name="submit">
     </form>
 </body>
 </html>
 
 <?php
-if (isset($_POST['date1']) && isset($_POST['date2'])) {
-    $d1 = $_POST['date1'];
-    $d2 = $_POST['date2'];
-    $date1 = new DateTime($d1);
-    $date2 = new DateTime($d2);
+if (isset($_POST['submit'])) {
+    $sdate = new DateTime($_POST['date1']);
+    $edate = new DateTime($_POST['date2']);
 
-    $diff = $date1->diff($date2);
+    $diff = $sdate->diff($edate);
     echo "difference " . $diff->y . ' years ' . $diff->m . ' months ' . $diff->d . ' days ';
 }
 ?>

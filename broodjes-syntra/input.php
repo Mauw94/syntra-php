@@ -3,10 +3,9 @@ include 'session-manager.php';
 include 'head.php';
 $sessionManager = new SessionManager();
 $accessLevel = $sessionManager->getAccessLevel();
-$time = date("h:i:sa");
 
 if ($accessLevel <= 2) { 
-    if ($time < '13:00:00pm') {
+    if ($sessionManager->checkValidTime()) {
     ?>
 <body>
 <div class="container">
@@ -42,6 +41,11 @@ if ($accessLevel <= 2) {
 <?php 
 } else {
     echo 'Too late to order';
+    ?>
+    <form action="index.php" method="get">
+    <input type="submit" value="Back" class="btn btn-primary">
+    </form>
+    <?php
 }
     } else {
         echo 'No access';

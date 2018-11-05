@@ -1,5 +1,12 @@
 <?php
-
+/*
+{
+    "soort":"smos",
+    "brood":"wit",
+    "groenten": ["sla", "ei"],
+    "bestelnr": 19
+}
+*/
 class Broodje {
     public $bestelNr;
     public $soort;

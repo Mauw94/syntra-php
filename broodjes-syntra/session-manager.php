@@ -9,9 +9,20 @@ class SessionManager {
         $this->session_access = $_SESSION['login'];
     }
 
-    function getAccessLevel() {
+    public function getAccessLevel() {
         return $this->session_access;
     }
+
+    public function checkValidTime()
+    {
+        $time = date("h:i:sa");
+        if ($time > '12:00:00pm') {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
 
 ?>

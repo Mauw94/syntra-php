@@ -12,7 +12,7 @@
         include 'navigate.php'; 
         $today = date("Y-m-d");
         ?>
-            <h2>List of orders <?php echo $today; ?></h2>
+            <h2>orderlist <?php echo $today; ?></h2>
             <?php              
                 $sql = "SELECT * FROM broodje WHERE besteldatum = '$today'";
                 $result = mysqli_query($con, $sql);

@@ -24,7 +24,11 @@ class Klant {
 
         $msg = "Click the link below to verify your e-mail.";
         $msg = wordwrap($msg, 70);
-        mail($to, "Verify e-mail", $msg, $header);
+        if (mail($to, "Verify e-mail", $msg, $header)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function canOrder($con, $email) {
