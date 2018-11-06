@@ -16,11 +16,10 @@ include 'headers.php';
         </form>
 
         <?php
-        if (isset($_POST['plaats'])) {
+        if (!empty($_POST['plaats'])) {
             $plaats = $_POST['plaats'];
             $json = file_get_contents('http://api.oceandrivers.com:80/v1.0/getWeatherDisplay/' . strtolower($plaats) . '/?period=latestdata');
             $json = json_decode($json);
-            //print_r($json);
             $temperature = $json->TEMPERATURE;
             $rain = $json->RAIN;
             $description = $json->WEATHER_DES;
@@ -31,11 +30,6 @@ include 'headers.php';
             </div>
             <div class="card-body">
                 <div class="mx-auto d-block">
-                    <!-- <i class="fas fa-sun"></i>
-                    <i class="fas fa-cloud"></i>
-                    <i class="fas fa-cloud-sun"></i>
-                    <i class="fas fa-cloud-sun-rain"></i>
-                    <i class="fas fa-cloud-showers-heavy"></i> -->
                     <h5 class="location text-sm-center mt-2 mb-1">
                     <i class="fa fa-map-marker"></i>
                     <?php echo ' '.strtoupper($plaats) ?></h5>
@@ -56,9 +50,14 @@ include 'headers.php';
         </div>
         <?php
         } else {
-            echo "";
+            echo "Enter a location";
         }
         ?>
     </div>
 </div>
 </body>
+<!-- <i class="fas fa-sun"></i>
+<i class="fas fa-cloud"></i>
+<i class="fas fa-cloud-sun"></i>
+<i class="fas fa-cloud-sun-rain"></i>
+<i class="fas fa-cloud-showers-heavy"></i> -->
