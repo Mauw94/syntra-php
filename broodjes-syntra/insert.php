@@ -45,6 +45,8 @@ if ($klant->canOrder($con, $email)) {
             <?php } else {
                 echo '<br>error adding broodje';
             }
+         } else {
+             echo 'Error in sending the e-mail<br>';
          }
     } else {
         echo 'error adding klant<br>';
