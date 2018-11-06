@@ -1,0 +1,16 @@
+body {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+
+form {
+  position: relative;
+}
+
+input {
+  width: 50%;
+  padding-right: 40px;
+}
