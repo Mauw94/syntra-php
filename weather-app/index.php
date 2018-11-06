@@ -18,6 +18,12 @@ include 'headers.php';
         <?php
         if (isset($_POST['plaats'])) {
             $plaats = $_POST['plaats'];
+            $json = file_get_contents('http://api.oceandrivers.com:80/v1.0/getWeatherDisplay/' . strtolower($plaats) . '/?period=latestdata');
+            $json = json_decode($json);
+            //print_r($json);
+            $temperature = $json->TEMPERATURE;
+            $rain = $json->RAIN;
+            $description = $json->WEATHER_DES;
         ?>
         <div class="card">        
             <div class="card-header">
@@ -25,19 +31,26 @@ include 'headers.php';
             </div>
             <div class="card-body">
                 <div class="mx-auto d-block">
-                    <i class="fas fa-sun"></i>
+                    <!-- <i class="fas fa-sun"></i>
                     <i class="fas fa-cloud"></i>
                     <i class="fas fa-cloud-sun"></i>
                     <i class="fas fa-cloud-sun-rain"></i>
-                    <i class="fas fa-cloud-showers-heavy"></i>
-                    <h5 class="text-sm-center mt-2 mb-1">Het weer: </h5>
-                    <div class="location text-sm-center"><i class="fa fa-map-marker"></i><?php echo ' '.strtoupper($plaats) ?></div>
+                    <i class="fas fa-cloud-showers-heavy"></i> -->
+                    <h5 class="location text-sm-center mt-2 mb-1">
+                    <i class="fa fa-map-marker"></i>
+                    <?php echo ' '.strtoupper($plaats) ?></h5>
                 </div>
                 <hr>
                 <div class="card-text text-sm-center">
-                    <p>weer1</p>
-                    <p>weer2</p>
-                    <p>weer3</p>
+                    <p>Temperatuur: <?php echo $temperature ?></p>
+                    <p>Beschrijving: <?php echo $description ?></p>
+                    <p><?php 
+                    if ($rain) {
+                        ?><i class="fas fa-cloud-sun-rain fa-5x"></i>
+                    <?php } else {
+                        ?> <i class="fas fa-sun fa-2x"></i>
+                    <?php }
+                    ?></p>                   
                 </div>
             </div>
         </div>
