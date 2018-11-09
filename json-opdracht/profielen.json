@@ -1,0 +1,33 @@
+{
+    "person": [{
+        "naam": "Jessica E. Barnes",
+        "phone": 6314263076,
+        "street": "Wayback Lane",
+        "housenr": 1246,
+        "state": "Mahatten, NY 10107",
+        "birthday": "30-05-1986",
+        "email": "jessicaebarnes@rhyta.com",
+        "geo-coordinates": [40.865468, -75.486445]
+    },
+    {
+        "naam": "Freddie S. Wood",
+        "phone": 6319549478,
+        "street": "FieldCrest Road",
+        "housenr": 2748,
+        "state": "New York, NY 10107",
+        "birthday": "05-06-1956",
+        "email": "freddieswood@teleworm.us",
+        "geo-coordinates": [98.124582, -54.456464]
+    }
+],
+    "paard": [{
+        "naam": "test",
+        "leeftijd": 12
+    }, 
+    {
+        "naam": "test2",
+        "leeftijd": 13
+    }
+]
+
+}
