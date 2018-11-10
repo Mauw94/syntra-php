@@ -1,5 +1,21 @@
 <?php
 include 'headers.php';
+
+$dusk = false;
+$dawn = false;
+$night_time = false;
+
+function checkNightDay($desc) {
+    if (!strpos($desc, "Dusk")) {
+        $dusk = true;
+    }
+    if (!strpos($desc, "Dawn")) {
+        $dawn = true;
+    }
+    if (!strpos($desc, "Night-Time")) {
+        $night_time = true;
+    }
+}
 ?>
 <body>
 <div class="main container">
@@ -22,10 +38,14 @@ include 'headers.php';
             $json = json_decode($json);
             $temperature = $json->TEMPERATURE;
             $rain = $json->RAIN;
-            $description = $json->WEATHER_DES;
+            //$description = $json->WEATHER_DES;
+            $description = "Night_Time";
+            checkNightDay($description);
+            echo $dusk;
         ?>
         <div class="card">        
             <div class="card-header">
+                <strong class="card-title mb-3">Weather App</strong>
                 <strong class="card-title mb-3">Weather App</strong>
             </div>
             <div class="card-body">
