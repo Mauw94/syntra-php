@@ -1,20 +1,25 @@
 <?php
 include 'headers.php';
 
-$dusk = false;
-$dawn = false;
-$night_time = false;
-
 function checkNightDay($desc) {
-    if (!strpos($desc, "Dusk")) {
-        $dusk = true;
+    if (strpos($desc, "Dusk") !== false) {
+        echo 'Dusk';
+        echo '<i class="fas fa-sunset"></i>';
     }
-    if (!strpos($desc, "Dawn")) {
-        $dawn = true;
+    else if (strpos($desc, "Dawn") !== false) {
+        echo 'Dawn';
+        echo '<i class="fas fa-sunrise fa-1x"></i>';
     }
-    if (!strpos($desc, "Night-Time")) {
-        $night_time = true;
+    else if (strpos($desc, "Night_Time") !== false) {
+        echo 'Night Time';
+        echo '<i class="fas fa-moon fa-1x"></i>';
+    } else if (strpos($desc, "Dry") !== false) {
+        echo 'Dry';
     }
+}
+function convertToCelc($temp) {
+    $celc = ($temp - 32) * 5/9;
+    return $celc;
 }
 ?>
 <body>
@@ -36,16 +41,14 @@ function checkNightDay($desc) {
             $plaats = $_POST['plaats'];
             $json = file_get_contents('http://api.oceandrivers.com:80/v1.0/getWeatherDisplay/' . strtolower($plaats) . '/?period=latestdata');
             $json = json_decode($json);
-            $temperature = $json->TEMPERATURE;
+            //print_r($json);
+            $temperature = $json->TEMP_IN;
+            $tempCelc = convertToCelc($temperature);
             $rain = $json->RAIN;
-            //$description = $json->WEATHER_DES;
-            $description = "Night_Time";
-            checkNightDay($description);
-            echo $dusk;
+            $description = $json->WEATHER_DES;
         ?>
         <div class="card">        
             <div class="card-header">
-                <strong class="card-title mb-3">Weather App</strong>
                 <strong class="card-title mb-3">Weather App</strong>
             </div>
             <div class="card-body">
@@ -56,13 +59,13 @@ function checkNightDay($desc) {
                 </div>
                 <hr>
                 <div class="card-text text-sm-center">
-                    <p>Temperatuur: <?php echo $temperature ?></p>
-                    <p>Beschrijving: <?php echo $description ?></p>
-                    <p><?php 
+                    <p>Temperatuur: <?php echo round($tempCelc, 1)?> graden</p>
+                    <p>Beschrijving: <?php checkNightDay($description); ?></p>
+                    <p><?php                     
                     if ($rain) {
-                        ?><i class="fas fa-cloud-sun-rain fa-5x"></i>
+                        ?><i class="fas fa-cloud-sun-rain fa-3x"></i>
                     <?php } else {
-                        ?> <i class="fas fa-sun fa-2x"></i>
+                        ?> <i class="fas fa-sun fa-3x"></i>
                     <?php }
                     ?></p>                   
                 </div>
