@@ -12,6 +12,6 @@ if (!empty($id)) {
     } else {
         echo "Error deleting record: " . mysqli_error($con);
     }
-}
+}       
 mysqli_close($con);
 ?>

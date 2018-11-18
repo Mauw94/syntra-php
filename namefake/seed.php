@@ -13,7 +13,6 @@ $context = stream_context_create(array(
 );
 $person = file_get_contents("https://api.namefake.com/", FALSE, $context);
 $person = json_decode($person);
-//print_r($person);
 
 $name = $person->name;
 $address = $person->address;
