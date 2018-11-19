@@ -24,7 +24,6 @@ if (!empty($result)) {
         <tbody>
         <?php
         while ($output = mysqli_fetch_assoc($result)) {
-            //print_r($output);
             echo '<tr>';
             echo '<td>' . $output['name'].'</td>';
             echo '<td>' . $output['adress'].'</td>';
@@ -51,7 +50,6 @@ if (!empty($result)) {
         ?>
         </tbody>
         </table>
-        <a href="index.php"><button class="btn btn-default">Back</button></a>
     </div>
     <?php
 }
