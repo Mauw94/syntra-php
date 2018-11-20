@@ -16,7 +16,7 @@ class Processor {
     /*
     * bereken The Lucky Number op basis van het ingegeven nr en geeft het terug
     */
-    function calculateLuckyNumber($getal) {
+    public function calculateLuckyNumber($getal) {
         $rnd = rand(4, 6);
         $this->geluksgetal = $getal * $rnd;
         return $this->geluksgetal;
@@ -24,7 +24,7 @@ class Processor {
     /*
     * Feliciteert de gebruiker als The Lucky Number tussen 25 en 35 ligt
     */
-    function felicitatie() {
+    public function felicitatie() {
         if ($this->geluksgetal > 25 && $this->geluksgetal < 35) {
             echo "Gefeliciteerd!";
             $this->winnaar = TRUE;
@@ -37,7 +37,7 @@ class Processor {
     * Als de gebruiker gewonnen heeft ($winnaar) 
     * wordt dit ook bijgehouden in de db als een boolean (1 OF 0)
     */
-    function save($naam, $voornaam) {
+    public function save($naam, $voornaam) {
         if ($this->winnaar === TRUE) {
             $this->gewonnen = 1;
         }

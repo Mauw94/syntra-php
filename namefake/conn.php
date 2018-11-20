@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "root";
-$passwd = "";
+$user = "mauwsoft";
+$passwd = "test123";
 $db = "namefake";
 $connection = true;
 
