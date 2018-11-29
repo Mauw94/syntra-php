@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="Maurits Seelen">
 
-    <title>Seelen Applications</title>
+    <title>Seelen Application Solutions</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
