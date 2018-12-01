@@ -16,7 +16,11 @@ class MapManager {
     {
         $this->con = $con;
         $this->getMapDataFromDb();
-        $this->popuplateMapArrayFromJson();
+        if (empty($this->poeMaps)) {
+            $this->popuplateMapArrayFromJson();
+        } else {
+            echo "Database contains: " . count($this->poeMaps) . " maps.";
+        }
     }
 
     /*
@@ -27,34 +31,30 @@ class MapManager {
     private function popuplateMapArrayFromJson() {
         $json = file_get_contents('map-data.json');
         $json = json_decode($json);
-
-        if (empty($this->poeMaps)) {
-            for ($i = 0; $i < count($json->list); $i++) {
-                $name = $json->list[$i]->name;
-                $tier = $json->list[$i]->tier;
-                $isUnique = $json->list[$i]->isUnique;
-                $level = $json->list[$i]->level;
-                $isOnAtlas = $json->list[$i]->isOnAtlas;
-                $poeMap = new PoeMap($name, $tier, $isUnique, $level, $isOnAtlas);
-                $this->poeMaps[$i] = $poeMap;
-            }
-            echo 'done <br>';
-            foreach ($this->poeMaps as $map) {
-                $name =  $map->name;
-                $tier = $map->tier;
-                $isUnique = $map->isUnique;
-                $level = $map->level;
-                $isOnAtlas = $map->isOnAtlas;
-                $sql = "INSERT INTO maps VALUES (NULL, '$name', '$tier', '$isUnique', '$level', '$isOnAtlas')";
-                if (mysqli_query($this->con, $sql)) {
-                    echo 'added <br>';
-                } else {
-                    echo 'error adding file';
-                }
-            } 
-        } else {
-            echo "Database contains: " . count($this->poeMaps) . " maps.";
+        
+        for ($i = 0; $i < count($json->list); $i++) {
+            $name = $json->list[$i]->name;
+            $tier = $json->list[$i]->tier;
+            $isUnique = $json->list[$i]->isUnique;
+            $level = $json->list[$i]->level;
+            $isOnAtlas = $json->list[$i]->isOnAtlas;
+            $poeMap = new PoeMap($name, $tier, $isUnique, $level, $isOnAtlas);
+            $this->poeMaps[$i] = $poeMap;
         }
+        echo 'done <br>';
+        foreach ($this->poeMaps as $map) {
+            $name =  $map->name;
+            $tier = $map->tier;
+            $isUnique = $map->isUnique;
+            $level = $map->level;
+            $isOnAtlas = $map->isOnAtlas;
+            $sql = "INSERT INTO maps VALUES (NULL, '$name', '$tier', '$isUnique', '$level', '$isOnAtlas')";
+            if (mysqli_query($this->con, $sql)) {
+                echo 'added <br>';
+            } else {
+                echo 'error adding file';
+            }
+        }         
     }
 
     /*
