@@ -13,9 +13,7 @@ $tiers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 */
 for ($tier = 0; $tier < count($tiers); $tier++) {
     $maps = null;
-    print_r($maps);
     $maps = $mapManager->getMapsByTier($tier);
-    // print_r($maps); 
     echo '<br><br><strong>Tier ' . $tier . ' maps: </strong><br>';
     foreach ($maps as $map) {
         echo $map->name . '<br>';
