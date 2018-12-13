@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Total price</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen"/>
+    <script>
+        function bereken() {
+            let length
+            let width
+            let result
+            length = parseFloat(document.getElementById('length').value)
+            width = parseFloat(document.getElementById('width').value)
+            result = (length * width) * 30 + " euro";
+            document.getElementById('resultaat').innerHTML = result
+        }
+    </script>
+</head>
+<body>
+    <p>Lengte: </p> <input type="number" id="length">
+    <p>Breedte: </p> <input type="number" id="width">
+    <div id="resultaat">Prijs per m^2 (30 euro)</div>
+    <button onclick="bereken()">Bereken</button>
+</body>
+</html>

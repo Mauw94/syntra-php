@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    body {
+        background-color:aqua;
+    }
+    </style>
+</head>
+<body>
+    <div style="background-color:azure; display:none" id="mas">Dit heeft een ander kleurtje
+        <p ondblclick="verberg()">Dat gedraagt zich gelijkaardig</p>
+    </div>
+    <form action="#" method="post">
+        <input type="text" name="">
+        <select name="keuze">
+            <option value="keuze">Maak uw keuze</option>
+        </select>
+    </form>
+    <div id="app-6">
+            <p>{{ message }}</p>
+            <input v-model="message">
+          </div>
+    <span>inline</span><span>Dan zal dat op idem lijn worden weergegeven</span>
+<button onclick="verberg()">Mijn knopje</button>
+</body>
+<script>
+function verberg() {
+   var weg = document.getElementById("mas");
+    if (weg.style.display =="none") {
+        weg.style.display = "block";
+    } else {
+        weg.style.display = "none"
+    }
+}
+var app6 = new Vue({
+  el: '#app-6',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+</script>
+<!-- commenting in html zichtbaar is als we brondcode bekijken-->
+</html>

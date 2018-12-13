@@ -1,0 +1,1 @@
+<?php echo "Dankjewel, betaling prima ontvangen; uw pizza komt er aan! SMAKELIJK!!!" ?>

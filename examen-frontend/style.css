@@ -1,0 +1,92 @@
+body {
+    margin: 0px;
+    font-family: 'Cabin', sans-serif;
+}
+h2 {
+    color: #ff44b4;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+.top {
+    background-color: #000000;
+    display: block;
+    color: #efefef;
+    padding: 10px;
+}
+.header {
+    background-color: white;
+    display: block;
+    color: #000000;
+    padding: 10px;   
+    height: 160px;
+}
+.footer {
+    background-color: white;
+    display: block;
+    color: #000000;
+    padding: 10px;   
+    margin: 0 auto;
+}
+.content {
+    padding-top:20px;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+    height: 350px;
+    background:url("https://placeimg.com/640/480/any") no-repeat; 
+    background-size: 100%;
+}
+.card {
+    float: left;
+    text-align: center;
+    padding: 22px;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100px;
+    height: 200px; 
+}
+.choices {
+    text-align: center;
+    display: inline-block;
+    margin-left: 27%;
+}
+.one {
+    background: -webkit-linear-gradient(top, #ff44b4 0%,#f2f9fe 100%);
+}
+.two {
+    background: -webkit-linear-gradient(top, #f2f9fe 0%,black 100%);
+}
+.images {
+    width: 70%;
+    height: 50px;
+}
+.volg-knop {
+    display: block;
+    padding:10px;
+    margin-top:20px;
+    color: white;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #ff44b4;
+    border-width: 2px;
+    background: #ff44b4;
+}
+.volg-knop:hover {
+    border-color: white;
+}
+.footer-knop {
+    float: right;
+    display: block;
+    padding:10px;
+    color: white;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #ff44b4;
+    border-width: 2px;
+    background: #ff44b4;
+}
+.footer-knop:hover {
+    background: black;
+    border-color: black;
+}

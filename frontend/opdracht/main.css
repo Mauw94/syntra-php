@@ -1,0 +1,85 @@
+body {
+    margin: 0px;
+    font-family: 'Cabin', sans-serif;
+}
+.top {
+    background-color: #000000;
+    display: block;
+    color: #efefef;
+    padding: 10px;
+}
+
+.header {
+    background-color: #F5F5F5;
+    display: block;
+    color: #000000;
+    padding: 10px;   
+    height: 100px;
+}
+
+.card {
+    float: left;
+    padding: 22px;
+    border-radius: 10px;
+    margin: 5px;
+    width: 155px; 
+}
+
+.knopje 
+{
+display: block;
+padding:10px;
+margin-top:20px;
+border-radius: 5px;
+border-style: solid;
+border-color: white;
+border-width: 2px;
+background: #f2f9fe
+}
+
+.knopje:hover {
+    background: #000000;
+    color: white;
+}
+.one {
+    background: -webkit-linear-gradient(top, #f2f9fe 0%,#02a9fc 100%);
+}
+.two {
+    background: -webkit-linear-gradient(top, #f2f9fe 0%,#1DC578 100%);
+}
+.three {
+    background: -webkit-linear-gradient(top, #f2f9fe 0%,#C5881D 100%);
+}
+.content {
+    padding-top:20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.footer {
+    position:fixed;
+    bottom:0px;
+    background-color: #efefef;
+    text-align: left;
+    padding: 20px;
+    width: 100%;
+}
+
+button.sign {
+     padding-top: 10px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    font-size: large;
+    font-weight: 800;
+    margin-right: 50px;
+    border-width: thick;
+    border-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-radius: 52px;
+    background-color: red;
+    color: white;
+    float: right;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+}
