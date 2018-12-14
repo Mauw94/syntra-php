@@ -10,18 +10,43 @@
         function bereken() {
             let length
             let width
-            let result
+            let oppTegel
+            let oppPand
+            let aantalTegelsNodig
+            let aantalTeBestellenPakken
+            var tegelsPerPak = 5
+
             length = parseFloat(document.getElementById('length').value)
             width = parseFloat(document.getElementById('width').value)
-            result = (length * width) * 30 + " euro";
-            document.getElementById('resultaat').innerHTML = result
+            oppTegel = parseFloat(document.getElementById('oppTegel').value)
+
+            oppPand = length * width
+
+            aantalTegelsNodig = (oppPand * 100) / oppTegel;
+            if (aantalTegelsNodig % 1 != 0) {
+                aantalTegelsNodig = Math.floor(aantalTegelsNodig) + 1;
+            }
+            aantalTeBestellenPakken = aantalTegelsNodig / tegelsPerPak
+            if (aantalTeBestellenPakken % 1 != 0) {
+                aantalTeBestellenPakken = Math.floor(aantalTeBestellenPakken) + 1;
+            }
+            document.getElementById('aantalTegelsNodig').innerHTML += aantalTegelsNodig
+            document.getElementById('aantalPakken').innerHTML += aantalTeBestellenPakken
+            document.getElementById('resultaat').innerHTML += oppPand * 30 + " euro"
         }
     </script>
 </head>
 <body>
-    <p>Lengte: </p> <input type="number" id="length">
-    <p>Breedte: </p> <input type="number" id="width">
-    <div id="resultaat">Prijs per m^2 (30 euro)</div>
+    <h1>Kostprijs voor betegeling pand</h1>
+    <p>Lengte (m): </p> <input type="number" id="length">
+    <p>Breedte (m): </p> <input type="number" id="width">
+    <p>Opp tegel (cm):</p> <input type="number" id="oppTegel">
+
+    <p>-----------------------------------</p>
+    <div id="aantalTegelsNodig">Aantal tegels nodig: </div>
+    <div id="aantalPakken">Aantal pakken nodig: </div>
+    <div id="resultaat">Kostprijs: </div>
+    <p>-----------------------------------</p>
     <button onclick="bereken()">Bereken</button>
 </body>
 </html>
