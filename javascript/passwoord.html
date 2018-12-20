@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function showPasswod() {
+            var showing
+            var pwfield
+            var pwlabel
+            showing = document.getElementById('pwshow')
+            pwlabel = document.getElementById('pwlabel')
+            if (showing.checked == true) {
+                pwlabel.innerHTML = "Hide password"
+                pwfield = document.getElementById('pw').setAttribute('type', 'text')
+            } else {
+                pwlabel.innerHTML = "Show password"
+                pwfield = document.getElementById('pw').setAttribute('type', 'password')
+            }
+        }
+        function checkPw() {
+            var pw 
+            var verificatie 
+            pw = document.getElementById('pw')
+            verificatie = document.getElementById('verificatie')
+
+            if (pw.value == verificatie.value) {
+                verificatie.style.backgroundColor = "green"
+            } else {
+                verificatie.style.backgroundColor = "red"
+            }   
+        }
+        function geel(x) {
+            x.style.backgroundColor = "yellow"
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+        <input id="pw" type="password">
+        <span>Geef nogmaals uw wachtwoord:</span>
+        <input id="verificatie" type="password" onfocus="geel(this)" onblur="checkPw()">
+        <input type="checkbox" onchange="showPasswod()" id="pwshow">
+        <label for="pwshow" id="pwlabel">Show password</label>
+    </form>
+</body>
+</html>
