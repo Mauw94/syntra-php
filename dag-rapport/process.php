@@ -7,17 +7,17 @@ include 'insert_artikel.php';
     daarna het dag rapport met de bijhorende keys
 */
 $aantalArtikelen = $_POST['aantalArtikelen'];
+$datum = $_POST['datum'];
 if (isset($_POST['verkochte1'])) {
     $insertArt = new InsertArtikel($con);
     for ($i = 1; $i <= $aantalArtikelen; $i++) {
         if (isset($_POST['verkochte'.$i]) || !($_POST['verkochte'.$i] == '')) {
-            $insertArt->insert($i);
+            $insertArt->insert($i, $datum);
         }
     }
 }
 
 $dag = $_POST['dag'];
-$datum = $_POST['datum'];
 $aantalBezoekers = $_POST['aantal'];
 $omzet = $_POST['omzet'];
 $telefoonBoodschappen = "";
