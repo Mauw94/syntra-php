@@ -27,7 +27,7 @@ include 'db/db.php';
     <a href="verkochte_artikelen.php" class="w3-bar-item w3-button" style="width:25% !important">VERKOCHTE ARTIKELEN</a>
   </div>
 </div>
-    <div class="container">
+    <div class="w3-content w3-justify w3-text-white w3-padding-64 overzicht-table">
         <hr>
             <?php
                 $sql = "SELECT * FROM rapport";
