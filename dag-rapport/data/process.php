@@ -1,5 +1,5 @@
 <?php
-include 'db/db.php';
+include '../db/db.php';
 include 'insert_artikel.php';
 
 /*
@@ -34,7 +34,7 @@ $sql = "INSERT INTO rapport VALUES(NULL, '$dag', '$datum', '$aantalBezoekers', '
     '$bijzonderheden', NULL)";
     if (mysqli_query($con, $sql)) {
         echo "Opgeslagen!"; ?>
-        <meta http-equiv="refresh" content="1; URL='index.php'"/>
+        <meta http-equiv="refresh" content="1; URL='../index.php'"/>
         <?php
     } else {
         echo mysqli_error($con);

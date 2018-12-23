@@ -20,9 +20,11 @@ class InsertArtikel {
         if ($gepind == 'on') {
             $gepind = true;
         }
-        $sql = "INSERT INTO verkochte_artikelen VALUES(NULL, '$artikel', '$bedrag', '$gepind', '$date')";
-        if (!mysqli_query($this->con, $sql)) {
-            echo mysqli_error($this->con);
+        if ($artikel != '') {
+            $sql = "INSERT INTO verkochte_artikelen VALUES(NULL, '$artikel', '$bedrag', '$gepind', '$date')";
+            if (!mysqli_query($this->con, $sql)) {
+                echo mysqli_error($this->con);
+            }
         }
     }
 }

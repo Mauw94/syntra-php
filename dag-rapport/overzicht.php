@@ -7,7 +7,7 @@ include 'db/db.php';
   <img src="img/eyewitness.png" style="width:100%">
   <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-home w3-xxlarge"></i>
-    <p>RAPPORT</p>
+    <p>INVULLEN DAGRAPPORT</p>
   </a>
   <a href="overzicht.php" class="w3-bar-item w3-button w3-padding-large w3-black">
     <i class="fa fa-user w3-xxlarge"></i>
