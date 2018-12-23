@@ -70,5 +70,4 @@ include 'db/db.php';
                     </tbody>
                     </table>
                 </div>                
-                </div>
-    </section>
+        </div>
