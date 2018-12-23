@@ -38,7 +38,7 @@ include 'header.php';
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
     <h2 class="w3-text-light-grey">Rapport</h2>
     <hr style="width:200px" class="w3-opacity">
-      <form method="post" action="data/process.php" id="rapportForm">
+      <form method="post" action="process.php" id="rapportForm">
       <div class="form-group">
         <label for="Dag">Dag</label>
         <input type="text" class="form-control" id="dag" placeholder="dag" name="dag" required>
