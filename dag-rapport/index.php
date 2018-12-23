@@ -39,37 +39,38 @@ include 'header.php';
     <h2 class="w3-text-light-grey">Rapport</h2>
     <hr style="width:200px" class="w3-opacity">
       <form method="post" action="process.php" id="rapportForm">
-      <div class="form-group">
-        <label for="Dag">Dag</label>
-        <input type="text" class="form-control" id="dag" placeholder="dag" name="dag" required>
-      </div>
-      <div class="form-group">
-        <label for="datum">Datum</label>
-        <input type="date" value ="<?php echo date('Y-m-d');?>" class="form-control" id="datum" placeholder="datum" name="datum" required>
-      </div>
-      <div class="form-group">
-        <label for="aantal">Aantal bezoekers</label>
-        <input type="text" class="form-control" id="aantal" placeholder="aantal bezoekers" name="aantal" required>
-      </div>
-      <div class="form-group">
-      <label  for="aantal">Omzet</label>
-        <input type="text" class="form-control" id="omzet" placeholder="omzet" name="omzet" required>
-      </div>
-      <div class="form-group">
-        <label for="telefoon">Telefoon boodschappen (naam + telnr vermelden)</label>
-        <textarea class="form-control" id="telefoon" rows="3" name="telefoon"></textarea>
-      </div>
-      <div class="form-group">
-        <label  for="bijzonderheden">Bijzonderheden</label>
-        <textarea class="form-control" id="bijzonderheden" rows="3" name="bijzonderheden"></textarea>
-      </div>
-      <div class="form-group artikelen">
-        <label  for="bijzonderheden">Verkochte museumshop artikelen</label>
-        <input type="text" class="form-control" id="verkochte1" placeholder="artikel naam" name="verkochte1">
-        <input type="text" class="form-control" id="bedrag1" placeholder="bedrag" name="bedrag1">
-        <span>Gepind?</span><input type="checkbox" class="form-control" id="gepind1" name="gepind1">
-      </div>
-      
+        <div id="form-input">
+          <div class="form-group">
+            <label for="Dag">Dag</label>
+            <input type="text" class="form-control" id="dag" placeholder="dag" name="dag" required>
+          </div>
+          <div class="form-group">
+            <label for="datum">Datum</label>
+            <input type="date" value ="<?php echo date('Y-m-d');?>" class="form-control" id="datum" placeholder="datum" name="datum" required>
+          </div>
+          <div class="form-group">
+            <label for="aantal">Aantal bezoekers</label>
+            <input type="text" class="form-control" id="aantal" placeholder="aantal bezoekers" name="aantal" required>
+          </div>
+          <div class="form-group">
+          <label  for="aantal">Omzet</label>
+            <input type="text" class="form-control" id="omzet" placeholder="omzet" name="omzet" required>
+          </div>
+          <div class="form-group">
+            <label for="telefoon">Telefoon boodschappen (naam + telnr vermelden)</label>
+            <textarea class="form-control" id="telefoon" rows="3" name="telefoon"></textarea>
+          </div>
+          <div class="form-group">
+            <label  for="bijzonderheden">Bijzonderheden</label>
+            <textarea class="form-control" id="bijzonderheden" rows="3" name="bijzonderheden"></textarea>
+          </div>
+          <div class="form-group artikelen">
+            <label  for="bijzonderheden">Verkochte museumshop artikelen</label>
+            <input type="text" class="form-control" id="verkochte1" placeholder="artikel naam" name="verkochte1">
+            <input type="text" class="form-control" id="bedrag1" placeholder="bedrag" name="bedrag1">
+            <span>Gepind?</span><input type="checkbox" class="form-control" id="gepind1" name="gepind1">
+          </div>
+        </div>
       <input type="hidden" name="aantalArtikelen" id="aantalArt">
 
       <div class="form-group">                  

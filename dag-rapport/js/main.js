@@ -11,7 +11,7 @@ function getAantalVerkochteArtikelen() {
    function addArtikelFields() {
     var count = getAantalVerkochteArtikelenCount() + 1
     
-    var form = document.getElementById('rapportForm')
+    var form = document.getElementById('form-input')
     var newDiv = document.createElement('div');
     newDiv.setAttribute('class', 'form-group artikelen')
     
