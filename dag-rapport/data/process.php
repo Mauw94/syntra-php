@@ -15,7 +15,7 @@ if (isset($_POST['verkochte1'])) {
             $insertArt->insert($i, $datum);
         }
     }
-}
+}   
 
 $dag = $_POST['dag'];
 $aantalBezoekers = $_POST['aantal'];
