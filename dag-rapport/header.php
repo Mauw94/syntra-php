@@ -25,4 +25,4 @@
     <script src="js/datatables.js"></script>
   </head>
 
-  <body class="w3-black">
+  <body class="w3-white">

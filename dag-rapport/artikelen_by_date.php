@@ -24,10 +24,11 @@ include 'db/db.php';
   <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
     <a href="index.php" class="w3-bar-item w3-button" style="width:25% !important">RAPPORT</a>
     <a href="overzicht.php" class="w3-bar-item w3-button" style="width:25% !important">OVERZICHT RAPPORTEN</a>
-    <a href="verkochte_artikelen.php" class="w3-bar-item w3-button" style="width:25% !important">VERKOCHTE ARTIKELEN</a>
+    <a href="=artikelen.php" class="w3-bar-item w3-button" style="width:25% !important">VERKOCHTE ARTIKELEN</a>
+    <a href="schenkingen.php" class="w3-bar-item w3-button" style="width:25% !important">SCHENKINGEN INGEVEN</a>
   </div>
 </div>
-    <div class="w3-content w3-justify w3-text-white w3-padding-64 overzicht-table">
+    <div class="w3-content w3-justify w3-text-black w3-padding-64 overzicht-table">
         <hr>
         <?php
                 $date = $_GET['date'];
