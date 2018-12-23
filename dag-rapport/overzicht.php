@@ -5,7 +5,7 @@ include 'db/db.php';
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <!-- Avatar image in top left corner -->
     <img src="img/eyewitness.png" style="width:100%">
-    <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
+    <a href="index.php" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-home w3-xxlarge"></i>
     <p>INVULLEN DAGRAPPORT</p>
     </a>
@@ -13,7 +13,7 @@ include 'db/db.php';
     <i class="fa fa-user w3-xxlarge"></i>
     <p>OVERZICHT RAPPORTEN</p>
     </a>
-    <a href="artikelen.php" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
+    <a href="artikelen.php" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
     <i class="fa fa-eye w3-xxlarge"></i>
     <p>VERKOCHTE ARTIKELEN</p>
     </a>
@@ -41,7 +41,7 @@ include 'db/db.php';
                 <div>
                 <h2 class="mb-4">Rapporten</h2>
                     <table id="overzicht" class="table">
-                    <thead>
+                    <thead class="thead-light">
                         <tr>
                             <th scope="col">Dag</th>
                             <th scope="col">Datum</th>

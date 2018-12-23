@@ -43,7 +43,7 @@ $sql = '';
     <div>
         <h2>Verkochte artikelen</h2>
         <table id="overzicht" class="table">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th scope="col">Artikel</th>
                     <th scope="col">Bedrag</th>
