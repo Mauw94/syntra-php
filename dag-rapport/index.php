@@ -17,8 +17,12 @@ include 'header.php';
     <p>VERKOCHTE ARTIKELEN</p>
     </a>
     <a href="schenkingen.php" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
+    <i class="fa fa-gift w3-xxlarge"></i>
     <p>SCHENKINGEN INGEVEN</p>
+    </a>
+    <a href="schenking_overzicht.php" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-gift w3-xxlarge"></i>
+    <p>OVERZICHT SCHENKINGEN</p>
     </a>
 </nav>
 
@@ -29,13 +33,14 @@ include 'header.php';
     <a href="overzicht.php" class="w3-bar-item w3-button" style="width:25% !important">OVERZICHT RAPPORTEN</a>
     <a href="=artikelen.php" class="w3-bar-item w3-button" style="width:25% !important">VERKOCHTE ARTIKELEN</a>
     <a href="schenkingen.php" class="w3-bar-item w3-button" style="width:25% !important">SCHENKINGEN INGEVEN</a>
+    <a href="overzicht_schenkingen.php" class="w3-bar-item w3-button" style="width:25% !important">OVERZICHT SCHENKINGEN</a>
   </div>
 </div>
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
     <h1 class="w3-jumbo"><span class="w3-hide-small">Eyewitness</span></h1>
-    <p><?php echo date('d:m:Y');?></p>
+    <p><?php echo date('h:m'); echo '<br>' . date('d:m:Y');?></p>
     <img src="img/eyewitness.png" alt="Eyewitness" class="w3-image" width="280" height="140">
   </header>
 
