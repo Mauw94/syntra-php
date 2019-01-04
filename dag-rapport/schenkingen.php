@@ -42,7 +42,10 @@ include 'db/db.php';
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
     <img src="img/eyewitness.png" alt="Eyewitness" class="w3-image" width="280" height="140">
-    <p><?php echo date('h:m'); echo '<br>' . date('d-m-Y')?></p>
+    <p>
+    <?php 
+        echo date('h:i a'); echo '<br>' . date('d-m-Y');
+    ?></p>
   </header>
 <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
     <h2 class="w3-text-light-black">Schenking</h2>
