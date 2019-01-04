@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Eyewitness - dagrapport</title>
+    <title>Eyewitness App</title>
 
     <link rel="icon" href="img/eyewitness.png" type="image/x-icon">
     <!-- Bootstrap core CSS -->

@@ -25,7 +25,7 @@ include '../db/db.php';
         $sql = "INSERT INTO schenkingen VALUES(NULL, '$naam', '$omschrijving', '$datum', FALSE)";
         if (mysqli_query($con, $sql)) {
             echo "Opgeslagen"; ?>
-            <meta http-equiv="refresh" content="1; URL='../schenkingen.php'"/>
+            <meta http-equiv="refresh" content="0.5; URL='../schenkingen.php'"/>
             <?php
         } else {
             echo mysqli_error($con);

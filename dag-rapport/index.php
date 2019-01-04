@@ -39,9 +39,8 @@ include 'header.php';
 <div class="w3-padding-large" id="main">
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small">Eyewitness</span></h1>
-    <p><?php echo date('h:m'); echo '<br>' . date('d:m:Y');?></p>
     <img src="img/eyewitness.png" alt="Eyewitness" class="w3-image" width="280" height="140">
+    <p><?php echo date('h:m'); echo '<br>' . date('d-m-Y');?></p>
   </header>
 
   <!-- About Section -->

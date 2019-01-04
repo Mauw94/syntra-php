@@ -35,7 +35,7 @@ if (isset($_POST['dag'])) {
         '$bijzonderheden', NULL)";
         if (mysqli_query($con, $sql)) {
             echo "Opgeslagen!"; ?>
-            <meta http-equiv="refresh" content="1; URL='../index.php'"/>
+            <meta http-equiv="refresh" content="0.5; URL='../index.php'"/>
             <?php
         } else {
             echo mysqli_error($con);
