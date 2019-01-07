@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digitale Klok</title>
+    <script>            
+        function showClock() {
+            var datum = new Date();
+
+            var uur = datum.getHours();
+            var min = datum.getMinutes();
+            var sec = datum.getSeconds();
+            uur = addZero(uur);
+            min = addZero(min);
+            sec = addZero(sec);
+            document.getElementById('time').innerHTML = uur + ":" + min + ":" + sec;
+            var t = setTimeout(showClock, 1000);
+        }
+
+        function addZero(i) {
+            if (i < 10) { i = "0" + i;}           
+            return i;
+        }
+    </script>
+</head>
+<body onload="showClock()">
+    <div id="time"></div>
+</body>
+</html>
