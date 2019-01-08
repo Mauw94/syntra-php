@@ -14,6 +14,6 @@ function startTime() {
 }
 
 function checkTime(i) {
-    if (i < 9) { i = i + "0"; }
+    if (i < 9) { i = "0" + i; }
     return i;
 }
