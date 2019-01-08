@@ -3,12 +3,28 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Image Zoom</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="zoom.js"></script>
+    <title>Page Title</title>
+   <script>
+var increment = 0;
+var afbeelding = 0;
+function zoom(){
+	if (afbeelding.style.width == "25%") {
+		increment = 1;
+	}
+	if (afbeelding.style.width == "100%") {
+		increment = -1;
+	}
+	var afmeting = parseInt(afbeelding.style.width);
+	afmeting += increment;
+	afbeelding.style.width = afmeting + "%";
+	afbeelding.style.height = afmeting + "%";
+	if (afbeelding.style.width != "25%" && afbeelding.style.width != "100%") {
+		tijd = setTimeout('zoom()',5);
+	}
+}
+   </script>
 </head>
 <body>
-    <img src="mijnAfbeelding.jpg" width="10%" height="10%" onclick="afbeelding = this;zoom();"/>
-    <br><span id="afbText">Click to zoom in</span>
+    <img src="mijnafbeelding.jpg" style="width:25%; height:25%" onclick="afbeelding = this; zoom();" />
 </body>
 </html>

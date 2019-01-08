@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Getal</title>    
+    <script>
+        function bereken() {
+            var grootste = 0;
+            var getal1 = document.getElementById('getal1').value;
+            var getal2 = document.getElementById('getal2').value;
+            var getal3 = document.getElementById('getal3').value;
+
+            grootste = berekenGrootste(getal1, getal2, getal3);
+            document.getElementById("txt").innerHTML = "Grootste getal: " + grootste;
+        }
+
+        function berekenGrootste(x, y, z) {
+            var temp = 0;
+            if (x > temp) {
+                temp = x;
+            }
+            if (y > temp) {
+                temp = y;
+            }
+            if (z > temp) {
+                temp = z;
+            }
+            return temp;
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="getal1" required>
+    <input type="text" id="getal2" required>
+    <input type="text" id="getal3" required>
+    <button id="bereken" onclick="bereken()">Bereken het grootste getal</button>
+    <div id="txt"></div>
+</body>
+</html>

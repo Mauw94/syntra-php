@@ -1,0 +1,17 @@
+{
+    "pakket": [{
+        "naam": "Palma de Mallorca",
+        "soort": "strand",
+        "prijs": "999.99 euro"
+    },
+    {
+        "naam": "Lapland Adventures",
+        "soort": "winter",
+        "prijs": "2500.99 euro"
+    },
+    {
+        "naam": "USA cruise",
+        "soort": "auto",
+        "prijs": "3750.99 euro"
+    }]
+}
