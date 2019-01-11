@@ -2,6 +2,7 @@
 include 'header.php';
 include 'db/db.php';
 ?>
+<body class="w3=white" onload="startTime()">
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
     <!-- Avatar image in top left corner -->
     <img src="img/eyewitness.png" style="width:100%">
@@ -42,10 +43,7 @@ include 'db/db.php';
   <!-- Header/Home -->
   <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
     <img src="img/eyewitness.png" alt="Eyewitness" class="w3-image" width="280" height="140">
-    <p>
-    <?php 
-        echo date('h:i a'); echo '<br>' . date('d-m-Y');
-    ?></p>
+    <p id="clock"></p>
   </header>
 <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
     <h2 class="w3-text-light-black">Schenking</h2>
@@ -75,4 +73,6 @@ include 'db/db.php';
         <input type="submit" value="Opslaan" class="btn btn-primary" onclick="getAantalVerkochteArtikelen()">
       </div>
     </form>
-  </div
+    </div>
+    </div>
+</body>

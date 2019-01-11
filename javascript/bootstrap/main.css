@@ -1,0 +1,21 @@
+.test {
+    border: 1px solid black;
+    border-radius: 2px;
+}
+.dark {
+    height: 150px;
+    background-color: lightgray;
+    border-radius: 5px;
+    
+}
+.module {
+    background-color: lightgray;
+    border: 0.5px solid grey;
+    border-radius: 5px;
+    margin: 1px;
+}
+.info {
+    background-color: #f7f7f7;
+    border-radius: 3px;
+    margin: 5px;
+}
