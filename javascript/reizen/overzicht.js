@@ -48,7 +48,7 @@ var content = document.getElementById('content');
 travel.forEach(function(item) {
     content.innerHTML += "<div class='row'>" +
             "<div class='col-md-3'>" + checkVakantieType(item.typeReis) + "</div>" +
-            "<div class='col-md-3'>" + item.naam + "</div>" +
+            "<div class='col-md-3'><h5>" + item.naam + "</h5></div>" +
             "<div class='col-md-3'>" + "<button class='mdl-button mdl-js-button mdl-button--raised mdl-button--colored'>€ " + 
             item.prijs + "</button>" + "</div>" + 
             "<div class='col-md-3'>" + item.locatie + "</div>" + "</div>";
