@@ -29,7 +29,7 @@
             <thead>
                 <tr>
                     <th>Naam</th>
-                    <th>Prijs</th>
+                    <th>Prijs</th> 
                     <th>Soort</th>
                     <th>Boek</th>
                 </tr>
