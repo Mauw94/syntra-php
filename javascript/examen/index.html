@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>JavaScript examen</title>
+  </head>
+  <body onload="showTime()">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="http://www.thorpark.be/dsresource?objectid=default:89904&type=webimage" style="width:50%; height:65%" onmouseover="logo = this; scale()" onmouseout="logo = this; descale()">
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2" style="margin-top: 10px; float: right">
+                <b>Tijd:</b><div id="klok"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input type="date" class="form-control" style="width: 35%;" placeholder="Geboortedatum" id="datum" required>
+                <input type="button" value="Check" class="btn btn-primary" style="width: 35%; margin-top: 5px" onclick="checkGeboortedatum()">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">    
+                <div id="leeftijd" style="margin-top: 10px;"></div>
+                <div id="melding" style="width: 35%; height: 40px; margin-top: 10px; text-align: center"></div>  
+            </div>
+        </div>
+    </div>
+      
+    <!-- Optional JavaScript -->
+    <script>
+        function showTime() {
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+          
+            h = checkTime(h);
+            m = checkTime(m);
+            s = checkTime(s);
+          
+            document.getElementById('klok').innerHTML = h+":"+m+":"+s;
+          
+            var t = setTimeout(showTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i; }
+            return i;
+        }
+        function checkGeboortedatum() {
+            var today = new Date();
+            var gdatum = document.getElementById('datum').value;
+            var melding = document.getElementById('melding');
+            var lftd = document.getElementById('leeftijd');
+            var geboortedatum = new Date(gdatum);
+            var leeftijd = today.getFullYear() - geboortedatum.getFullYear();
+            var maand = today.getMonth() - geboortedatum.getMonth();
+            if (maand < 0 || (maand == 0 && today.getDate() < geboortedatum.getDate())) {
+                leeftijd--;
+            }
+            
+            if (leeftijd <= 17) {
+                melding.style.backgroundColor = 'red';
+                melding.innerHTML = 'NIET OK';
+            } else {
+                melding.style.backgroundColor = 'green';
+                melding.innerHTML = 'OK';
+            }
+            lftd.innerHTML = leeftijd + ' jaar';
+        }
+        var logo = 0;
+        function scale() {
+            var width = 0;
+            var height = 0;
+            width = parseInt(logo.style.width);
+            height = parseInt(logo.style.height);
+            
+            width += 25;
+            height += 25;
+            logo.style.width = width + "%";
+            logo.style.height = height + "%";
+        }
+        function descale() {
+            var width = 0;
+            var height = 0;
+            width = parseInt(logo.style.width);
+            height = parseInt(logo.style.height);
+            
+            width -= 25;
+            height -= 25;
+            logo.style.width = width + "%";
+            logo.style.height = height + "%";
+        }
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  </body>
+</html>
