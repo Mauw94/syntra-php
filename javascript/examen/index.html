@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <input type="date" class="form-control" style="width: 35%;" placeholder="Geboortedatum" id="datum" required>
+                <input type="date" class="form-control" style="width: 35%;" id="datum" required>
                 <input type="button" value="Check" class="btn btn-primary" style="width: 35%; margin-top: 5px" onclick="checkGeboortedatum()">
             </div>
         </div>
@@ -39,6 +39,8 @@
       
     <!-- Optional JavaScript -->
     <script>
+        // de tijd wordt getoond in het div element met id klok
+        // deze functie wordt iedere 500 ms uitgevoerd
         function showTime() {
             var date = new Date();
             var h = date.getHours();
@@ -53,10 +55,12 @@
           
             var t = setTimeout(showTime, 500);
         }
+        // zet een 0 voor een cijfer dat kleiner is dan 10
         function checkTime(i) {
             if (i < 10) { i = "0" + i; }
             return i;
         }
+        // checkt de geboortedatum en berekend de correcte leeftijd van de persoon
         function checkGeboortedatum() {
             var today = new Date();
             var gdatum = document.getElementById('datum').value;
@@ -78,6 +82,7 @@
             }
             lftd.innerHTML = leeftijd + ' jaar';
         }
+        // onmouseover wordt de afbeelding met 25% vergroot
         var logo = 0;
         function scale() {
             var width = 0;
@@ -90,6 +95,7 @@
             logo.style.width = width + "%";
             logo.style.height = height + "%";
         }
+        // onmouseout wordt de afbeelding met 25% verkleint
         function descale() {
             var width = 0;
             var height = 0;
