@@ -55,15 +55,14 @@ class News_model extends CI_Model {
         {
                 $this->load->helper('url');
 
-                $slug = url_title($this->input->post('title'), 'dash', TRUE);
-
                 $data = array (
+                        'id' => $this->input->post('id'),
                         'title' => $this->input->post('title'),
-                        'slug' => $slug,
+                        'slug' => $this->input->post('slug'),
                         'text' => $this->input->post('text')
                 );
 
-                return $this->db->replace('news', $data);
+                $this->db->replace('news', $data);
         }
         
 }
