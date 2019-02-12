@@ -43,7 +43,7 @@
         <select name="occupation">
         <option value="" selected disabled hidden>Choose here</option>
         <?php 
-            foreach ($SYNTRA as $occu)
+            foreach ($occupations as $occu)
             {
                 ?><option value="<?php echo $occu->id;?>"><?php echo $occu->occName;?></option>
             <?php } ?>

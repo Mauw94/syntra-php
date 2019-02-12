@@ -26,7 +26,7 @@ class Register extends CI_controller {
         );
         $this->loadAllOccupations();
         
-        $this->load->view('templates/header');
+        //$this->load->view('templates/header');
         $this->load->view('login/register', $this->data);    
         //$this->load->view('templates/footer', $data);    
 
