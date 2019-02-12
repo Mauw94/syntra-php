@@ -24,7 +24,7 @@ class Register extends CI_controller {
             'organisations' => $this->Occupations_model->all_organizations(),
             'occupations' => $this->Occupations_model->all_occupations()
         );
-        $this->loadAllOccupations();
+        $this->load_all_occupations();
         
         //$this->load->view('templates/header');
         $this->load->view('login/register', $this->data);    
@@ -33,7 +33,7 @@ class Register extends CI_controller {
         print_r($this->data);
     }
 
-    private function loadAllOccupations()
+    private function load_all_occupations()
     {
         $orgs = $this->Occupations_model->all_organizations();
         foreach ($orgs as $org) 
