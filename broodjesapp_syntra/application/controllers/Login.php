@@ -5,6 +5,8 @@ if (!defined('BASEPATH'))
 
 class Login extends CI_Controller {
 
+    private $data;
+
     function __construct()
     {
         parent::__construct();
@@ -14,12 +16,12 @@ class Login extends CI_Controller {
 
     function index() 
     {
-        $data = array(
+        $this->data = array(
             'title' => set_value('title'),
             'action' => site_url('login/login_user')
         );
         //$this->load->view('templates/header', $data);
-        $this->load->view('login/login', $data);
+        $this->load->view('login/login', $this->data);
         //$this->load->view('templates/footer', $data);
     }
 
@@ -35,20 +37,20 @@ class Login extends CI_Controller {
 
             switch($result) {
                 case 'logged_in':
-                    $data['info'] = 'logged in';
-                    $this->load->view('login/test', $data);
+                    $this->data['info'] = 'logged in';
+                    $this->load->view('login/test', $this->data);
                     break;
                 case 'incorrect_password':
-                    $data['info'] = 'incorrectpass';
-                    $this->load->view('login/test', $data);
+                    $this->data['info'] = 'incorrectpass';
+                    $this->load->view('login/test', $this->data);
                     break;
                 case 'not_activated':
-                    $data['info'] = 'not activated';
-                    $this->load->view('login/test', $data);
+                    $this->data['info'] = 'not activated';
+                    $this->load->view('login/test', $this->data);
                     break;
                 case 'email_not_found':
-                    $data['info'] = 'email not found';
-                    $this->load->view('login/test', $data);
+                    $this->data['info'] = 'email not found';
+                    $this->load->view('login/test', $this->data);
                     break;
             }
         }

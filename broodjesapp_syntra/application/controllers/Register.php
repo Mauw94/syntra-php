@@ -71,4 +71,17 @@ class Register extends CI_controller {
             }
         }
     }
+
+    function validate_email($email_address, $email_code)
+    {
+        $email_code = trim($email_code);
+
+        $validated = $this->User_model->validate_email($email_address, $email_code);
+
+        if ($validated == true) {
+            $this->load->view('validated/validated');
+        } else {
+            echo 'Error giving email activated confirmation.';
+        }
+    }
 }

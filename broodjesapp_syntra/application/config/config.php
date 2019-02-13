@@ -36,7 +36,19 @@ $config['base_url'] = '';
 |
 */
 $config['index_page'] = 'index.php';
-
+/*
+|--------------------------------------------------------------------------
+| Site Administrator email
+|--------------------------------------------------------------------------
+|
+*/
+$config['admin_email'] = "mauritsseeelen@gmail.com";/*
+|--------------------------------------------------------------------------
+| Email address used to send emails on the site
+|--------------------------------------------------------------------------
+|
+*/
+$config['bot_email'] = "admin@syntracatering.com";
 /*
 |--------------------------------------------------------------------------
 | Password Salt
@@ -167,7 +179,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@.';
 
 /*
 |--------------------------------------------------------------------------
