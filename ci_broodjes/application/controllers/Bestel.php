@@ -4,8 +4,7 @@
         {
                 parent::__construct();
                 $this->load->model('bestel_model');
-                $this->load->helper('url_helper');
-                $this->load->library('cart');
+                $this->load->helper('url_helper');                
         }
 
         public function index($page = 'home') {
