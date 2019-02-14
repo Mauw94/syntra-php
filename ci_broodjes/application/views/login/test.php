@@ -1,4 +1,3 @@
-<h1>Logged in</h1>
 <?php echo $info; 
-print_r($this->session->userdata('user'));
 ?>
+<a href="<?= base_url(); ?>index.php/login" class="btn btn-danger">Terug</a>

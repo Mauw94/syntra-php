@@ -29,7 +29,7 @@ class User_model extends CI_Model {
         
         if ($this->db->affected_rows() === 1) {
             $this->set_session($firstname, $lastname, $email);
-            $this->send_validation_email();
+            // $this->send_validation_email();
             return $firstname;
         } else {
             $this->load->library('email');

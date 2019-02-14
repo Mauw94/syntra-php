@@ -26,11 +26,10 @@ class Register extends CI_controller {
         );
         $this->load_all_occupations();
         
-        //$this->load->view('templates/header');
+        $this->load->view('templates/header_login', $this->data);
         $this->load->view('login/register', $this->data);    
         //$this->load->view('templates/footer', $data);    
 
-        print_r($this->data);
     }
 
     private function load_all_occupations()
@@ -57,15 +56,18 @@ class Register extends CI_controller {
 
             if ($result) {
                 $data = array (
-                    'title' => set_value('Login'),  
+                    'title' => set_value('Login'),
+                    'action' => site_url('login/login_user'),
                     'success' => 'Registration succesful',
                 );
-                $this->load->view('login', $data);
+                $this->load->view('templates/header_login', $data);
+                $this->load->view('login/login', $data);
             } else {
                 $data = array (
                     'title' => set_value('Login'),
                     'failed' => 'Registration failed, please try again.',
                 );
+                $this->load->view('templates/header_login', $data);
                 $this->load->view('login/login', $data);
             }
         }

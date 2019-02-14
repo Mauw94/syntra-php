@@ -20,7 +20,7 @@ class Login extends CI_Controller {
             'title' => set_value('title'),
             'action' => site_url('login/login_user')
         );
-        //$this->load->view('templates/header', $data);
+        $this->load->view('templates/header_login', $this->data);
         $this->load->view('login/login', $this->data);
         //$this->load->view('templates/footer', $data);
     }
@@ -37,19 +37,21 @@ class Login extends CI_Controller {
 
             switch($result) {
                 case 'logged_in':
-                    $this->data['info'] = 'logged in';
-                    $this->load->view('login/test', $this->data);
+                    redirect('bestel');
                     break;
                 case 'incorrect_password':
                     $this->data['info'] = 'incorrectpass';
+                    $this->load->view('templates/header_user');
                     $this->load->view('login/test', $this->data);
                     break;
                 case 'not_activated':
                     $this->data['info'] = 'not activated';
+                    $this->load->view('templates/header_user');
                     $this->load->view('login/test', $this->data);
                     break;
                 case 'email_not_found':
                     $this->data['info'] = 'email not found';
+                    $this->load->view('templates/header_user');
                     $this->load->view('login/test', $this->data);
                     break;
             }

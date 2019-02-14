@@ -52,9 +52,9 @@
     
     <input type="submit" value="Register" class="btn btn-primary">
 <form>
+<a href="<?= base_url(); ?>index.php/login" class="btn btn-primary">Terug</a>
 </div>
 <?php echo validation_errors('<p class="error">'); ?>
 
-<script src="js/org.js">
 </body>
 </html>
