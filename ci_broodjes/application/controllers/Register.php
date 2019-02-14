@@ -57,11 +57,10 @@ class Register extends CI_controller {
 
             if ($result) {
                 $data = array (
-                    'title' => set_value('Login'),
-                    'action' => site_url('register'),
+                    'title' => set_value('Login'),  
                     'success' => 'Registration succesful',
                 );
-                $this->load->view('login/login', $data);
+                $this->load->view('login', $data);
             } else {
                 $data = array (
                     'title' => set_value('Login'),
