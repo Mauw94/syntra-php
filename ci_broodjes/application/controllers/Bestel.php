@@ -5,6 +5,7 @@
                 parent::__construct();
                 $this->load->model('bestel_model');
                 $this->load->helper('url_helper');
+                $this->load->library('cart');
         }
 
         public function index($page = 'home') {
@@ -28,19 +29,18 @@
 			} else {
                 // Fetch specific product by ID
                 $bread = $this->bestel_model->getBreads($this->input->post('bread'));
-                print_r( $bread['brdPrice']);
                 $topping = $this->bestel_model->getToppings($this->input->post('topping'));
                 $extra = $this->bestel_model->getExtras($this->input->post('extra'));
             
                 // Add product to the cart
                 $price = $bread['brdPrice'] + $topping['topPrice'];
-                $name = $bread['brdName']." ".$topping['topName']; 
+                $name = $bread['brdName']. " ". $topping['topName']; 
 
                 $data = array(
-                    'id'    => "43323",
+                    'id'    => $bread['id'],
                     'qty'    => $this->input->post('amount'),
                     'price'    => $price,
-                    'name'    => $name,
+                    'name'    => trim($name),
                     'options' => array('opmerking' => $this->input->post('note'), 'extra' => $this->input->post('extra'))
 
                     // 'qty'    => "2",
@@ -48,11 +48,11 @@
                     // 'name'    => "productname",
                     // 'options' => array('opmerking' => $this->input->post('note'), 'extra' => $this->input->post('extra'))
                 );
-                print_r($data);
+
                 $this->cart->insert($data);
 
 				// $this->bestel_model->set_sandwich(); 
-				redirect('bestel/success', $data);
+				//redirect('bestel/success', $data);
 			}
         }
 
