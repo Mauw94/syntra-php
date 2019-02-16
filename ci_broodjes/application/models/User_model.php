@@ -51,7 +51,7 @@ class User_model extends CI_Model {
         //$this->email->initialize($config);
 
         $email_code = $this->email_code;
-        $this->email->from('mauritsseelen@gmail.com', 'Syntra Catering');
+        $this->email->from($this->config->item('bot_email'), 'Syntra Catering');
         $this->email->to('mauritsseelen@gmail.com');
         $this->email->subject('TEST');
         $message = '<!DOCTYPE html><html><body>';
