@@ -51,7 +51,7 @@
                 $this->cart->insert($data);
 
 				// $this->bestel_model->set_sandwich(); 
-				//redirect('bestel/success', $data);
+				redirect('bestel/cart');
 			}
         }
 

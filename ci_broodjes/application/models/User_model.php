@@ -29,30 +29,42 @@ class User_model extends CI_Model {
         
         if ($this->db->affected_rows() === 1) {
             $this->set_session($firstname, $lastname, $email);
-            // $this->send_validation_email();
+            $this->send_validation_email($email);
             return $firstname;
         } else {
             $this->load->library('email');
         }
     }
 
-    private function send_validation_email()
+    private function send_validation_email($email)
     {
-        $this->load->library('email');
-        $email = $this->session->userdata('email');
-        $email_code = $this->email_code;
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'mauritsseelen@gmail.com',
+            'smtp_pass' => 'upbtdwqttfpgngql',
+            'mailtype'  => 'html',
+            'newline'   => "\r\n"
+        );
+        $this->load->library('email', $config);
+        //$this->email->initialize($config);
 
-        $this->email->set_mailtype('html');
-        $this->email->from($this->config->item('bot_email'), 'Syntra Catering');
+        $email_code = $this->email_code;
+        $this->email->from('mauritsseelen@gmail.com', 'Syntra Catering');
         $this->email->to('mauritsseelen@gmail.com');
         $this->email->subject('TEST');
         $message = '<!DOCTYPE html><html><body>';
         $message .= 'This is a test.';
-        $message .= '<p>Thanks for registrering. Please <strong><a href="' . base_url() . 'register/validate_email' . $email .
+        $message .= '<p>Thanks for registrering. Please <strong><a href="' . base_url() . 'register/validate_email/' . $email .
                 '/' . $email_code . '">click here</a></strong> to activate your account. After you have activated your account you will be able to login.';
         $message .= '</body></html>';
         $this->email->message($message);
-        $this->email->send();
+        if ($this->email->send()) {
+            echo 'Your email was sent';
+        } else {
+            show_error($this->email->print_debugger());
+        }
     }
 
     private function activate_account($email_address)
@@ -67,7 +79,7 @@ class User_model extends CI_Model {
         }
     }
 
-    private function validate_email($email_address, $email_code)
+    function validate_email($email_address, $email_code)
     {
         $sql = "SELECT usrEmail, usrTimestampRegistration, usrFirstName FROM users WHERE usrEmail = '{$email_address}' LIMIT 1";
         $result = $this->db->query($sql);
