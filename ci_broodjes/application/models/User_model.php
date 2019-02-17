@@ -48,7 +48,6 @@ class User_model extends CI_Model {
             'newline'   => "\r\n"
         );
         $this->load->library('email', $config);
-        //$this->email->initialize($config);
 
         $email_code = $this->email_code;
         $this->email->from($this->config->item('bot_email'), 'Syntra Catering');

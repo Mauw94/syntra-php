@@ -42,7 +42,8 @@ $config['index_page'] = 'index.php';
 |--------------------------------------------------------------------------
 |
 */
-$config['admin_email'] = "mauritsseeelen@gmail.com";/*
+$config['admin_email'] = "mauritsseeelen@gmail.com";
+/*
 |--------------------------------------------------------------------------
 | Email address used to send emails on the site
 |--------------------------------------------------------------------------
