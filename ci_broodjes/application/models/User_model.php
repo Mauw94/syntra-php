@@ -52,16 +52,15 @@ class User_model extends CI_Model {
 
         $email_code = $this->email_code;
         $this->email->from($this->config->item('bot_email'), 'Syntra Catering');
-        $this->email->to('mauritsseelen@gmail.com');
-        $this->email->subject('TEST');
+        $this->email->to($email);
+        $this->email->subject('E-mail verification');
         $message = '<!DOCTYPE html><html><body>';
-        $message .= 'This is a test.';
-        $message .= '<p>Thanks for registrering. Please <strong><a href="' . base_url() . 'register/validate_email/' . $email .
+        $message .= '<p>Thank you for registering. Please <strong><a href="' . base_url() . 'register/validate_email/' . $email .
                 '/' . $email_code . '">click here</a></strong> to activate your account. After you have activated your account you will be able to login.';
         $message .= '</body></html>';
         $this->email->message($message);
         if ($this->email->send()) {
-            echo 'Your email was sent';
+            return true;
         } else {
             show_error($this->email->print_debugger());
         }
@@ -112,9 +111,10 @@ class User_model extends CI_Model {
             'firstname' => $firstname,
             'lastname' => $lastname, 
             'email' => $email,
-            'logged_in' => 0
+            'logged_in' => 0,
+            'admin' => 0
         );
         $this->email_code = md5((string)$row->usrTimestampRegistration);
-        $this->session->set_userdata($sess_data);
+        $this->session->set_userdata('user', $sess_data);
     }
 }
