@@ -65,18 +65,6 @@ class User_model extends CI_Model {
         }
     }
 
-    private function activate_account($email_address)
-    {
-        $sql = "UPDATE users SET usrEmailConfirmed = 1 WHERE usrEmail = '" . $email_address . "' LIMIT 1";
-        $this->db->query($sql);
-        if ($this->db->affected_rows() === 1) {
-            return true;
-        } else {
-            echo 'Error when activating your account in the database.';
-            return false;
-        }
-    }
-
     function validate_email($email_address, $email_code)
     {
         $sql = "SELECT usrEmail, usrTimestampRegistration, usrFirstName FROM users WHERE usrEmail = '{$email_address}' LIMIT 1";
@@ -95,6 +83,18 @@ class User_model extends CI_Model {
             }
         } else {
             echo 'There was an error validating your email';
+            return false;
+        }
+    }
+
+    private function activate_account($email_address)
+    {
+        $sql = "UPDATE users SET usrEmailConfirmed = 1 WHERE usrEmail = '" . $email_address . "' LIMIT 1";
+        $this->db->query($sql);
+        if ($this->db->affected_rows() === 1) {
+            return true;
+        } else {
+            echo 'Error when activating your account in the database.';
             return false;
         }
     }
