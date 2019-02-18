@@ -23,8 +23,7 @@ class Login extends CI_Controller {
     function index() 
     {
         if (isset($_SESSION['user'])) {
-            $this->load->view('templates/header_user');
-            $this->load->view('user/home');
+            redirect('bestel');
         } else {           
             $this->load->view('templates/header_login', $this->data);
             $this->load->view('login/login', $this->data);
@@ -70,6 +69,7 @@ class Login extends CI_Controller {
     {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
+            $this->session->sess_destroy();
             redirect('login');
         }
     }

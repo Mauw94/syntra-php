@@ -16,7 +16,9 @@
     
     <input type="submit" value="Login" class="btn btn-primary">
 <form>
-<?php echo validation_errors('<p class="error">'); ?>
+<div class="alert alert-danger alert-dismissable"  style="margin-top: 10px;">
+    <?php echo validation_errors(); ?>
+</div>
 <br><hr>
 <a href="<?php echo site_url('register');?>" class="btn btn-success">Registreren</a>
 <?php if (isset($success)) {

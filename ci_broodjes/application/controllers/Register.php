@@ -16,19 +16,21 @@ class Register extends CI_controller {
 
     function index()
     {
-        $this->data = array(
-            'title' => 'Register',
-            'action' => site_url('register/register_user'),
-            'success' => '',
-            'failed' => '',
-            'organisations' => $this->Occupations_model->all_organizations(),
-            'occupations' => $this->Occupations_model->all_occupations()
-        );
-        $this->load_all_occupations();
-        
-        $this->load->view('templates/header_login', $this->data);
-        $this->load->view('login/register', $this->data);    
-        //$this->load->view('templates/footer', $data);    
+        if (!isset($_SESSION['user'])) {
+            $this->data = array(
+                'title' => 'Register',
+                'action' => site_url('register/register_user'),
+                'organisations' => $this->Occupations_model->all_organizations(),
+                'occupations' => $this->Occupations_model->all_occupations()
+            );
+            $this->load_all_occupations();
+            
+            $this->load->view('templates/header_login', $this->data);
+            $this->load->view('login/register', $this->data);    
+            //$this->load->view('templates/footer', $data);    
+        } else {
+            redirect('bestel');
+        }
 
     }
 
