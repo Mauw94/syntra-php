@@ -116,4 +116,32 @@ class User_model extends CI_Model {
         $this->email_code = md5((string)$row->usrTimestampRegistration);
         $this->session->set_userdata('user', $sess_data);
     }
+
+    function get_user_details()
+    {
+        $user_id = $this->session->userdata('user')['user_id'];
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('id', $user_id);
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
+
+    function update_user()
+    {
+        $id = $this->input->post('id');
+        $firstname = $this->input->post('firstname');
+        $lastname = $this->input->post('lastname');
+        $phonenumber = $this->input->post('phone');
+        $email = $this->input->post('email');   
+        $sql = "UPDATE users SET usrFirstName = '" . $firstname ."', usrLastName = '" . $lastname . "',
+            usrPhone = '" . $phonenumber . "', usrEmail = '" . $email . "' WHERE id = '" . $id . "' LIMIT 1";
+        $this->db->query($sql);
+            if ($this->db->affected_rows() === 1) {
+                return true;
+            } else {
+                echo 'Error when updating your profile in the database.';
+                return false;
+            }
+    }
 }

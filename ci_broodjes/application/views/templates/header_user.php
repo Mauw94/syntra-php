@@ -51,7 +51,7 @@
             
     <div class="container-fluid">
         <div class="users" class="col-xs-2">
-            <a href="<?php echo base_url(); ?>menus/personal">
+            <a href="<?php echo base_url(); ?>user/user_details">
                 <div class="cirkel">
                     <div class="user-man">
                         <i class="fas fa-user fa-2x"></i>
