@@ -1,13 +1,19 @@
 <div class="container">
-
+<?php
+    if(isset($_SESSION['user'])) {
+        ?>
+        <a href="<?= base_url().'bestel';?>"><div class="alert alert-success" style="width: 50%; margin-top: 10px;">Ingelogd, klik hier om te bestellen</div></a>
+        <?php
+    }
+?>
 <form action="<?php echo $action;?>" method="post">
     <label>E-mail</label>
     <div class="form-group">
         <input type="text" placeholder="E-mail" class="form-control" name="email">
     </div>
-    <label>Password</label>
+    <label>Wachtwoord</label>
     <div class="form-group">
-        <input type="password" placeholder="Password" class="form-control" name="password">
+        <input type="password" placeholder="Wachtwoord" class="form-control" name="password">
     </div>
     
     <input type="submit" value="Login" class="btn btn-primary">

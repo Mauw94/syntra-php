@@ -1,17 +1,17 @@
 <body>
 <div class="container">
-<h1><?php echo $title; ?></h1>
+<h1 style="color: white"><?php echo $title; ?></h1>
 <form action="<?php echo $action;?>" method="post">
     <div class="form-group">
-        <label>First name </label>
+        <label>Voornaam </label>
         <input type="text"  class="form-control" name="firstname">
     </div>
     <div class="form-group">
-        <label>Last name </label>
+        <label>Achternaam </label>
         <input type="text"  class="form-control" name="lastname">
     </div>
     <div class="form-group">
-        <label>Phone number</label>
+        <label>Tel. nr</label>
         <input type="text"  class="form-control" name="phonenumber">
     </div>
     <div class="form-group">
@@ -19,18 +19,18 @@
         <input type="text"  class="form-control" name="email">
     </div>
     <div class="form-group">
-        <label>Password</label>
+        <label>Wachtwoord</label>
         <input type="password" class="form-control" name="password">
     </div>
     <div class="form-group">
-        <label>Confirm password</label>
+        <label>Bevestig wachtwoord</label>
         <input type="password" class="form-control" name="confirmpassword">
     </div>    
 
     <div class="form-group">
         <label>Organisation</label>        
         <select name="organisation" id="org">
-            <option value="" selected disabled hidden>Choose here</option>
+            <option value="" selected disabled hidden>Kies hier</option>
             <?php 
             foreach ($organisations as $org)
             {
@@ -41,7 +41,7 @@
     <div class="form-group">
         <label>Occupation</label>
         <select name="occupation">
-        <option value="" selected disabled hidden>Choose here</option>
+        <option value="" selected disabled hidden>Kies hier</option>
         <?php 
             foreach ($Syntra as $occu)
             {
@@ -49,12 +49,10 @@
             <?php } ?>
         </select>
     </div>
-    <input type="submit" value="Register" class="btn btn-primary">
+    <input type="submit" value="Registreer" class="btn btn-primary">
 <form>
 <a href="<?= base_url(); ?>index.php/login" class="btn btn-primary">Terug</a>
 </div>
-<div class="alert alert-danger alert-dismissable"  style="margin-top: 10px;">
-    <?php echo validation_errors(); ?>
-</div>
+<?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">'); ?>
 </body>
 </html>

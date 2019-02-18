@@ -20,20 +20,16 @@ class Login extends CI_Controller {
     }
 
     function index() 
-    {
-        if (isset($_SESSION['user'])) {
-            redirect('bestel');
-        } else {           
-            $this->load->view('templates/header_login', $this->data);
-            $this->load->view('login/login', $this->data);
-            //$this->load->view('templates/footer', $data);
-        }
+    {        
+        $this->load->view('templates/header_login', $this->data);
+        $this->load->view('login/login', $this->data);
+        //$this->load->view('templates/footer', $data);
     }
 
     function login_user()
     {
-        $this->form_validation->set_rules('email', 'Email Address', 'trim|required|min_length[6]|max_length[50]|valid_email');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[50]');
+        $this->form_validation->set_rules('email', 'e-mail adres', 'trim|required|min_length[6]|max_length[50]|valid_email');
+        $this->form_validation->set_rules('password', 'wachtwoord', 'trim|required|min_length[6]|max_length[50]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->index();

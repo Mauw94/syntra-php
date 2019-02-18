@@ -16,22 +16,17 @@ class Register extends CI_controller {
 
     function index()
     {
-        if (!isset($_SESSION['user'])) {
-            $this->data = array(
-                'title' => 'Register',
-                'action' => site_url('register/register_user'),
-                'organisations' => $this->Occupations_model->all_organizations(),
-                'occupations' => $this->Occupations_model->all_occupations()
-            );
-            $this->load_all_occupations();
-            
-            $this->load->view('templates/header_login', $this->data);
-            $this->load->view('login/register', $this->data);    
-            //$this->load->view('templates/footer', $data);    
-        } else {
-            redirect('bestel');
-        }
-
+        $this->data = array(
+            'title' => 'Register',
+            'action' => site_url('register/register_user'),
+            'organisations' => $this->Occupations_model->all_organizations(),
+            'occupations' => $this->Occupations_model->all_occupations()
+        );
+        $this->load_all_occupations();
+        
+        $this->load->view('templates/header_login', $this->data);
+        $this->load->view('login/register', $this->data);    
+        //$this->load->view('templates/footer', $data);            
     }
 
     private function load_all_occupations()
@@ -45,11 +40,11 @@ class Register extends CI_controller {
 
     function register_user()
     {
-        $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[3]|max_length[24]');
-        $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[2]|max_length[24]');
-        $this->form_validation->set_rules('email', 'Email Address', 'trim|required|min_length[6]|max_length[50]|valid_email|is_unique[users.usrEmail]');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[50]|matches[confirmpassword]');
-        $this->form_validation->set_rules('confirmpassword', 'Confirm Password', 'trim|required|min_length[6]|max_length[50]');
+        $this->form_validation->set_rules('firstname', 'voornaam', 'trim|required|min_length[3]|max_length[24]');
+        $this->form_validation->set_rules('lastname', 'achternaam', 'trim|required|min_length[2]|max_length[24]');
+        $this->form_validation->set_rules('email', 'email adres', 'trim|required|min_length[6]|max_length[50]|valid_email|is_unique[users.usrEmail]');
+        $this->form_validation->set_rules('password', 'wachtwoord', 'trim|required|min_length[6]|max_length[50]|matches[confirmpassword]');
+        $this->form_validation->set_rules('confirmpassword', 'bevestig wachtwoord', 'trim|required|min_length[6]|max_length[50]');
 
         if ($this->form_validation->run() == FALSE) {
             $this->index();
