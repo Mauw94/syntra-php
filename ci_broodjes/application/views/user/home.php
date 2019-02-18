@@ -1,7 +1,7 @@
     <h1>Welkom, ...</h1>
 
     <?php echo validation_errors(); ?>
-
+    <a href="<?php echo base_url().'/login/logout_user';?>" class="btn btn-danger btn-sm">Logout</a>
     <?php echo form_open('bestel/index'); ?>
         <div class="form-group">
             <select name="bread" class="form-control">

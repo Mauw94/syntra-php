@@ -12,17 +12,24 @@ class Login extends CI_Controller {
         parent::__construct();
         $this->load->model('Login_model');
         $this->load->library('form_validation');
-    }
-
-    function index() 
-    {
+        
         $this->data = array(
             'title' => set_value('title'),
             'action' => site_url('login/login_user')
         );
-        $this->load->view('templates/header_login', $this->data);
-        $this->load->view('login/login', $this->data);
-        //$this->load->view('templates/footer', $data);
+
+    }
+
+    function index() 
+    {
+        if (isset($_SESSION['user'])) {
+            $this->load->view('templates/header_user');
+            $this->load->view('user/home');
+        } else {           
+            $this->load->view('templates/header_login', $this->data);
+            $this->load->view('login/login', $this->data);
+            //$this->load->view('templates/footer', $data);
+        }
     }
 
     function login_user()
@@ -40,22 +47,30 @@ class Login extends CI_Controller {
                     redirect('bestel');
                     break;
                 case 'incorrect_password':
-                    $this->data['info'] = 'incorrectpass';
-                    $this->load->view('templates/header_user');
-                    $this->load->view('login/test', $this->data);
+                    $this->data['failed'] = 'Password is incorrect.';
+                    $this->load->view('templates/header_login');
+                    $this->load->view('login/login', $this->data);
                     break;
                 case 'not_activated':
-                    $this->data['info'] = 'not activated';
-                    $this->load->view('templates/header_user');
-                    $this->load->view('login/test', $this->data);
+                    $this->data['failed'] = 'Account not activated.';
+                    $this->load->view('templates/header_login');
+                    $this->load->view('login/login', $this->data);
                     break;
                 case 'email_not_found':
-                    $this->data['info'] = 'email not found';
-                    $this->load->view('templates/header_user');
-                    $this->load->view('login/test', $this->data);
+                    $this->data['failed'] = 'E-mail address not found.';
+                    $this->load->view('templates/header_login');
+                    $this->load->view('login/login', $this->data);
                     break;
             }
         }
         
+    }
+
+    function logout_user() 
+    {
+        if (isset($_SESSION['user'])) {
+            unset($_SESSION['user']);
+            redirect('login');
+        }
     }
 }

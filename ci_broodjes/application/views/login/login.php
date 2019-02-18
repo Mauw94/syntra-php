@@ -1,7 +1,7 @@
 <div class="container">
 <?php
-    if ($this->session->userdata('user') != null) {
-        echo 'Already logged in';
+    if (isset($_SESSION['user'])) {
+        echo 'Logged in';
     }
 ?>
 <form action="<?php echo $action;?>" method="post">
@@ -20,9 +20,17 @@
 <br><hr>
 <a href="<?php echo site_url('register');?>" class="btn btn-success">Registreren</a>
 <?php if (isset($success)) {
-    echo $success;
+    ?>
+    <div class="alert alert-success alert-dismissible" style="margin-top: 10px; width: 55%;">
+        <?php echo $success; ?>
+    </div>
+    <?php
 } ?>
 <?php if (isset($failed)) {
-    echo $failed;
+    ?>
+    <div class="alert alert-danger alert-dismissible" style="margin-top: 10px; width: 55%;">
+        <?php echo $failed; ?>
+    </div>
+    <?php
 } ?>
 </div>

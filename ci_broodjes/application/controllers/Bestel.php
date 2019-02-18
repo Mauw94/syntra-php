@@ -1,5 +1,7 @@
 <?php
-    class Bestel extends CI_Controller {
+require_once(APPPATH . 'controllers/Auth.php');
+
+    class Bestel extends Auth {
         public function __construct()
         {
                 parent::__construct();

@@ -49,7 +49,6 @@
             <?php } ?>
         </select>
     </div>
-    
     <input type="submit" value="Register" class="btn btn-primary">
 <form>
 <a href="<?= base_url(); ?>index.php/login" class="btn btn-primary">Terug</a>
