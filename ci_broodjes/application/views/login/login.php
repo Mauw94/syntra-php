@@ -1,9 +1,5 @@
 <div class="container">
-<?php
-    if (isset($_SESSION['user'])) {
-        echo 'Logged in';
-    }
-?>
+
 <form action="<?php echo $action;?>" method="post">
     <label>E-mail</label>
     <div class="form-group">
@@ -16,9 +12,7 @@
     
     <input type="submit" value="Login" class="btn btn-primary">
 <form>
-<div class="alert alert-danger alert-dismissable"  style="margin-top: 10px;">
-    <?php echo validation_errors(); ?>
-</div>
+<?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">'); ?>
 <br><hr>
 <a href="<?php echo site_url('register');?>" class="btn btn-success">Registreren</a>
 <?php if (isset($success)) {

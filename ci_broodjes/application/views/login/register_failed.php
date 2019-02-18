@@ -1,1 +1,0 @@
-<h2>Registration failed, please try again</h2>

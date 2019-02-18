@@ -37,7 +37,7 @@ class Login_model extends CI_Model {
     }
 
     private function set_session($session_data)
-    {
+    {        
         $sess_data = array (
             'user_id' => $session_data['user_id'],
             'firstname' => $session_data['firstname'],

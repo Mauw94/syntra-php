@@ -17,7 +17,6 @@ class Login extends CI_Controller {
             'title' => set_value('title'),
             'action' => site_url('login/login_user')
         );
-
     }
 
     function index() 
