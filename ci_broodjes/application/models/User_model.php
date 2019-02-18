@@ -114,6 +114,6 @@ class User_model extends CI_Model {
             'admin' => 0
         );
         $this->email_code = md5((string)$row->usrTimestampRegistration);
-        $this->session->set_userdata('register', $sess_data);
+        $this->session->set_userdata('user', $sess_data);
     }
 }

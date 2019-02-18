@@ -1,6 +1,6 @@
 <div class="container">
 <?php
-    if(isset($_SESSION['user'])) {
+    if($this->session->userdata('user')['logged_in'] == 1) {
         ?>
         <a href="<?= base_url().'bestel';?>"><div class="alert alert-success" style="width: 50%; margin-top: 10px;">Ingelogd, klik hier om te bestellen</div></a>
         <?php

@@ -1,4 +1,4 @@
-    <h1>Welkom, ...</h1>
+    <h1>Welkom, <?php echo $firstname . ' ' . $lastname;?></h1>
 
     <?php echo validation_errors(); ?>
     <a href="<?php echo base_url().'/login/logout_user';?>" class="btn btn-danger btn-sm">Logout</a>

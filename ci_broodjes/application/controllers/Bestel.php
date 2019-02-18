@@ -13,7 +13,9 @@ require_once(APPPATH . 'controllers/Auth.php');
             if ( ! file_exists(APPPATH.'views/user/'.$page.'.php')) {
                     show_404();
             }
-    
+            $data['firstname'] = $this->session->userdata('user')['firstname'];
+            $data['lastname'] = $this->session->userdata('user')['lastname'];
+
             $data['breads'] = $this->bestel_model->getBreads(); 
             $data['toppings'] = $this->bestel_model->getToppings(); 
             $data['extras'] = $this->bestel_model->getExtras();

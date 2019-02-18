@@ -28,6 +28,8 @@ class Login extends CI_Controller {
 
     function login_user()
     {
+        $this->cart->destroy();
+
         $this->form_validation->set_rules('email', 'e-mail adres', 'trim|required|min_length[6]|max_length[50]|valid_email');
         $this->form_validation->set_rules('password', 'wachtwoord', 'trim|required|min_length[6]|max_length[50]');
 
@@ -64,6 +66,7 @@ class Login extends CI_Controller {
     {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
+            $this->cart->destroy();
             $this->session->sess_destroy();
             redirect('login');
         }
