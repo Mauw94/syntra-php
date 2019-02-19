@@ -1,35 +1,38 @@
 <body>
 <div class="container">
-<h1 style="color: white"><?php echo $title; ?></h1>
+<h1 class="menu-title">Login</h1>
+    <div class="menu-price">
+        <!-- <p>&euro;</p> -->
+    </div>
 <form action="<?php echo $action;?>" method="post">
     <div class="form-group">
-        <label>Voornaam </label>
-        <input type="text"  class="form-control" name="firstname">
+        <label style="color: white">Voornaam </label>
+        <input type="text"  class="menu-input" name="firstname">
     </div>
     <div class="form-group">
-        <label>Achternaam </label>
-        <input type="text"  class="form-control" name="lastname">
+        <label style="color: white">Achternaam </label>
+        <input type="text"  class="menu-input" name="lastname">
     </div>
     <div class="form-group">
-        <label>Tel. nr</label>
-        <input type="text"  class="form-control" name="phonenumber">
+        <label style="color: white">Tel. nr</label>
+        <input type="text"  class="menu-input" name="phonenumber">
     </div>
     <div class="form-group">
-        <label>E-mail</label>
-        <input type="text"  class="form-control" name="email">
+        <label style="color: white">E-mail</label>
+        <input type="text"  class="menu-input" name="email">
     </div>
     <div class="form-group">
-        <label>Wachtwoord</label>
-        <input type="password" class="form-control" name="password">
+        <label style="color: white">Wachtwoord</label>
+        <input type="password" class="menu-input" name="password">
     </div>
     <div class="form-group">
-        <label>Bevestig wachtwoord</label>
-        <input type="password" class="form-control" name="confirmpassword">
+        <label style="color: white">Bevestig wachtwoord</label>
+        <input type="password" class="menu-input" name="confirmpassword">
     </div>    
 
     <div class="form-group">
-        <label>Organisation</label>        
-        <select name="organisation" id="org">
+        <label style="color: white">Organisation</label>        
+        <select  name="organisation" id="org">
             <option value="" selected disabled hidden>Kies hier</option>
             <?php 
             foreach ($organisations as $org)
@@ -39,7 +42,7 @@
         </select>
     </div>
     <div class="form-group">
-        <label>Occupation</label>
+        <label style="color: white">Occupation</label>
         <select name="occupation">
         <option value="" selected disabled hidden>Kies hier</option>
         <?php 

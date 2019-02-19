@@ -1,6 +1,10 @@
 <?php
 ?>
-<div class="container">
+<div class="container menu">
+    <h1 class="menu-title">Informatie</h1>
+    <div class="menu-price">
+        <!-- <p>&euro;</p> -->
+    </div>
     <div class="alert alert-danger"><strong>Als u uw e-mail update moet u opnieuw inloggen.</strong></div>
     <form action="<?php echo $action;?>" method="post">
     <div class="form-group">
@@ -8,24 +12,24 @@
         </div>
         <div class="form-group">
             <label>Voornaam: </label>
-            <input type="text" value="<?php echo $user_details[0]['usrFirstName'];?>" class="form-control" name="firstname">
+            <input type="text" value="<?php echo $user_details[0]['usrFirstName'];?>" class="menu-input" name="firstname">
         </div>
         <div class="form-group">
             <label>Achternaam: </label>
-            <input type="text" value="<?php echo $user_details[0]['usrLastName'];?>" class="form-control" name="lastname">
+            <input type="text" value="<?php echo $user_details[0]['usrLastName'];?>" class="menu-input" name="lastname">
         </div>
         <div class="form-group">
             <label>E-mail: </label>
             <input type="hidden" value="<?php echo $user_details[0]['usrEmail'];?>" name="oldemail">
-            <input type="text" value="<?php echo $user_details[0]['usrEmail'];?>" class="form-control" name="email">
+            <input type="text" value="<?php echo $user_details[0]['usrEmail'];?>" class="menu-input" name="email">
         </div>
         <div class="form-group">
             <label>Tel. nr: </label>
-            <input type="text" value="<?php echo $user_details[0]['usrPhone'];?>" class="form-control" name="phone">
+            <input type="text" value="<?php echo $user_details[0]['usrPhone'];?>" class="menu-input" name="phone">
         </div>
-        <input type="submit" value="Update gegevens" class="btn btn-dark">
-        <a href="<?php echo base_url().'bestel';?>"><input type="button" value="Terug" class="btn btn-dark"></a>
-        <a href="<?php echo base_url().'/login/logout_user';?>" class="btn btn-danger btn-sm">Logout</a>
+        <a href="<?php echo base_url().'/login/logout_user';?>" class="btn btn-primary"><input type="button"  class="btn btn-primary">Logout</button></a>
+        <a href="<?php echo base_url().'bestel';?>"><input type="button" value="Terug" class="menu-submit"></a>
+        <input type="submit" value="Update gegevens" class="menu-submit">        
     </form>
     <?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">'); ?>
     <?php if (isset($success)) {
