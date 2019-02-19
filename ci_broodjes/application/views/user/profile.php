@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="container">
-    <div class="alert alert-danger"><strong>Als u uw gegevens update moet u opnieuw inloggen!</strong></div>
+    <div class="alert alert-danger"><strong>Als u uw e-mail update moet u opnieuw inloggen.</strong></div>
     <form action="<?php echo $action;?>" method="post">
     <div class="form-group">
             <input type="hidden" value="<?php echo $user_details[0]['id'];?>" class="form-control" name="id">
@@ -16,6 +16,7 @@
         </div>
         <div class="form-group">
             <label>E-mail: </label>
+            <input type="hidden" value="<?php echo $user_details[0]['usrEmail'];?>" name="oldemail">
             <input type="text" value="<?php echo $user_details[0]['usrEmail'];?>" class="form-control" name="email">
         </div>
         <div class="form-group">

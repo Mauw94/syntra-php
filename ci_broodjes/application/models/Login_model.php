@@ -20,7 +20,8 @@ class Login_model extends CI_Model {
                         'user_id' => $row->id,
                         'firstname' => $row->usrFirstName,
                         'lastname' => $row->usrLastName,
-                        'email' => $row->usrEmail,      
+                        'email' => $row->usrEmail,  
+                        'email_code' => md5((string) $row->usrTimestampRegistration),    
                         'admin' => $row->usrAdmin                  
                     );
                     $this->set_session($session_data);
@@ -43,6 +44,7 @@ class Login_model extends CI_Model {
             'firstname' => $session_data['firstname'],
             'lastname' => $session_data['lastname'],
             'email' => $session_data['email'],
+            'email_code' => $session_data['email_code'],
             'logged_in' => 1,
             'admin' => $session_data['admin']  
         );
