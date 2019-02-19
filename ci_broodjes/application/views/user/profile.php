@@ -25,6 +25,7 @@
         </div>
         <input type="submit" value="Update gegevens" class="btn btn-dark">
         <a href="<?php echo base_url().'bestel';?>"><input type="button" value="Terug" class="btn btn-dark"></a>
+        <a href="<?php echo base_url().'/login/logout_user';?>" class="btn btn-danger btn-sm">Logout</a>
     </form>
     <?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">'); ?>
     <?php if (isset($success)) {
