@@ -160,7 +160,7 @@ class User_model extends CI_Model {
                 if ($oldemail != $email) {
                     $this->send_validation_email($email);
                     $this->deactivate_account($email);
-                    $this->session->sess_destroy();                    
+                    $this->session->sess_destroy();
                 }
                 return true;
             } else {

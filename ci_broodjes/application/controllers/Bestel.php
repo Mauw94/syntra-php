@@ -45,29 +45,49 @@ require_once(APPPATH . 'controllers/Auth.php');
                     'price'    => $price,
                     'name'    => trim($name),
                     'options' => array('opmerking' => $this->input->post('note'), 'extra' => $this->input->post('extra'))
-
-                    // 'qty'    => "2",
-                    // 'price'    => "5.50",
-                    // 'name'    => "productname",
-                    // 'options' => array('opmerking' => $this->input->post('note'), 'extra' => $this->input->post('extra'))
                 );
 
                 $this->cart->insert($data);
-
-				// $this->bestel_model->set_sandwich(); 
+ 
 				redirect('bestel/cart');
 			}
         }
 
-        public function success(){
-            $this->load->view('templates/header_user');
-            $this->load->view('user/success');
-            $this->load->view('templates/footer_yvette');
+        function updateItemQty(){
+            $update = 0;
+            
+            // Get cart item info
+            $rowid = $this->input->get('rowid');
+            $qty = $this->input->get('qty');
+            
+            // Update item in the cart
+            if(!empty($rowid) && !empty($qty)){
+                $data = array(
+                    'rowid' => $rowid,
+                    'qty'   => $qty
+                );
+                $update = $this->cart->update($data);
+            }
+            
+            // Return response
+            echo $update?'ok':'err';
         }
+
+        function removeItem($rowid){
+            // Remove item from cart
+            $remove = $this->cart->remove($rowid);
+            redirect('bestel/cart');
+        }    
 
         public function cart(){
             $this->load->view('templates/header_user');
             $this->load->view('user/cart');
+            $this->load->view('templates/footer_yvette');
+        }
+
+        public function checkout(){
+            $this->load->view('templates/header_user');
+            $this->load->view('user/checkout');
             $this->load->view('templates/footer_yvette');
         }
     }

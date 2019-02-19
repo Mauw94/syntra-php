@@ -7,17 +7,12 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <title>Syntra Catering</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <title>Header met bestel en cart button</title>
 </head>
 <body>
-    <!-- <nav class="nav">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        <a class="nav-link active" href="#">Active</a>
-        <a class="nav-link" href="#">Link</a>
-        <a class="nav-link" href="<?php echo base_url(); ?>bestel/index">Bestellen</a>
-        <a class="nav-link" href="<?php echo base_url(); ?>bestel/cart">Shopping Cart</a>
-    </nav> -->
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-1">
