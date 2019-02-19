@@ -1,7 +1,7 @@
 <?php
-print_r($this->session->userdata());?>
+?>
 <div class="container">
-    <h1>Details</h1>
+    <div class="alert alert-danger"><strong>Als u uw gegevens update moet u opnieuw inloggen!</strong></div>
     <form action="<?php echo $action;?>" method="post">
     <div class="form-group">
             <input type="hidden" value="<?php echo $user_details[0]['id'];?>" class="form-control" name="id">
@@ -30,7 +30,7 @@ print_r($this->session->userdata());?>
     ?>
     <div class="alert alert-success alert-dismissible" style="margin-top: 10px; width: 55%;">
         <?php echo $success; ?>
-    </div>
+    </div>    
     <?php
 } ?>
 </div>

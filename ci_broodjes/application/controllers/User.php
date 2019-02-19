@@ -31,13 +31,14 @@ class User extends Auth {
             $result = $this->User_model->update_user();
 
             if ($result) {
+                // terug naar login pagina -> met gegens geupdated, log opnieuw in
+                $data['success'] = 'Geupdate.';
                 $data['user_details'] = $this->User_model->get_user_details();
                 $data['action'] = site_url('user/update_user');
-                $data['success'] = 'Geupdate.';
                 $this->load->view('templates/header_user');
                 $this->load->view('user/profile', $data);
             } else {
-                echo 'Error when updating your profile.';
+                redirect('user/user_details');
             }
         }
     }

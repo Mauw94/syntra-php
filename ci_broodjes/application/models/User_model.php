@@ -140,7 +140,6 @@ class User_model extends CI_Model {
             if ($this->db->affected_rows() === 1) {
                 return true;
             } else {
-                echo 'Error when updating your profile in the database.';
                 return false;
             }
     }
