@@ -18,8 +18,8 @@ class User_model extends CI_Model {
         $occupation = $this->input->post('occupation');
 
         $sql = "INSERT INTO users (usrLastName, usrFirstName, usrPhone, usrEmail, usrPassword, occupation_id)
-                VALUES(" . $this->db->escape($firstname) . ",
-                        " . $this->db->escape($lastname) . ",
+                VALUES(" . $this->db->escape($lastname) . ",
+                        " . $this->db->escape($firstname) . ",
                         " . $this->db->escape($phonenumber) . ",
                         '" . $email . "',
                         '" . $password . "',
@@ -152,7 +152,7 @@ class User_model extends CI_Model {
         $email = $this->input->post('email');   
         $oldemail = $this->input->post('oldemail');
 
-        $sql = "UPDATE users SET usrFirstName = '" . $firstname ."', usrLastName = '" . $lastname . "',
+        $sql = "UPDATE users SET usrLastName = '" . $lastname ."', usrFirstName = '" . $firstname . "',
             usrPhone = '" . $phonenumber . "', usrEmail = '" . $email . "' WHERE id = '" . $id . "' LIMIT 1";
             
         $this->db->query($sql);

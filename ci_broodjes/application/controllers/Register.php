@@ -55,7 +55,7 @@ class Register extends CI_controller {
                 $data = array (
                     'title' => set_value('Login'),
                     'action' => site_url('login/login_user'),
-                    'success' => 'Registration succesful',
+                    'success' => 'Registration succesful, an e-mail has been sent for verification.',
                 );
                 $this->load->view('templates/header_login', $data);
                 $this->load->view('login/login', $data);
