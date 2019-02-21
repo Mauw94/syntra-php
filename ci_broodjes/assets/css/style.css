@@ -3,6 +3,7 @@
     margin-top: 10px;
     width: 54px;
     height: auto;
+    margin-left: 10px;
 }
 /* Logo T2 Campus User Niet ingelogd */
 .x-logo{
@@ -25,7 +26,7 @@
 }
 /* Body */
 body{
-    background-image: url("https://images.pexels.com/photos/186861/pexels-photo-186861.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    background-image: url("http://wulv.be/T2/background.jpg");
     /* background-image:  url("../img/background-lighter-01.jpg"); */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -50,7 +51,7 @@ body{
     margin-top: -50px;
     margin-right: 220px;
 }
-
+/* ICONS */
 /* User_favorites */
 .favorites{
     color: #B6D02C;
@@ -108,7 +109,7 @@ body{
     color: #ffffff;
     float: right;
     margin-top: -25px;
-    margin-right: 105px;
+    margin-right: 255px;
 }
 /* p text */
 p { text-align: center }
@@ -137,7 +138,7 @@ p { text-align: center }
     margin-right: 145px;
     margin-top: -50px;
 }
-
+/* ICONS -------------- */
 /* Favorites */
 .fav {
     background-color: rgba(255, 255, 255, 0.7);
@@ -548,13 +549,6 @@ p { text-align: center }
     float: right;
     margin-right: 20%;
 }
-
-
-
-
-
-
-
 
 /* Profile */
 .profile{
