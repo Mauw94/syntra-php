@@ -31,7 +31,7 @@
         <a href="<?php echo base_url().'bestel';?>"><input type="button" value="Terug" class="menu-submit"></a>
         <input type="submit" value="Update gegevens" class="menu-submit">        
     </form>
-    <?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">'); ?>
+    <?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 40px;">'); ?>
     <?php if (isset($success)) {
     ?>
     <div class="alert alert-success alert-dismissible" style="margin-top: 10px; width: 55%;">

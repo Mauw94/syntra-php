@@ -56,6 +56,6 @@
 <form>
 <a href="<?= base_url(); ?>index.php/login" class="btn btn-primary">Terug</a>
 </div>
-<?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">'); ?>
+<?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 40px;">'); ?>
 </body>
 </html>

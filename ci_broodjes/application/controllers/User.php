@@ -22,7 +22,7 @@ class User extends Auth {
     {
         $this->form_validation->set_rules('firstname', 'voornaam', 'trim|required|min_length[2]|max_length[50]');
         $this->form_validation->set_rules('lastname', 'achternaam', 'trim|required|min_length[2]|max_length[50]');
-        $this->form_validation->set_rules('email', 'e-mail adres', 'trim|required|min_length[5]|max_length[50]|valid_email|is_unique[users.usrEmail]');
+        $this->form_validation->set_rules('email', 'e-mail adres', 'trim|required|min_length[5]|max_length[50]|valid_email');
         $this->form_validation->set_rules('phone', 'telefoon nr', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
