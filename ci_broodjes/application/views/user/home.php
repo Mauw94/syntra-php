@@ -79,34 +79,40 @@
             var selectedBread = bestelForm.elements["bread"]; 
 
             breadPrice = parseFloat(breadPrices[selectedBread.value]); 
-            if (breadPrice != true) {
+            
+            if (!breadPrice) {
                 breadPrice = 0;
             }
             return breadPrice;
         }
+
+        console.log(getBreadPrice());
 
         function getToppingPrice(){
             var bestelForm = document.forms["bestelForm"]; 
             var selectedTopping = bestelForm.elements["topping"]; 
 
             toppingPrice = parseFloat(toppingPrices[selectedTopping.value]); 
-            if (toppingPrice != true) {
+            if (!toppingPrice) {
                 toppingPrice = 0;
             }
             return toppingPrice;
         }
+
+        console.log(getToppingPrice());
 
         function getExtraPrice(){
             var bestelForm = document.forms["bestelForm"]; 
             var selectedExtra = bestelForm.elements["extra"]; 
 
             extraPrice = parseFloat(extraPrices[selectedExtra.value]); 
-            if (extraPrice != true) {
+            if (!extraPrice) {
                 extraPrice = 0;
             }
             return extraPrice;
-        }
-        console.log(getExtraPrice()); 
+        } 
+
+        console.log(getExtraPrice());
 
         function getQuantity(){
             var bestelForm = document.forms["bestelForm"]; 

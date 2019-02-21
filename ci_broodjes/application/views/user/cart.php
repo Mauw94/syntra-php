@@ -45,7 +45,7 @@
     
         <!-- <p><?php echo form_submit('', 'Update your Cart', "class = 'cart-btn'"); ?></p> -->
         <a href="<?php echo base_url(); ?>checkout/index">
-                <button class="cart-btn">Afrekenen</button>
+                <input type="button" class="cart-btn" value="Afrekenen">
         </a>
 
 </div>
