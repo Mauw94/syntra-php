@@ -6,7 +6,8 @@
 }
 /* Logo T2 Campus User Niet ingelogd */
 .x-logo{
-    margin-top: 100px;
+    margin-top: 10px;
+    margin-bottom: -50px;
     width: 150px;
     height: auto;
 }
@@ -154,36 +155,10 @@ p { text-align: center }
     color: #69472c;
 }
 
-/* Profile */
-.profile{
-    text-align: center;
-    padding: 10px 200px 10px 100px;
-    width: 100%;
-}
-
-.profile h1{
-    color: white;
-    margin: 35px 0px 50px 0px;
-    font-size: 35px;
-}
-
-.profile-input {
-    border: 0px solid;
-
-    width: 300px;
-    height: 46px;
-    background-color: white;
-    border-radius: 23px;
-
-    padding: 17px;
-
-    display: block;
-    margin: 10px auto;
-}
-
 /* Menu Broodjes */
-.menu {
-    margin: 0px 150px;
+.menu-container {
+    margin: 70px auto 170px auto;
+    font-family: 'Raleway', sans-serif;
 }
 
 .menu-title {
@@ -191,6 +166,10 @@ p { text-align: center }
     color: white;
     font-family: 'Raleway', sans-serif;
     padding: 20px;
+}
+
+#totalPrice {
+    color: white;
 }
 
 .menu-input {
@@ -201,7 +180,7 @@ p { text-align: center }
     background-color: white;
     border-radius: 23px;
 
-    padding: 0px 13px;
+    padding: 0px 17px;
 
     display: block;
     margin: 10px auto;
@@ -275,6 +254,8 @@ p { text-align: center }
 
 .form-group label {
     padding-left: 22px;
+    color: white;
+    font-weight: 500;
 }
 
 /* Cart */
@@ -284,7 +265,7 @@ p { text-align: center }
     border-radius: 23px;
 
     display: block;
-    margin: 10px auto;
+    margin: 70px auto;
     padding-top: 20px;
 
     font-family: 'Raleway', sans-serif;
@@ -383,6 +364,13 @@ p { text-align: center }
 }
 
 /* Checkout */
+.checkout-message {
+    margin: auto 20px;
+    text-align: center;
+    color: #b6d02c;
+    font-size: 12px;
+}
+
 .checkout-item {
     border-bottom: 1px solid black;
     width: 90%;
@@ -461,4 +449,136 @@ p { text-align: center }
 
 .checkout-btn:hover {
     cursor: pointer;
+}
+
+/* Login */
+.login-underline {
+    border-top: 1px solid white;
+    width: 101px;
+    margin: -20px auto 10px auto;
+}
+
+.login-message {
+    width: 90%;
+    padding: 10px;
+    font-size: 15px;
+    
+    display: block;
+    margin: 0px auto 5px auto;
+}
+
+.login-btn {
+    border: 0px solid;
+    margin: 12px 6px;
+    height: 46px;
+    border-radius: 23px;
+
+    padding: auto;
+    display: block;
+}
+
+.login-btn:hover {
+    cursor: pointer;
+}
+
+.login-login {
+    background-color: #b6d02c;
+    color: white;
+    width: 13%;
+    float: left;
+}
+
+.login-register {
+    text-decoration: none;
+    color: #b6d02c;
+    background-color: white;
+
+    width: 16%;
+    float: right;
+}
+
+.false-message {
+    float: left;
+    padding: 10px;
+    margin-left: 48px;    
+    display: block;
+}
+
+.false-btn {
+    background-color: #b6d02c;
+    color: white;
+    width: 13%;
+    clear: both;
+}
+
+/* Register */
+.register-underline {
+    border-top: 1px solid white;
+    width: 148px;
+    margin: -20px auto 10px auto;
+}
+
+.reg-input {
+    width: 60%;
+}
+
+.reg-label {
+    margin-left: 217px;
+}
+
+.reg-org {
+    width: 30%;
+    margin-left: 20%;
+}
+
+.reg-reg {
+    background-color: #b6d02c;
+    color: white;
+    width: 13%;
+    float: left;
+    margin-left: 20%;
+}
+
+.reg-terug {
+    text-decoration: none;
+    color: #b6d02c;
+    background-color: white;
+
+    width: 10%;
+    float: right;
+    margin-right: 20%;
+}
+
+
+
+
+
+
+
+
+/* Profile */
+.profile{
+    text-align: center;
+    padding: 10px 200px 10px 100px;
+    width: 100%;
+}
+
+.profile h1{
+    color: white;
+    margin: 35px 0px 50px 0px;
+    font-size: 35px;
+}
+
+.profile-input {
+    border: 0px solid;
+
+    width: 300px;
+    height: 46px;
+    background-color: white;
+    border-radius: 23px;
+
+    padding: 17px;
+
+    display: block;
+    margin: 10px auto;
 }

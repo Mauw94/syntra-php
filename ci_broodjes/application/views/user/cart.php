@@ -1,7 +1,7 @@
 <div class="container">
 <div class="cart-background">
-        <!-- <?php echo form_open('bestel/update'); ?> -->
-        <?php $i = 1; ?>
+        <?php echo form_open('#', 'id="cartForm"'); ?>
+        <?php $i = 1;?>
         <?php foreach ($this->cart->contents() as $items): ?>
                 <?php echo form_hidden($i.'[rowid]', $items['rowid']); ?>
 
@@ -19,28 +19,22 @@
                                         <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
                                                 <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
                                         <?php endforeach; ?>
-                                        subtotaal: &euro;<?php echo $this->cart->format_number($items['subtotal']); ?>
+                                        <p>subtotaal: &euro;
+                                        <?php echo $this->cart->format_number($items['subtotal']);?></p>
                                 </p>
                         <?php endif; ?>
 
                         <!-- <?php echo form_input(array('name' => $i.'[qty]', 'value' => $items['qty'], 'class'=>'cart-qty','maxlength' => '3', 'size' => '5')); ?> -->
-                        <input type="number" class="cart-qty" name="<?php echo $i.'[qty]'; ?>" value="<?php echo $items['qty']; ?>" onchange="updateCartItem(this, '<?php echo $items['rowid']; ?>')">
-                        
-                        <!-- <select name="<?php echo $i.'[qty]'; ?>" value="<?php echo $items['qty']; ?>" class="cart-qty">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                        </select> -->
+                        <input type="number" class="cart-qty" name="amount" id="amount<?php echo $items['rowid'];?>" value="<?php echo $items['qty']; ?>" onchange="updateQuantity('<?php echo $items['rowid'];?>', '<?php echo $this->cart->format_number($items['subtotal']); ?>')">
 
                         <div class="cart-fav">
                                 <i class="fas fa-heart"></i>
                                 <!-- of <i class="far fa-heart"></i> -->
                         </div>
+
+                        <?php
+                                
+                        ?>
                 </div>
         <?php $i++; ?>
         <?php endforeach; ?>
@@ -50,7 +44,7 @@
         </div>
     
         <!-- <p><?php echo form_submit('', 'Update your Cart', "class = 'cart-btn'"); ?></p> -->
-        <a href="<?php echo base_url(); ?>bestel/checkout">
+        <a href="<?php echo base_url(); ?>checkout/index">
                 <button class="cart-btn">Afrekenen</button>
         </a>
 
@@ -59,18 +53,16 @@
 
 <script>
 /* Update item quantity */
-function updateCartItem(obj, rowid){
-        console.log('hello'); 
-	$.get("<?php echo base_url('bestel/updateItemQty/'); ?>", {rowid:rowid, qty:obj.value}, function(resp){
+function updateQuantity(rowid, subtotal){
+        var selectedQuantity = document.getElementById('amount'+rowid).value;
+
+        $.get("<?php echo base_url('bestel/updateItemQty/'); ?>", {rowid:rowid, qty:selectedQuantity}, function(resp){
 		if(resp == 'ok'){
 			location.reload();
 		}else{
 			alert('Cart update failed, please try again.');
 		}
 	});
-}
-
-function updateCartItem(){
-
+        return total;
 }
 </script>

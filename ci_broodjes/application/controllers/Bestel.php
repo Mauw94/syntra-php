@@ -36,15 +36,17 @@ require_once(APPPATH . 'controllers/Auth.php');
                 $extra = $this->bestel_model->getExtras($this->input->post('extra'));
             
                 // Add product to the cart
-                $price = $bread['brdPrice'] + $topping['topPrice'];
+                $price = $bread['brdPrice'] + $topping['topPrice'] + $extra['xtrPrice'];
                 $name = $bread['brdName']. " ". $topping['topName']; 
 
                 $data = array(
-                    'id'    => $bread['id'],
+                    'id'    => uniqid(),
+                    'bread_id' => $this->input->post('bread'),
+                    'topping_id' => $this->input->post('topping'),
                     'qty'    => $this->input->post('amount'),
                     'price'    => $price,
                     'name'    => trim($name),
-                    'options' => array('opmerking' => $this->input->post('note'), 'extra' => $this->input->post('extra'))
+                    'options' => array('opmerking' => $this->input->post('note'), 'extra' => $extra['xtrName'])
                 );
 
                 $this->cart->insert($data);
@@ -84,10 +86,8 @@ require_once(APPPATH . 'controllers/Auth.php');
             $this->load->view('user/cart');
             $this->load->view('templates/footer_yvette');
         }
-
-        public function checkout(){
-            $this->load->view('templates/header_user');
-            $this->load->view('user/checkout');
-            $this->load->view('templates/footer_yvette');
-        }
     }
+
+
+
+    
