@@ -37,7 +37,7 @@
         <input type="submit" value="Login" class="login-btn login-login">
     <form>
 
-    <a href="<?php echo site_url('');?>">
+    <a href="<?php echo site_url('login/forgot_password_link');?>">
                 <input type="button" class="login-btn login-register" value="Wachtwoord vergeten?">
     </a>
 

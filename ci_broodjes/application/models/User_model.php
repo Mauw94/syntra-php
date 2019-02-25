@@ -56,10 +56,10 @@ class User_model extends CI_Model {
         }
         $this->email->from($this->config->item('bot_email'), 'Syntra Catering');
         $this->email->to($email);
-        $this->email->subject('E-mail verification');
+        $this->email->subject('E-mail verificatie');
         $message = '<!DOCTYPE html><html><body>';
-        $message .= '<p>Thank you for registering. Please <strong><a href="' . base_url() . 'register/validate_email/' . $email .
-                '/' . $email_code . '">click here</a></strong> to activate your account. After you have activated your account you will be able to login.';
+        $message .= '<p>Bedankt om je te registreren.<strong><a href="' . base_url() . 'register/validate_email/' . $email .
+                '/' . $email_code . '"> klik hier</a></strong> om je account te activeren. Je kan inloggen en broodjes bestellen nadat je account is geactiveerd.';
         $message .= '</body></html>';
         $this->email->message($message);
         if ($this->email->send()) {
@@ -69,6 +69,85 @@ class User_model extends CI_Model {
         }
     }
 
+    function send_resetpassword_email()
+    {
+        $email = $this->input->post('veri_email');
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'mauritsseelen@gmail.com',
+            'smtp_pass' => 'upbtdwqttfpgngql',
+            'mailtype'  => 'html',
+            'newline'   => "\r\n"
+        );
+        $this->load->library('email', $config);
+
+        // if (empty($this->email_code)) {
+        //     $email_code = $this->session->userdata('user')['email_code'];
+        // } else {
+        //     $email_code = $this->email_code;
+        // }
+        $this->email->from($this->config->item('bot_email'), 'Syntra Catering');
+        $this->email->to($email);
+        $this->email->subject('Wachtwoord herstellen');
+        $message = '<!DOCTYPE html><html><body>';
+        $message .= '<p><strong><a href="' . base_url() . 'login/reset_password_action/' . $email . '">Klik hier</a></strong> om je wachtwoord opnieuw in te stellen.';
+        $message .= '</body></html>';
+        $this->email->message($message);
+        if ($this->email->send()) {
+            return true;
+        } else {
+            show_error($this->email->print_debugger());
+        }
+    }
+
+    private function get_old_password($email)
+    {
+        $sql = "SELECT usrPassword FROM users WHERE usrEmail = '" . $email . "' LIMIT 1";
+        $res = $this->db->query($sql);
+        if ($this->db->affected_rows() === 1) {
+            $oldpw = $res->row();
+            return $oldpw->usrPassword;
+        } else {
+            return false;
+        }
+    }
+
+    private function reset_password($email)
+    {
+        $sql = "UPDATE users SET usrPassword = NULL WHERE usrEmail = '" . $email . "' LIMIT 1";
+        $this->db->query($sql);
+        if ($this->db->affected_rows() === 1) {
+            return true;
+        } else {
+            echo 'Could not reset the password';
+            return false;
+        }
+    }
+
+    function new_password() 
+    {
+        $password = sha1($this->config->item('salt') . $this->input->post('password'));
+        $email = $this->input->post('email');
+        if (!($password === $this->get_old_password($email))) {
+            $result = $this->reset_password($email);
+            if ($result) {
+                $sql = "UPDATE users SET usrPassword = '" . $password . "' WHERE usrEmail = '" . $email . "' LIMIT 1";
+                $this->db->query($sql);
+                if ($this->db->affected_rows() === 1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                echo 'An error occured when resetting your password.';
+            }
+        } else {
+            return false;
+        }
+    }
+    
     function validate_email($email_address, $email_code)
     {
         $sql = "SELECT usrEmail, usrTimestampRegistration, usrFirstName FROM users WHERE usrEmail = '{$email_address}' LIMIT 1";

@@ -50,4 +50,5 @@ class Login_model extends CI_Model {
         );
         $this->session->set_userdata('user', $sess_data);
     }
+
 }
