@@ -102,6 +102,7 @@ class User_model extends CI_Model {
         }
     }
 
+    // get the old password to compare it with the newly inputted one
     private function get_old_password($email)
     {
         $sql = "SELECT usrPassword FROM users WHERE usrEmail = '" . $email . "' LIMIT 1";
@@ -114,6 +115,7 @@ class User_model extends CI_Model {
         }
     }
 
+    // reset the password in the database
     private function reset_password($email)
     {
         $sql = "UPDATE users SET usrPassword = NULL WHERE usrEmail = '" . $email . "' LIMIT 1";
@@ -126,6 +128,7 @@ class User_model extends CI_Model {
         }
     }
 
+    // enter a new password in the database 
     function new_password() 
     {
         $password = sha1($this->config->item('salt') . $this->input->post('password'));

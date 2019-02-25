@@ -17,9 +17,13 @@
 ?>
 
 <div class="container menu-container">
-    <h1 class="menu-title">Mijn bestelling</h1>
-    <div class="menu-price">
-        <p id="totalPrice"></p>        
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="menu-title">Mijn bestelling</h1>
+            <div class="menu-price">
+                <p id="totalPrice"></p>        
+            </div>
+        </div>
     </div>
 
     <?php echo validation_errors(); ?>
@@ -41,18 +45,24 @@
                 <?php endforeach; ?>
             </select>
         </div>
+
         <div class="form-group">
-            <select id="extra" name="extra" class="selectpicker menu-input" onchange="calculateTotal()">
-                <option selected disabled>Wil je extra's?</option>
+            <label>Extra's:</label>
+            <div>
                 <?php foreach($extras as $extra) : ?>
-                <option value="<?php echo $extra['id']; ?>"><?php echo $extra['xtrName'] . " - &euro;" . $extra['xtrPrice']; ?></option>
+                    <label class="menu-check"><?php echo '. '.$extra['xtrName'] . " - &euro;" . $extra['xtrPrice'] .'<br>'; ?>
+                        <input id="extra" name="extra<?php echo $extra['id']; ?>" type="checkbox" value="<?php echo $extra['id']; ?>" onclick="calculateTotal(<?php echo $extra['id']; ?>)">
+                        <span class="checkmark"></span>
+                    </label>
                 <?php endforeach; ?>
-            </select>
+            </div>
         </div>
+
         <div class="form-group">
             <label>Opmerking:</label>
             <textarea name="note" class="menu-input-text" rows="3"></textarea>
         </div>
+        
         <div class="form-group">
             <label class="float-left">Aantal:</label>
             <select id="amount" name="amount" class="menu-amount" onchange="calculateTotal()">
@@ -66,8 +76,38 @@
     </form>
 </div>
 
+    <!-- OUD? -->
+
+    <!-- <div class="form-group">
+            <select id="extra" name="extra" class="selectpicker menu-input" onchange="calculateTotal()">
+                <option selected disabled>Wil je extra's?</option>
+                <?php foreach($extras as $extra) : ?>
+                <option value="<?php echo $extra['id']; ?>"><?php echo $extra['xtrName'] . " - &euro;" . $extra['xtrPrice']; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div> -->
+
+        <!-- <div class="dropdown show menu-input menu-dropdown">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">Wil je extra's?</a>
+
+            <div id="extra" name="extra" class="dropdown-menu" aria-labelledby="dropdownMenuLink" onchange="calculateTotal()">
+                <?php foreach($extras as $extra) : ?>
+                <input class="form-check-input menu-drop-input" type="checkbox" value="<?php echo $extra['id']; ?>">
+                <?php echo $extra['xtrName'] . " - &euro;" . $extra['xtrPrice'] .'<br>'; ?>
+                <?php endforeach; ?> -->
+
+
+            <!-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+            </a> -->
+                <!-- <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a> -->
+            <!-- </div>
+        </div> -->
+
 <script>
-    function calculateTotal(){
+    function calculateTotal(extraId){
         var bestelForm = document.forms["bestelForm"]; 
 
         var breadPrices = <?php echo json_encode($breadPrices); ?>;
@@ -86,7 +126,7 @@
             return breadPrice;
         }
 
-        console.log(getBreadPrice());
+        //console.log(getBreadPrice());
 
         function getToppingPrice(){
             var bestelForm = document.forms["bestelForm"]; 
@@ -99,28 +139,29 @@
             return toppingPrice;
         }
 
-        console.log(getToppingPrice());
+        //console.log(getToppingPrice());
 
         function getExtraPrice(){
             var bestelForm = document.forms["bestelForm"]; 
-            var selectedExtra = bestelForm.elements["extra"]; 
-
-            extraPrice = parseFloat(extraPrices[selectedExtra.value]); 
+            var selectedExtra = bestelForm.elements["extra"+extraId]; 
+            
+            var extraPrice = parseFloat(extraPrices[selectedExtra.value]);
+            console.log(extraPrice);
             if (!extraPrice) {
                 extraPrice = 0;
             }
             return extraPrice;
         } 
 
-        console.log(getExtraPrice());
+        //console.log(getExtraPrice());
 
         function getQuantity(){
             var bestelForm = document.forms["bestelForm"]; 
             var selectedQuantity = bestelForm.elements["amount"].value; 
-
+            
             return selectedQuantity; 
         }
-        console.log(getQuantity()); 
+        //console.log(getQuantity()); 
 
         function getTotal(){
             var sandwichPrice = getQuantity() * (getBreadPrice() + getToppingPrice() + getExtraPrice());
@@ -129,7 +170,7 @@
             document.getElementById('totalPrice').innerHTML = "Totale Prijs: &euro;"+sandwichPrice;
             return sandwichPrice;
         }
-        console.log(getTotal()); 
+        console.log('Total price: ' + getTotal()); 
     }
 
     // function getExtraPrice(){

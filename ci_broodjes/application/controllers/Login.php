@@ -74,6 +74,7 @@ class Login extends CI_Controller {
         }
     }
 
+    // activated when clicked on "Wachtwoord vergeten"
     function forgot_password_link()
     {
         $data = array (
@@ -83,6 +84,7 @@ class Login extends CI_Controller {
         $this->load->view('login/reset_pw_index', $data);
     }
 
+    // called when the email has been submitted to reset the password
     function reset_password()
     {
         $this->form_validation->set_rules('veri_email', 'e-mail adres', 'trim|required|min_length[6]|max_length[50]|valid_email');
@@ -104,6 +106,7 @@ class Login extends CI_Controller {
         }
     }
 
+    // called from the email link to reset the password
     function reset_password_action($email)
     {
         $data = array (

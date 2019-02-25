@@ -35,7 +35,15 @@
                                             <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
                                                 <p>
                                                     <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
-                                                        <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
+                                                        <strong><?php echo $option_name; ?>:</strong> 
+                                                            <?php foreach ($option_value as $option){
+                                                                echo $option;
+
+                                                                if(count($option_value) > 1){
+                                                                    echo ", "; 
+                                                                }
+                                                            } ?>
+                                                        <br>
                                                     <?php endforeach; ?>
                                                 </p>
                                             <?php endif; ?>

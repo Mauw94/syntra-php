@@ -33,11 +33,19 @@ require_once(APPPATH . 'controllers/Auth.php');
                 // Fetch specific product by ID
                 $bread = $this->bestel_model->getBreads($this->input->post('bread'));
                 $topping = $this->bestel_model->getToppings($this->input->post('topping'));
-                $extra = $this->bestel_model->getExtras($this->input->post('extra'));
+                $extra_ids = $_POST['extra']; 
+                $extra_total_price = 0;
+
+                foreach($extra_ids as $extra_id){
+                    $extra_array = $this->bestel_model->getExtras($extra_id); 
+                    $extra_names[] = $extra_array['xtrName']; 
+                    $extra_total_price += $extra_array['xtrPrice']; 
+                }
             
                 // Add product to the cart
-                $price = $bread['brdPrice'] + $topping['topPrice'] + $extra['xtrPrice'];
+                $price = $bread['brdPrice'] + $topping['topPrice'] + $extra_total_price;
                 $name = $bread['brdName']. " ". $topping['topName']; 
+                $note[] = $this->input->post('note'); 
 
                 $data = array(
                     'id'    => uniqid(),
@@ -46,10 +54,22 @@ require_once(APPPATH . 'controllers/Auth.php');
                     'qty'    => $this->input->post('amount'),
                     'price'    => $price,
                     'name'    => trim($name),
-                    'options' => array('opmerking' => $this->input->post('note'), 'extra' => $extra['xtrName'])
+                    'options' => array('opmerking' => $note, 'extra' => $extra_names)
                 );
 
                 $this->cart->insert($data);
+
+                // If total items in cart > 10, delete last inserted item:
+                if($this->cart->total_items() > 10){
+                    // Get rowid of last inserted item:
+                    $last_item = array_slice($this->cart->contents(TRUE), 0, 1);        
+                    foreach($last_item as $last_rowid=>$value){
+                        // Delete item:
+                        $remove = $this->cart->remove($last_rowid);
+                    }  
+                    // Send message:
+                    $this->session->set_flashdata('message', "Je kunt maximaal 10 broodjes bestellen. Pas je bestelling aan.");
+                }
  
 				redirect('bestel/cart');
 			}
