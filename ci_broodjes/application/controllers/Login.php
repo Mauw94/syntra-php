@@ -71,4 +71,9 @@ class Login extends CI_Controller {
             redirect('login');
         }
     }
+
+    function user_forgot_password()
+    {
+        
+    }
 }

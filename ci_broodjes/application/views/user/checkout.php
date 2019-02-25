@@ -3,7 +3,7 @@
 ?>
 
 <div class="container">
-<div class="cart-background">
+<div class="cart-background container">
         <?php echo form_open('checkout/mollie'); ?>
 
         <div class="checkout-message">
@@ -20,33 +20,50 @@
                 <?php echo form_hidden('bread_id', $items['bread_id']); ?>
                 <?php echo form_hidden('topping_id', $items['topping_id']); ?>
 
-                <div class="checkout-item">
-                        <h1><?php echo $items['name']; ?></h1>
-                        <h1 class="mb-4">&euro;<?php echo $this->cart->format_number($items['price']); ?></h1>
+                <div class="container">
+                    <div class="checkout-item col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1><?php echo $items['name']; ?></h1>
+                                <h1 class="mb-4">&euro;<?php echo $this->cart->format_number($items['price']); ?></h1>
+                            </div>
 
-                        <div class="checkout-options">
-                            <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
-                                <p>
-                                    <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
-                                        <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
-                                    <?php endforeach; ?>
-                                </p>
-                            <?php endif; ?>
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-sm-9">
+                                        <div class="checkout-options">
+                                            <?php if ($this->cart->has_options($items['rowid']) == TRUE): ?>
+                                                <p>
+                                                    <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
+                                                        <strong><?php echo $option_name; ?>:</strong> <?php echo $option_value; ?><br />
+                                                    <?php endforeach; ?>
+                                                </p>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="checkout-prices">
+                                            <p>
+                                                <strong>aantal:</strong> <?php echo $items['qty']; ?><br>
+                                                <strong>subtotaal:</strong> &euro;<?php echo $this->cart->format_number($items['subtotal']); ?>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                          
+                            
                         </div>
-                        
-                        <div class="checkout-float">
-                            <p>
-                                <strong>aantal:</strong> <?php echo $items['qty']; ?><br>
-                                <strong>subtotaal:</strong> &euro;<?php echo $this->cart->format_number($items['subtotal']); ?>
-                            </p>
-                        </div>
-               </div>
+                    </div>
+                </div>
         <?php $i++; ?>
         <?php endforeach; ?>
 
-        <div class="cart-total total-right">
+        <div class="col-sm-12"><div class="row"><div class="col-sm-8"></div><div class="col-sm-4">
+        <div class="total-right">
             <p>Totaal: &euro;<?php echo $this->cart->format_number($this->cart->total()); ?></p>
         </div>
+        </div></div></div>
 
         <div class="checkout-date">
             <h5>Voor wanneer wil je de broodjes bestellen?</h5>

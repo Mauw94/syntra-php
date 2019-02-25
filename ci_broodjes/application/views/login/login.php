@@ -37,8 +37,12 @@
         <input type="submit" value="Login" class="login-btn login-login">
     <form>
 
+    <a href="<?php echo site_url('');?>">
+                <input type="button" class="login-btn login-register" value="Wachtwoord vergeten?">
+    </a>
+
     <a href="<?php echo site_url('register');?>">
-                <input type="button" class="login-btn login-register" value="registreren">
+                <input type="button" class="login-btn login-register" value="Registreren">
     </a>
 
 </div>
