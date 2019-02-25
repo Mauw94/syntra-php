@@ -43,6 +43,8 @@ class Login extends CI_Controller {
                 case 'logged_in':
                     redirect('bestel');
                     break;
+                case 'admin_logged_in':
+                    redirect('user/user_details');
                 case 'incorrect_password':
                     $this->data['failed'] = 'Password is incorrect.';
                     $this->load->view('templates/header_login');

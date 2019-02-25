@@ -7,6 +7,6 @@ class Auth extends CI_Controller {
         parent::__construct();
         if (!$this->session->userdata('user')['logged_in'] == 1) {
             redirect('login');
-        }
+        }            
     }
 }

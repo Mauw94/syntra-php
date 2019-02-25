@@ -1,5 +1,5 @@
 <?php
-require_once(APPPATH . 'controllers/auth.php');
+require_once(APPPATH . 'controllers/Auth.php');
 
 class User extends Auth {
 

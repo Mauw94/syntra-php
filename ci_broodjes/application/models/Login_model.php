@@ -25,7 +25,11 @@ class Login_model extends CI_Model {
                         'admin' => $row->usrAdmin                  
                     );
                     $this->set_session($session_data);
-                    return 'logged_in';
+                    if ($row->usrAdmin == 1) {
+                        return 'admin_logged_in';
+                    } else {
+                        return 'logged_in';
+                    }
                 } else {
                     return 'incorrect_password';
                 }
