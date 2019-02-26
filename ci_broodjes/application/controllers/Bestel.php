@@ -107,8 +107,45 @@ require_once(APPPATH . 'controllers/Auth.php');
         }    
 
         public function cart(){
+            // Get users favourite bread and topping:
+            $user_id = $this->session->userdata('user')['user_id'];
+
+            $data['favourite_bread'] = $this->bestel_model->getFavouriteBread($user_id);
+            $data['favourite_topping'] = $this->bestel_model->getFavouriteTopping($user_id); 
+
             $this->load->view('templates/header_user');
-            $this->load->view('user/cart');
+            $this->load->view('user/cart', $data);
+            $this->load->view('templates/footer_yvette');
+        }
+
+        function deleteFavourite(){
+            $user_id = intval($this->session->userdata('user')['user_id']);
+
+            $delete = $this->bestel_model->deleteFavouriteSandwich($user_id); 
+            echo $delete?'ok':'err';
+        }
+
+        function updateFavourite(){
+            $user_id = intval($this->session->userdata('user')['user_id']);
+            $bread_id = intval($this->input->get('bread_id'));
+            $topping_id = intval($this->input->get('topping_id'));
+
+            $update = $this->bestel_model->updateFavouriteSandwich($user_id, $bread_id, $topping_id); 
+            echo $update?'ok':'err';
+        }
+
+        public function favourite(){
+            // Get users favourite bread and topping:
+            $user_id = $this->session->userdata('user')['user_id'];
+
+            $favourite_bread_id = $this->bestel_model->getFavouriteBread($user_id);
+            $favourite_topping_id = $this->bestel_model->getFavouriteTopping($user_id); 
+
+            $data['favourite_bread'] = $this->bestel_model->getBreads($favourite_bread_id);
+            $data['favourite_topping'] = $this->bestel_model->getToppings($favourite_topping_id); 
+
+            $this->load->view('templates/header_user');
+            $this->load->view('user/favourite', $data);
             $this->load->view('templates/footer_yvette');
         }
     }
