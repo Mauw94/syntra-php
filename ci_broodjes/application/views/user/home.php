@@ -51,7 +51,7 @@
             <div>
                 <?php foreach($extras as $extra) : ?>
                     <label class="menu-check"><?php echo '. '.$extra['xtrName'] . " - &euro;" . $extra['xtrPrice'] .'<br>'; ?>
-                        <input id="extra" name="extra<?php echo $extra['id']; ?>" type="checkbox" value="<?php echo $extra['id']; ?>" onclick="calculateTotal(<?php echo $extra['id']; ?>)">
+                        <input id="extra<?php echo $extra['id'];?>" name="extra<?php echo $extra['id']; ?>" type="checkbox" value="<?php echo $extra['id']; ?>" onchange="calculateTotal(<?php echo $extra['id']; ?>)">
                         <span class="checkmark"></span>
                     </label>
                 <?php endforeach; ?>
@@ -107,6 +107,8 @@
         </div> -->
 
 <script>
+
+    var price = 0;
     function calculateTotal(extraId){
         var bestelForm = document.forms["bestelForm"]; 
 
@@ -126,31 +128,51 @@
             return breadPrice;
         }
 
-        //console.log(getBreadPrice());
+        console.log(getBreadPrice());
 
         function getToppingPrice(){
             var bestelForm = document.forms["bestelForm"]; 
-            var selectedTopping = bestelForm.elements["topping"]; 
+            var selectedTopping = bestelForm.elements["topping"];        
 
             toppingPrice = parseFloat(toppingPrices[selectedTopping.value]); 
+
             if (!toppingPrice) {
                 toppingPrice = 0;
             }
             return toppingPrice;
         }
 
-        //console.log(getToppingPrice());
+        console.log(getToppingPrice());
 
-        function getExtraPrice(){
+        function getExtraPrice() {
             var bestelForm = document.forms["bestelForm"]; 
-            var selectedExtra = bestelForm.elements["extra"+extraId]; 
+            var selectedExtra = bestelForm.elements["extra"+extraId];
+
+            if (selectedExtra) {
+                if (selectedExtra.checked) {
+                    var extraPrice = parseFloat(extraPrices[selectedExtra.value]);
             
-            var extraPrice = parseFloat(extraPrices[selectedExtra.value]);
-            console.log(extraPrice);
-            if (!extraPrice) {
-                extraPrice = 0;
+                    price = price + extraPrice;
+
+                    if (!price) price = 0;
+                    if (!extraPrice) {
+                        extraPrice = 0;
+                    }            
+                } else {
+                    var extraPrice = parseFloat(extraPrices[selectedExtra.value]);
+                    
+                    price = price - extraPrice;
+                    
+                    if (!price) price = 0;
+                    if (!extraPrice) {
+                        extraPrice = 0;
+                    }            
+
+                    selectedExtra.checked = false;                
+                    return price;
+                }
             }
-            return extraPrice;
+            return price;
         } 
 
         //console.log(getExtraPrice());

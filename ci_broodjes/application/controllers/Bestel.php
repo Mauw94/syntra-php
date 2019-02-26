@@ -33,7 +33,12 @@ require_once(APPPATH . 'controllers/Auth.php');
                 // Fetch specific product by ID
                 $bread = $this->bestel_model->getBreads($this->input->post('bread'));
                 $topping = $this->bestel_model->getToppings($this->input->post('topping'));
-                $extra_ids = $_POST['extra']; 
+                $i = 0;
+                foreach ($data['extras'] as $ext) {                    
+                    $extra_ids[] = $this->input->post('extra'.$ext['id']); 
+                    $i++;
+                }
+                echo '<br> extra ids'; print_r($extra_ids);
                 $extra_total_price = 0;
 
                 foreach($extra_ids as $extra_id){
