@@ -51,4 +51,31 @@
             
             return !empty($result)?$result:false;
         }
+
+        // Favourite Sandwich:
+        function getFavouriteBread($user_id){
+            $sql = "SELECT bread_id FROM users WHERE id=$user_id"; 
+            $query = $this->db->query($sql); 
+            $row = $query->row(); 
+            return $row->bread_id; 
+        }
+
+        function getFavouriteTopping($user_id){
+            $sql = "SELECT topping_id FROM users WHERE id=$user_id"; 
+            $query = $this->db->query($sql); 
+            $row = $query->row(); 
+            return $row->topping_id; 
+        }
+
+        public function deleteFavouriteSandwich($user_id){
+            $sql = "UPDATE users SET bread_id = '', topping_id = '' WHERE id=$user_id"; 
+            $result = $this->db->query($sql);
+            return $result;
+        }
+
+        function updateFavouriteSandwich($user_id, $bread_id, $topping_id){
+            $sql = "UPDATE users SET bread_id=$bread_id, topping_id=$topping_id WHERE id=$user_id"; 
+            $result = $this->db->query($sql); 
+            return $result;
+        }
     }

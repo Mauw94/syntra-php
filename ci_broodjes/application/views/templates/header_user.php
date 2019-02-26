@@ -24,7 +24,7 @@
     </div>
     <div class="container-fluid">
         <div class="favorites" class="col-xs-2">
-            <a href="<?php echo base_url(); ?>menus/favorites">
+            <a href="<?php echo base_url(); ?>bestel/favourite">
                 <div class="cirkel-white">
                     <div class="favorite-heart">
                         <i class="fas fa-heart fa-2x"></i>

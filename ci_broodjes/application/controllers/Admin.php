@@ -13,5 +13,6 @@ class Admin extends CI_Controller {
     function send_bulk_mail()
     {
         $this->Admin_model->send_bulk_mail();
+        redirect('user');
     }
 }

@@ -1,3 +1,21 @@
+<?php
+    foreach($this->cart->contents() as $getBreadId){
+        $rowid = $getBreadId['rowid']; 
+        $bread_id = $getBreadId['bread_id']; 
+        $rowIdBread[$rowid] = $bread_id; 
+    }
+    foreach($this->cart->contents() as $getToppingId){
+        $rowid = $getToppingId['rowid']; 
+        $topping_id = $getToppingId['topping_id']; 
+        $rowIdTopping[$rowid] = $topping_id; 
+    }
+?>
+
+<?php
+        $user_id = $this->session->userdata('user')['user_id'];
+        echo $user_id;
+?>
+
 <div class="container">
 <div class="cart-background container">
         <?php echo form_open('#', 'id="cartForm"'); ?>
@@ -54,8 +72,11 @@
                                                         <input type="number" class="cart-qty" name="amount" id="amount<?php echo $items['rowid'];?>" value="<?php echo $items['qty']; ?>" onchange="updateQuantity('<?php echo $items['rowid'];?>', '<?php echo $this->cart->format_number($items['subtotal']); ?>')">
 
                                                         <div class="cart-fav">
-                                                                <i class="fas fa-heart"></i>
-                                                                <!-- of <i class="far fa-heart"></i> -->
+                                                                <?php if($items['bread_id'] === $favourite_bread && $items['topping_id'] === $favourite_topping){ ?>
+                                                                        <i id="<?php echo $items['rowid']; ?>" class="fas fa-heart" onclick="setFavourite('<?php echo $items['rowid'];?>')"></i>
+                                                                <?php } else { ?>
+                                                                        <i id="<?php echo $items['rowid']; ?>" class="far fa-heart" onclick="setFavourite('<?php echo $items['rowid'];?>')"></i>
+                                                                <?php } ?>
                                                         </div>
                                                 </div>
                                         </div>
@@ -91,4 +112,54 @@ function updateQuantity(rowid, subtotal){
 	});
         return total;
 }
+
+/* Mark sandwich as (not) favourite */
+function setFavourite(rowid){
+        // var rowid = "b2cc42f6414c92abaa69c56b342e686d"; 
+        var rowIdBread = <?php echo json_encode($rowIdBread); ?>;
+        var rowIdTopping = <?php echo json_encode($rowIdTopping); ?>;
+
+        var icon = document.getElementById(rowid).className;
+        var set = icon.includes("fas fa-heart");
+
+        // if(set){
+        //         document.getElementById(rowid).className = "far fa-heart";
+        // } else {
+        //         document.getElementById(rowid).className = "fas fa-heart";
+        // } 
+
+        if(set){
+                document.getElementById(rowid).className = "far fa-heart"; 
+                // Delete $favourite_bread and $favourite_topping:
+                $.get("<?php echo base_url('bestel/deleteFavourite');?>", function(resp){
+                        //location.reload();
+                        console.log(resp);
+
+                        if(resp == 'ok'){
+                                location.reload();
+                        }else{
+                                // location.reload();
+                                alert('Kan favoriet niet verwijderen. Probeer overnieuw.');
+                        }
+	        });
+        } else {
+                document.getElementById(rowid).className = "fas fa-heart";
+                // Set $favourite_bread and $favourite_topping:
+                var bread_id = rowIdBread[rowid];
+                var topping_id = rowIdTopping[rowid]; 
+
+                $.get("<?php echo base_url('bestel/updateFavourite');?>", {bread_id:bread_id, topping_id:topping_id}, function(resp){
+                        // location.reload();
+                        console.log(resp); 
+                        
+                        if(resp == 'ok'){
+                                location.reload();
+                        }else{
+                                // location.reload();
+                                alert('Kan favoriet niet toevoegen. Probeer overnieuw.');
+                        }
+	        });
+        }
+}
+// console.log(setFavourite()); 
 </script>
