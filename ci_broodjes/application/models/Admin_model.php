@@ -12,7 +12,6 @@ class Admin_model extends CI_Model {
     function send_bulk_mail()
     {   
         $today = date("Y/m/d"); 
-        echo $today; 
         $this->db->select('*, orders.id, orders.ordDateDelivery');
         $this->db->from('orders');
         $this->db->where('orders.ordDateDelivery', $today);
