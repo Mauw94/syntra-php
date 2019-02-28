@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Header met bestel en cart button</title>
+    <title>Syntra Catering</title>
   </head>
   <body>
     <div class="container-fluid">
@@ -22,24 +22,35 @@
   </div>
              
   <div class="container-fluid">
-            <div class="users" class="col-xs-2">
-            <div class="btn-group">
-                <button type="button" class="cirkel" style="border:none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="user-man">
-                    <i class="fas fa-user fa-2x"></i>
-                    </div>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right user-dropdown">
-                    <div class="user-dropdown">
-                        <a class="dropdown-item" href="<?php echo base_url(); ?>bestel">Terug</a>
-                        <a class="dropdown-item" href="<?php echo base_url().'orders_sandwiches/adminOrdersSandwiches';?>">Overzicht</a> 
-                        <a class="dropdown-item" href="<?php echo base_url().'admin/get_todays_orders';?>">Bestellingen vandaag</a> 
-                        <div class="dropdown-divider"></div>      
-                        <a class="dropdown-item" href="<?php echo base_url(); ?>login/logout_user">Uitloggen</a>
-                    </div>
-                </div>
-                </div>
-</div>
+    <div class="users" class="col-xs-2">
+      <div class="btn-group">
+          <button type="button" class="cirkel" style="border:none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="user-man">
+              <i class="fas fa-user fa-2x"></i>
+            </div>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right user-dropdown">
+            <div class="user-dropdown">
+              <a class="dropdown-item" href="<?php echo base_url(); ?>bestel">Terug naar bestelpagina</a>
+              <a class="dropdown-item" href="<?php echo base_url().'orders_sandwiches/adminOrdersSandwiches';?>">Overzicht</a> 
+              <a class="dropdown-item" href="<?php echo base_url().'admin/get_todays_orders';?>">Bestellingen vandaag</a> 
+              <div class="dropdown-divider"></div>   
+              <a class="dropdown-item" href="<?php echo base_url().'admin/send_bulk_mail';?>">Verstuur 'broodjes klaar' e-mail</a>            
+              <a class="dropdown-item" href="<?php echo base_url(); ?>login/logout_user">Uitloggen</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
 
-  
-  </body>
+  <div class="container-fluid">
+    <div class="favorites" class="col-xs-2">
+      <a href="<?php echo base_url(); ?>orders_sandwiches/adminOrdersSandwiches">
+        <div class="cirkel">
+          <div class="admin-calendar">
+            <i class="fas fa-calendar-day"></i>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>      

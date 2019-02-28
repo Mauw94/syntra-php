@@ -22,18 +22,22 @@
                             <label>&nbspWijzig besteldatum:&nbsp</label>
                         </div>
                         <div class="col-md-3">
-                            <input type="date" name="datedelivery" value="<?PHP echo $dateDelivery ?>">
+                            <input class="menu-input" type="date" name="datedelivery" value="<?PHP echo $dateDelivery ?>">
                         </div>
                         <div class="col-md-2">
                             <label>Selecteer orders:&nbsp</label>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="zoeknaam" placeholder="(deel) naam" value="<?PHP echo $searchName ?>">
+                            <div class="form-group">
+                                     <input class="menu-input" type="text" name="zoeknaam" placeholder="Zoek op naam" value="<?PHP echo $searchName ?>">
+                                 </div>
                             <br>
-                            <input type="text" name="zoekmail" placeholder="(deel) email" value="<?PHP echo $searchMail ?>">
+                            <div class="form-group">
+                                     <input class="menu-input" type="email" name="zoekmail" placeholder="Zoek op email" value="<?PHP echo $searchMail ?>">
+                                 </div>
                         </div>
                     </div>
-                    <input type="submit" value="Verzend" name="verzenden"></td>
+                    <input type="submit" value="Bekijken" class="btn-left sm-admbtn-white"></td>
                 </form>
             </div>
         </div>
@@ -46,7 +50,12 @@
 
         <?PHP
         if(empty($adminbestellingen_data)){
-            echo "Voor deze dag staan er geen bestellingen";
+            ?>
+
+            <div class="alert alert-info" role="alert">
+                Geen bestellingen gevonden
+            </div>
+            <?php
         }
         //    print_r($adminbestellingen_data);
         //    echo "<br><br>";
@@ -136,7 +145,7 @@
                             <div class="col-md-6">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <button id="idord-<?PHP echo $keyOrders ?>" class="button" onclick="hideOrderDetails(this)">Details</button>
+                                        <input type="button" class="btn-left sm-admbtn-white" id="idord-<?PHP echo $keyOrders ?>" class="button" onclick="hideOrderDetails(this)" value="Details">
                                     </div>
                                     <div class="col-xs-3">
                                         <?PHP

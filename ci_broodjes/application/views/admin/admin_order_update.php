@@ -26,7 +26,7 @@
                 <div class="col-sm-12">
                     <i class="fas fa-smile"></i>
                     <h1 class="p-2">
-                        Overzicht voor <?php echo date('Y/m/d'); ?>
+                        Overzicht voor <?php echo date('Y/m/d'); ?>                        
                     </h1>
                 </div>
             </div>
