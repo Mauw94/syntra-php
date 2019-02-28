@@ -1,15 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css">
-    <title>Hello, world!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url(); ?>/assets/css/style.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Header met bestel en cart button</title>
   </head>
   <body>
     <div class="container-fluid">
@@ -20,20 +20,26 @@
        
     </div>
   </div>
-  
-            
-        <div class="container-fluid">
+             
+  <div class="container-fluid">
             <div class="users" class="col-xs-2">
-              <div class="cirkel">
-                <div class="user-man">
+            <div class="btn-group">
+                <button type="button" class="cirkel" style="border:none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="user-man">
                     <i class="fas fa-user fa-2x"></i>
-              </div>
-            </div>
+                    </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right user-dropdown">
+                    <div class="user-dropdown">
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>bestel">Terug</a>
+                        <a class="dropdown-item" href="<?php echo base_url().'orders_sandwiches/adminOrdersSandwiches';?>">Overzicht</a> 
+                        <a class="dropdown-item" href="<?php echo base_url().'admin/get_todays_orders';?>">Bestellingen vandaag</a> 
+                        <div class="dropdown-divider"></div>      
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>login/logout_user">Uitloggen</a>
+                    </div>
                 </div>
-              </div>
-       
-     
-
+                </div>
+</div>
 
   
   </body>

@@ -3,15 +3,15 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Admin_model extends CI_Model {
-    
+
     function __construct()
     {
         parent::__construct();
     }
 
     function send_bulk_mail()
-    {   
-        $today = date("Y/m/d"); 
+    {               
+        $today = date("Y/m/d");
         $this->db->select('*, orders.id, orders.ordDateDelivery');
         $this->db->from('orders');
         $this->db->where('orders.ordDateDelivery', $today);
@@ -54,5 +54,43 @@ class Admin_model extends CI_Model {
         } else {
             show_error($this->email->print_debugger());
         }
+    }
+
+    function get_todays_orders()
+    {          
+        $today = date("Y/m/d");
+        $this->db->select('*, orders.id, orders.ordDateDelivery');
+        $this->db->from('orders');
+        $this->db->where('orders.ordDateDelivery', $today);
+        $this->db->join('users', 'users.id = orders.user_id');
+        $this->db->join('statussen', 'statussen.id = orders.status_id');
+        $query = $this->db->get();
+        $result = $query->result_array();
+        return $result;
+    }
+
+    function get_statussen()
+    {
+        $this->db->select('*');
+        $this->db->from('statussen');
+        $query = $this->db->get();
+        $result = $query->result_array();
+        return $result;
+    }
+
+    function update_order()
+    {
+        $statusid = $this->input->post('statusId');
+        $orderid = $this->input->post('orderId');
+
+        echo $statusid . '<br>';
+        // echo $orderid;
+        $sql = "UPDATE orders SET status_id = '" . $statusid . "' WHERE id = '" . $orderid . "' LIMIT 1";
+        $this->db->query($sql);
+            if ($this->db->affected_rows() === 1) {
+                return true;
+            } else {
+                return false;
+            }
     }
 }
