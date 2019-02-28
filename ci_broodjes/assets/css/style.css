@@ -1,31 +1,131 @@
-/* Logo T2 Campus User ingelogd */
-.logo{
+/* Logo loggedin */
+
+.logo {
     margin-top: 10px;
-    width: 54px;
+    width: 50px;
     height: auto;
     margin-left: 10px;
-}
-/* Logo T2 Campus User Niet ingelogd */
-.x-logo{
+  }
+  
+  /* Logo notloggedin */
+  
+  .x-logo {
     margin-top: 10px;
     margin-bottom: -50px;
-    width: 150px;
+    width: 100px;
     height: auto;
-}
-/* Bootstrap Container fluid */
-.container-fluid{
-    margin-top:10px;
-    margin-left: 10px;
-}
-/* Hamburger menu */
-.menu{
-    color: #ffffff;
-    margin-left: 15px;
+  }
+  
+  /* Body */
+  
+  .container-fluid {
     margin-top: 10px;
-
-}
-/* Body */
-body{
+    margin-left: 10px;
+  }
+  
+  /* Small green button */
+  
+  .sm-btn-green {
+    border: 0px solid;
+    width: 116px !important;
+    height: auto;
+    background-color: #b6d02c;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    display: block;
+  }
+  
+  .sm-btn-green:hover {
+    cursor: pointer;
+  }
+  
+  /* Small white button */
+  
+  .sm-btn-white {
+    border: 0px solid;
+    width: 180px !important;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    color: #b6d02c;
+    display: block;
+  }
+  
+  .sm-btn-white:hover {
+    cursor: pointer;
+  }
+  
+  /* Left float button */
+  
+  .btn-left {
+    border: 0px solid;
+    margin: 12px 6px;
+    height: 46px;
+    border-radius: 23px;
+    padding: auto;
+    display: block;
+    float: left;
+  }
+  
+  /* Right float button */
+  
+  .btn-right {
+    border: 0px solid;
+    margin: 12px 6px;
+    height: 46px;
+    border-radius: 23px;
+    padding: auto;
+    display: block;
+    float: right;
+  }
+  
+  /* Big green button */
+  
+  .big-btn-green {
+    border: 0px solid;
+    width: 180px !important;
+    height: auto;
+    background-color: #b6d02c;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    color: white;
+    display: block;
+  }
+  
+  .big-btn-green:hover {
+    cursor: pointer;
+  }
+  
+  /* Big white button */
+  
+  .big-btn-white {
+    border: 0px solid;
+    width: 180px !important;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px;
+    color: #b6d02c;
+    display: block;
+  }
+  
+  .big-btn-white:hover {
+    cursor: pointer;
+  }
+  
+  /* Body */
+  
+  body {
     background-image: url("http://wulv.be/T2/background.jpg");
     /* background-image:  url("../img/background-lighter-01.jpg"); */
     background-repeat: no-repeat;
@@ -35,662 +135,671 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-}
-/* Shopping Cart */
-.shopping-cart {
-    margin-top: 0px ;
+  }
+  
+  /* Shopping cart (icon) */
+  
+  .shopping-cart {
+    margin-top: 0px;
     margin-right: 7px;
     float: right;
     color: white;
     font-size: 32px;
-}
-
-.shopping-carts{
+  }
+  
+  .shopping-carts {
     color: #ffffff;
     float: right;
     margin-top: -50px;
     margin-right: 220px;
-}
-/* ICONS */
-/* User_favorites */
-.favorites{
+  }
+  
+  /* Favorites (icon) */
+  
+  .favorites {
     color: #B6D02C;
     float: right;
     margin-top: -50px;
     margin-right: 70px;
-}
-.favorite-heart {
-    margin-top: 10px ;
+  }
+  
+  .favorite-heart {
+    margin-top: 10px;
     margin-right: 10px;
     float: right;
     color: #B6D02C;
-}
-/* User_man */
-.users{
+  }
+  
+  /* Profile (icon) */
+  
+  .users {
     color: #ffffff;
     float: right;
     margin-top: -50px;
-}
-.user-man {
-    margin-top: 10px ;
+  }
+  
+  .user-man {
+    margin-top: 10px;
     margin-right: 10px;
     float: right;
     color: white;
-}
-/* Cirkel */
-.cirkel {
+  }
+  
+  /* Circle (icon) */
+  
+  .cirkel {
     background-color: #B6D02C;
     height: 50px;
     width: 50px;
-    -moz-border-radius:50px;
+    -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
   }
-
-.cirkel-white {
+  
+  .cirkel-white {
     background-color: #ffffff;
     height: 50px;
     width: 50px;
-    -moz-border-radius:50px;
+    -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
   }
-
-.cirkel-red {
+  
+  .cirkel-red {
     background-color: #D10050;
     height: 25px;
     width: 25px;
-    -moz-border-radius:50px;
+    -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
   }
-/* User_count */
+  
+  /* Circle count (icon) */
+  
   .count {
     color: #ffffff;
     float: right;
     margin-top: -25px;
     margin-right: 255px;
-}
-/* p text */
-p { text-align: center }
-/* User_back */
-.back-arrow {
-    margin-top: 10px ;
+  }
+  
+  /* Back arrow (icon) */
+  
+  .back-arrow {
+    margin-top: 10px;
     margin-left: 10px;
     float: left;
-}
-.setback{
+  }
+  
+  .setback {
     color: #B6D02C;
     float: left;
     margin-top: -50px;
     margin-left: 120px;
-}
-/* User_order */
-.order-plus {
-    margin-top: 10px ;
+  }
+  
+  /* Orders (icon) */
+  
+  .order-plus {
+    margin-top: 10px;
     margin-right: 10px;
     float: right;
     color: white;
-}
-.orders-plus{
+  }
+  
+  .orders-plus {
     color: #ffffff;
     float: right;
     margin-right: 145px;
     margin-top: -50px;
-}
-/* ICONS -------------- */
-/* Favorites */
-.fav {
+  }
+  
+  /* P tag line */
+  
+  p {
+    text-align: center
+  }
+  
+  /* Favorites */
+  
+  .fav {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 20px;
-}
-
-.fav h1{
+  }
+  
+  .fav h1 {
     color: #69472c;
     text-align: center;
     padding: 20px;
-}
-
-.fav-list{
+  }
+  
+  .fav-list {
     margin: 10px 70px 10px 120px;
     color: #69472c;
-}
-
-/* Menu Broodjes */
-.menu-container {
-    width: 97%; 
+  }
+  
+  /* Menu (bestellingen) */
+  
+  .menu-container {
+    width: 97%;
     margin: 70px auto 170px auto;
     font-family: 'Raleway', sans-serif;
-}
-
-.menu-title {
+  }
+  
+  .menu-title {
     text-align: center;
     color: white;
     font-family: 'Raleway', sans-serif;
     padding: 20px;
-}
-
-#totalPrice {
+  }
+  
+  #totalPrice {
     color: white;
-}
-
-.menu-input {
+  }
+  
+  .menu-input {
     border: 0px solid;
-
     width: 99%;
     height: 46px;
     background-color: white;
     border-radius: 23px;
-
     padding: 0px 17px;
-
     display: block;
     margin: 10px auto;
-}
-
-.menu-input-text {
+  }
+  
+  .menu-input-text {
     border: 0px solid;
-
     width: 99%;
     height: 92px;
     background-color: white;
     border-radius: 23px;
-
     padding: 10px 17px;
-
     display: block;
     margin: 10px auto;
-}
-
-.menu-desc {
-    color: rgb(136, 136, 136); 
-}
-
-.menu-amount {
+  }
+  
+  .menu-desc {
+    color: rgb(136, 136, 136);
+  }
+  
+  .menu-amount {
     border: 0px solid;
-
     width: 80px;
     height: 46px;
     background-color: #b6d02c;
     border-radius: 23px;
-
     padding: 0px 25px;
     color: white;
-
     display: block;
     margin: 40px 0px 0px -60px;
     float: left;
-}
-
-.menu-submit {
+  }
+  
+  .menu-submit {
     border: 0px solid;
-
     width: 200px;
     height: 46px;
     background-color: #b6d02c;
     border-radius: 23px;
-
     padding: 0px 13px;
     color: white;
-
     display: block;
     margin: 40px 10px 0px 0px;
     float: right;
-}
-
-.menu-submit:hover {
+  }
+  
+  .menu-submit:hover {
     cursor: pointer;
-}
-
-.menu-price {
+  }
+  
+  .menu-price {
     border-top: 1px solid white;
     width: 265px;
     height: 46px;
-
     padding: 10px;
     font-size: 20px;
-
     display: block;
     margin: -20px auto 10px auto;
-}
-
-.form-group label {
-    padding-left: 22px;
-    color: white;
-    font-weight: 500;
-}
-
-/* Custom Checkbox */
-    .menu-check {
-        display: block;
-        position: relative;
-        padding-left: 50px;
-        margin-bottom: 12px;
-        margin-left: 22px;
-        cursor: pointer;
-        /* font-size: 22px; */
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-    }
-    
-    /* Hide the browser's default checkbox */
-    .menu-check input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
-    
-    /* Create a custom checkbox */
-    .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: white;
-        border-radius: 50%;
-    }
-    
-    /* On mouse-over, add a grey background color */
-    .menu-check:hover input ~ .checkmark {
-        background-color: #ccc;
-    }
-    
-    /* When the checkbox is checked, add a blue background */
-    .menu-check input:checked ~ .checkmark {
-        background-color: #b6d02c;
-    }
-    
-    /* Create the checkmark/indicator (hidden when not checked) */
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-    
-    /* Show the checkmark when checked */
-    /* .menu-check input:checked ~ .checkmark:after {
-        display: block;
-    } */
-    
-    /* Style the checkmark/indicator */
-    /* .menu-check .checkmark:after {
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-    } */
-
-
-/* Dropdown eventueel */
-.menu-dropdown a {
+  }
+  
+  /* Custom Checkbox */
+  
+  .menu-check {
+    display: block;
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 12px;
+    margin-left: 22px;
+    cursor: pointer;
+    /* font-size: 22px; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  
+  .menu-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: white;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  
+  .menu-check:hover input~.checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  
+  .menu-check input:checked~.checkmark {
+    background-color: #b6d02c;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  
+  /* .menu-check input:checked ~ .checkmark:after {
+          display: block;
+      } */
+  
+  /* Style the checkmark/indicator */
+  
+  /* .menu-check .checkmark:after {
+          left: 9px;
+          top: 5px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+      } */
+  
+  /* Dropdowns */
+  
+  .menu-dropdown a {
     display: inline-block;
     text-decoration: none;
     color: black;
     text-align: left;
     margin: 10.5px 0px 0px 5px;
-}
-
-.menu-dropdown div {
-    width: 100%; 
+  }
+  
+  .menu-dropdown div {
+    width: 100%;
     border: 0px solid;
     margin-left: -22px;
     padding-left: 39px;
-}
-
-.menu-drop-input {
+  }
+  
+  .menu-drop-input {
     color: black;
-}
-
-/* Cart */
-.cart-background {
+  }
+  
+  /* Forms */
+  
+  .form-group label {
+    padding-left: 22px;
+    color: white;
+    font-weight: 500;
+  }
+  
+  /* Carts */
+  
+  .cart-background {
     width: 95%;
     background-color: white;
     border-radius: 23px;
-
     /* display: block; */
     margin: 70px auto;
     padding: 10px;
-
     font-family: 'Raleway', sans-serif;
-}
-
-.cart-item {
+  }
+  
+  .cart-item {
     border-bottom: 1px solid black;
     background-color: white;
-
     padding: 20px 10px 5px 10px;
-}
-
-.cart-item h1 {
+  }
+  
+  .cart-item h1 {
     text-align: left;
     font-size: 25px;
-}
-
-.cart-item p {
+  }
+  
+  .cart-item p {
     text-align: left;
     font-size: 15px;
     line-height: 1.4;
-}
-
-.cart-delete {
+  }
+  
+  .cart-delete {
     float: right;
     font-size: 25px;
     color: #b6d02c;
     margin-top: 0px;
-}
-
-.cart-delete i:hover {
+  }
+  
+  .cart-delete i:hover {
     cursor: pointer;
-}
-
-.cart-delete:hover {
+  }
+  
+  .cart-delete:hover {
     cursor: pointer;
-}
-
-.cart-fav {
+  }
+  
+  .cart-fav {
     float: right;
     font-size: 35px;
     color: #b6d02c;
     margin: -5px 10px 0px 0px;
-}
-
-.cart-qty {
+  }
+  
+  .cart-qty {
     border: 2px solid #b6d02c;
-
     width: 80px;
     height: 40px;
-
     padding: 0px 13px;
     color: black;
-
     /* display: block; */
     /* margin-top: -60px; */
     float: right;
-}
-
-.cart-bottomright {
-    position:absolute;
-    bottom:5px;
-    right:15px;
-}
-
-.cart-topright {
-    position:absolute;
-    top:9px;
-    right:15px;
-}
-
-.cart-total {
+  }
+  
+  .cart-bottomright {
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+  }
+  
+  .cart-topright {
+    position: absolute;
+    top: 9px;
+    right: 15px;
+  }
+  
+  .cart-total {
     width: 100%;
     height: 100px;
     background-color: white;
-
     padding: 20px 25px;
     margin: auto;
-}
-
-.cart-total p {
+  }
+  
+  .cart-total p {
     font-size: 25px;
     color: #b6d02c;
-}
-
-.total-left p {
+  }
+  
+  .total-left p {
     text-align: left;
-}
-
-.cart-btn {
+  }
+  
+  .cart-btn {
     border: 0px solid;
-
     width: 100px;
     height: 40px;
     background-color: #b6d02c;
     border-radius: 5px;
-
     text-decoration: none;
     padding: auto;
     color: white;
-
     display: block;
     margin: -79px 25px 0px 0px;
     float: right;
-}
-
-.cart-btn:hover {
+  }
+  
+  .cart-btn:hover {
     cursor: pointer;
-}
-
-/* Checkout */
-.checkout-message {
+  }
+  
+  /* Checkout */
+  
+  .checkout-message {
     margin: auto 20px;
     text-align: center;
     color: #b6d02c;
     font-size: 12px;
-}
-
-.checkout-item {
+  }
+  
+  .checkout-item {
     border-bottom: 1px solid black;
     /* height: 170px; */
     background-color: white;
-
     padding: 20px 10px 5px 10px;
-}
-
-.checkout-item h1 {
+  }
+  
+  .checkout-item h1 {
     text-align: left;
     font-size: 25px;
-}
-
-.checkout-item p {
+  }
+  
+  .checkout-item p {
     text-align: left;
     font-size: 15px;
     line-height: 1.4;
-}
-
-.checkout-options {
+  }
+  
+  .checkout-options {
     float: left;
-}
-
-.checkout-prices {
-    bottom:0px;
-    left:0px;
-}
-
-.total-right {
+  }
+  
+  .checkout-prices {
+    bottom: 0px;
+    left: 0px;
+  }
+  
+  .total-right {
     height: 100px;
     font-size: 25px;
     color: #b6d02c;
     padding: 20px;
-}
-
-.checkout-date {
+  }
+  
+  .checkout-date {
     clear: both;
-
     margin: 20px auto 100px auto;
     text-align: center;
-}
-
-.checkout-date h5 {
+  }
+  
+  .checkout-date h5 {
     color: #b6d02c;
     font-size: 16px;
     font-weight: bold;
-}
-
-.checkout-date p {
+  }
+  
+  .checkout-date p {
     color: #b6d02c;
     font-size: 12px;
-}
-
-.checkout-date input {
+  }
+  
+  .checkout-date input {
     margin: auto;
     width: 43%;
     height: 50px;
-}
-
-.checkout-btn {
+  }
+  
+  .checkout-btn {
     border: 0px solid;
-
     width: 100px;
     height: 40px;
     background-color: #b6d02c;
     border-radius: 5px;
-
     text-decoration: none;
     padding: auto;
     color: white;
-
     display: block;
     margin: -51px 40px 0px 0px;
     float: right;
-}
-
-.checkout-btn:hover {
+  }
+  
+  .checkout-btn:hover {
     cursor: pointer;
-}
-
-/* Login */
-.login-underline {
+  }
+  
+  /* Login */
+  
+  .login-underline {
     border-top: 1px solid white;
     width: 101px;
     margin: -20px auto 10px auto;
-}
-
-.login-message {
+  }
+  
+  .login-message {
     width: 90%;
     padding: 10px;
     font-size: 15px;
-    
     display: block;
     margin: 0px auto 5px auto;
-}
-
-.login-btn {
-    border: 0px solid;
-    margin: 12px 6px;
-    height: 46px;
-    border-radius: 23px;
-
-    padding: auto;
-    display: block;
-}
-
-.login-btn:hover {
-    cursor: pointer;
-}
-
-.login-login {
-    background-color: #b6d02c;
-    color: white;
-    width: 13%;
-    float: left;
-}
-
-.login-register {
-    text-decoration: none;
-    color: #b6d02c;
-    background-color: white;
-
-    width: 16%;
-    float: right;
-}
-
-.false-message {
+  }
+  
+  .false-message {
     float: left;
     padding: 10px;
-    margin-left: 48px;    
+    margin-left: 48px;
     display: block;
-}
-
-.false-btn {
+  }
+  
+  .false-btn {
     background-color: #b6d02c;
     color: white;
     width: 13%;
     clear: both;
-}
-
-/* Register */
-.register-underline {
+  }
+  
+  /* Register */
+  
+  .register-underline {
     border-top: 1px solid white;
     width: 148px;
     margin: -20px auto 10px auto;
-}
-
-.reg-input {
+  }
+  
+  .reg-input {
     width: 60%;
-}
-
-.reg-label {
+  }
+  
+  .reg-label {
     margin-left: 217px;
-}
-
-.reg-org {
+  }
+  
+  .reg-org {
     width: 30%;
     margin-left: 20%;
-}
-
-.reg-reg {
+  }
+  
+  .reg-reg {
     background-color: #b6d02c;
     color: white;
     width: 13%;
     float: left;
     margin-left: 20%;
-}
-
-.reg-terug {
+  }
+  
+  .reg-terug {
     text-decoration: none;
     color: #b6d02c;
     background-color: white;
-
     width: 10%;
     float: right;
     margin-right: 20%;
-}
-
-/* Profile */
-.profile{
+  }
+  
+  /* Profile */
+  
+  .profile {
     text-align: center;
     padding: 10px 200px 10px 100px;
     width: 100%;
-}
-
-.profile h1{
+  }
+  
+  .profile h1 {
     color: white;
     margin: 35px 0px 50px 0px;
     font-size: 35px;
-}
-
-.profile-input {
+  }
+  
+  .profile-input {
     border: 0px solid;
-
     width: 300px;
     height: 46px;
     background-color: white;
     border-radius: 23px;
-
     padding: 17px;
-
     display: block;
     margin: 10px auto;
-}
-
-/* Payment */
-/* Payment Correct */
-.payment-gif {
+  }
+  
+  /* Payments */
+  
+  .payment-gif {
     margin-top: 100px;
-    font-family: 'Raleway', sans-serif;  
-    color: white;  
-}
-
-.payment-gif h1 {
+    font-family: 'Raleway', sans-serif;
+    color: white;
+  }
+  
+  .payment-gif h1 {
     text-align: center;
     font-weight: bolder;
-}
+  }
+  
+  /* Admin */
+  
+  .admin-reset {
+    width: 85%;
+    background-color: white;
+    border-radius: 23px;
+    margin: 10px auto;
+    padding: 10px 0 10px 10px;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .admin-title {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /*
+  .admin-title h2 {
+      margin-top: 20px;
+      text-align: center;
+  } */
+  
+  .admin-order-heading {
+    background: #bbb;
+  }
+  
+  .admin-order-subheading {
+    background: #ddd;
+  }
+  
+  .admin-order-details1 {
+    background: white;
+  }
+  

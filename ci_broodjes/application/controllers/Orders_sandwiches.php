@@ -1,15 +1,13 @@
 <?php
-require_once(APPPATH . 'controllers/Admin_auth.php');
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Orders_sandwiches extends AdminAuth
+class Orders_sandwiches extends CI_Controller
 {
     function __construct()
     {
         parent::__construct();
-        
         $this->load->model('Orders_sandwiches_model');
         // load extra models:
         $this->load->model('Breads_model');
@@ -126,6 +124,7 @@ class Orders_sandwiches extends AdminAuth
         );
 
         $this->load->view('templates/header_admin', $data);
+        //$this->load->view('orders_sandwiches/admin_orders', $data);
         $this->load->view('admin/admin_orders', $data);
         $this->load->view('templates/footer_yvette', $data);
     }

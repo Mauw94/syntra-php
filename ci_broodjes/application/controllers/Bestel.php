@@ -33,18 +33,20 @@ require_once(APPPATH . 'controllers/Auth.php');
                 // Fetch specific product by ID
                 $bread = $this->bestel_model->getBreads($this->input->post('bread'));
                 $topping = $this->bestel_model->getToppings($this->input->post('topping'));
-                $i = 0;
-                foreach ($data['extras'] as $ext) {                    
-                    $extra_ids[] = $this->input->post('extra'.$ext['id']); 
-                    $i++;
-                }
-                echo '<br> extra ids'; print_r($extra_ids);
                 $extra_total_price = 0;
 
-                foreach($extra_ids as $extra_id){
-                    $extra_array = $this->bestel_model->getExtras($extra_id); 
-                    $extra_names[] = $extra_array['xtrName']; 
-                    $extra_total_price += $extra_array['xtrPrice']; 
+                $extras = $this->bestel_model->getExtras();
+                $aantal_extras = count($extras);
+
+                // For each extra:
+                for($i = 1; $i <= $aantal_extras; $i++){
+                    $extra_id = $this->input->post('extra'.$i);
+                    // If checked:
+                    if($extra_id != NULL){ 
+                        $extra_array = $this->bestel_model->getExtras($extra_id); 
+                        $extra_names[] = $extra_array['xtrName']; 
+                        $extra_total_price += $extra_array['xtrPrice']; 
+                    }
                 }
             
                 // Add product to the cart

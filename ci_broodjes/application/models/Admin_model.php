@@ -25,7 +25,7 @@ class Admin_model extends CI_Model {
         $unique_emails = array_unique($users);
 
         foreach ($unique_emails as $email) {
-            $this->send_ready_email($email);
+            $this->send_ready_email('mauritsseelen@gmail.com');
         }
     }
 
