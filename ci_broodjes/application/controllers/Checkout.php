@@ -44,11 +44,6 @@ require_once(APPPATH . 'controllers/Auth.php');
 
                             // Check if sandwiches are inserted: 
                             if($result){
-                                // $orders_sandwich_id = $this->db->insert_id(); 
-                                // $this->checkout_model->setOrdersSandwichesExtra($orders_sandwich_id); 
-            
-                                // Check if extra(s) are inserted:
-                                // if($result){
                                     // Empty Shopping Cart:
                                     $this->cart->destroy(); 
 
@@ -57,10 +52,6 @@ require_once(APPPATH . 'controllers/Auth.php');
                                     $this->load->view('templates/header_user');
                                     $this->load->view('user/success', $data);
                                     $this->load->view('templates/footer_yvette');
-                                // } else {
-                                //     $this->session->set_flashdata('message', 'Er is iets fout gegaan, uw bestelling is niet geplaatst.<br>Probeer alstublieft overnieuw.');
-                                //     redirect('checkout/index'); 
-                                // }
                             } else {
                                 $this->session->set_flashdata('message', 'Er is iets fout gegaan, uw bestelling is niet geplaatst.<br>Probeer alstublieft overnieuw.');
                                 redirect('checkout/index'); 

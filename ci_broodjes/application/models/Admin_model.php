@@ -10,13 +10,15 @@ class Admin_model extends CI_Model {
     }
 
     function send_bulk_mail()
-    {
-        
-        $this->db->select('*, orders.id');
+    {   
+        $today = date("Y/m/d"); 
+        echo $today; 
+        $this->db->select('*, orders.id, orders.ordDateDelivery');
         $this->db->from('orders');
+        $this->db->where('orders.ordDateDelivery', $today);
         $this->db->join('users', 'users.id = orders.user_id');
         $result = $this->db->get()->result();
-        
+
         // store only the users email in a new array, then keep only the unique values
         $users = array();
         foreach ($result as $res) {
@@ -25,7 +27,7 @@ class Admin_model extends CI_Model {
         $unique_emails = array_unique($users);
 
         foreach ($unique_emails as $email) {
-            $this->send_ready_email('mauritsseelen@gmail.com');
+            $this->send_ready_email($email);
         }
     }
 

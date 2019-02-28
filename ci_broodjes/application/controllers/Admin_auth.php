@@ -9,7 +9,7 @@ class AdminAuth extends CI_Controller {
             redirect('login');
         }     
         if (!($this->session->userdata('user')['admin'] == 1)) {
-            redirect('login');
+            redirect('orders_sandwiches/adminOrdersSandwiches');
         }
     }
 }

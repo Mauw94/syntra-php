@@ -4,12 +4,15 @@
 
 ?>
 
-<div class="container menu-container">
-    <?php
+<div class="container">
+    <div class="container cart-background">
+        <div class="row justify-content-center">
+            <div class="col-sm-12 success">
+                <h1 class="py-5"><strong>Mollie</strong></h1>
+                <p>Totaal bedrag: &euro;<?php echo $totalPrice; ?></p>
+                <p>Je ordernummer is: #<?php echo $orderId; ?></p>
+            </div>
 
-    echo "Hier komt Mollie<br><br>"; 
-    echo "Totaal bedrag: &euro;".$totalPrice."<br><br><br>";
-
-    echo "Your order number is: ".$orderId;
-    ?>
-</div
+        </div>
+    </div>
+</div>

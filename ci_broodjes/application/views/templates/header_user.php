@@ -32,20 +32,10 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div>            
     <!-- <div class="container-fluid">
-        <div class="count" class="col-xs-2">
-            <div class="cirkel-red">
-                <p>3</p> 
-            </div>
-        </div>
-    </div> -->
-            
-<!-- </div> -->
-            
-    <div class="container-fluid">
         <div class="users" class="col-xs-2">
-            <a href="<?php echo base_url(); ?>user/user_details">
+            <a href="<?php echo base_url(); ?>user/userDetails">
                 <div class="cirkel">
                     <div class="user-man">
                         <i class="fas fa-user fa-2x"></i>
@@ -53,7 +43,32 @@
                 </div>
             </a>
         </div>
+    </div> -->
+
+<!-- DROPDOWN MENU GEBRUIKER -->
+
+    <div class="container-fluid">
+        <div class="users col-xs-4">
+                <div class="btn-group">
+                <button type="button" class="cirkel" style="border:none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="user-man">
+                        <i class="fas fa-user fa-2x"></i>
+                    </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right user-dropdown">
+                    <div class="user-dropdown">
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>user/history">Bestellingen</a>
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>user/user_details">Persoonlijke gegevens</a>
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>user/contact">Contact</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="<?php echo base_url(); ?>login/logout_user">Uitloggen</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+<!-- REST VAN MENU -->
        
     <div class="container-fluid">
         <div class="orders-plus" class="col-xs-2">

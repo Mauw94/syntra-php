@@ -143,8 +143,21 @@ require_once(APPPATH . 'controllers/Auth.php');
             $favourite_bread_id = $this->bestel_model->getFavouriteBread($user_id);
             $favourite_topping_id = $this->bestel_model->getFavouriteTopping($user_id); 
 
-            $data['favourite_bread'] = $this->bestel_model->getBreads($favourite_bread_id);
-            $data['favourite_topping'] = $this->bestel_model->getToppings($favourite_topping_id); 
+            $data['favourite_bread'] = NULL; 
+            $data['favourite_topping'] = NULL;
+
+            if($favourite_bread_id != 0){
+                $favourite_bread = $this->bestel_model->getBreads($favourite_bread_id);
+                $data['favourite_bread_id'] = $favourite_bread_id;
+                $data['favourite_bread'] = $favourite_bread['brdName'];
+            }
+            if($favourite_topping_id != 0){
+                $favourite_topping = $this->bestel_model->getToppings($favourite_topping_id); 
+                $data['favourite_topping_id'] = $favourite_topping_id;            
+                $data['favourite_topping'] = $favourite_topping['topName']; 
+            }
+
+            $data['extras'] = $this->bestel_model->getExtras();
 
             $this->load->view('templates/header_user');
             $this->load->view('user/favourite', $data);

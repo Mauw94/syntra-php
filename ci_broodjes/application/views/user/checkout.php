@@ -36,11 +36,13 @@
                                                 <p>
                                                     <?php foreach ($this->cart->product_options($items['rowid']) as $option_name => $option_value): ?>
                                                         <strong><?php echo $option_name; ?>:</strong> 
-                                                            <?php foreach ($option_value as $option){
-                                                                echo $option;
+                                                            <?php if($option_value != NULL){
+                                                                    foreach ($option_value as $option){
+                                                                    echo $option;
 
-                                                                if(count($option_value) > 1){
-                                                                    echo ", "; 
+                                                                    if(count($option_value) > 1){
+                                                                        echo ", "; 
+                                                                    }
                                                                 }
                                                             } ?>
                                                         <br>

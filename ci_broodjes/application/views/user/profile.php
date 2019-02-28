@@ -34,8 +34,7 @@
         <div class="form-group">
             <label>Tel. nr: </label>
             <input type="text" value="<?php echo $user_details[0]['usrPhone'];?>" class="menu-input" name="phone">
-        </div>
-        <a href="<?php echo base_url().'/login/logout_user';?>" class="btn btn-primary"><input type="button"  class="btn btn-primary">Logout</button></a>
+        </div>       
         <?php if ($this->session->userdata('user')['admin'] == 1) {
             ?> <a href="<?php echo base_url().'/admin/send_bulk_mail';?>" class="btn btn-primary"><input type="button"  class="btn btn-primary">Send bulk mail</button></a>            
          <?php } ?>

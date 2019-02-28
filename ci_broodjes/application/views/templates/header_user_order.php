@@ -17,10 +17,7 @@
         <div class="col-xs-1">
            <img class="logo" src="https://t2-campus.be/wp-content/uploads/2018/01/T2-campus_logo_wit.svg">
         </div>
-        <div class="menu" class="col-xs-2">
-          <i class="fas fa-align-left fa-3x"></i>
-          
-      </div>
+
     </div>
   </div>
   <div class="container-fluid">

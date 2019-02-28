@@ -249,4 +249,97 @@ class User_model extends CI_Model {
                 return false;
             }
     }
+
+    // Breads, Toppings en Extra's:
+    public function getBreads($bread_id){
+        $sql = "SELECT * FROM breads WHERE brdActive=1 AND id=$bread_id"; 
+        $query = $this->db->query($sql);         
+        $result = $query->row_array();
+        
+        return !empty($result)?$result:false;
+    }
+
+    public function getToppings($topping_id){
+        $sql = "SELECT * FROM toppings WHERE topActive=1 AND id=$topping_id"; 
+        $query = $this->db->query($sql);         
+        $result = $query->row_array();
+        
+        return !empty($result)?$result:false;
+    }
+
+    public function getExtras($extra_id){
+        $sql = "SELECT * FROM extras WHERE xtrActive=1 AND id=$extra_id"; 
+        $query = $this->db->query($sql);         
+        $result = $query->row_array();
+        
+        return !empty($result)?$result:false;
+    }
+
+    function getSandwich($orders_sandwiches_id){
+        $sql = "SELECT * FROM orders_sandwiches WHERE id=$orders_sandwiches_id"; 
+        $query = $this->db->query($sql);
+        $row = $query->row_array(); 
+
+        return $row; 
+    }
+
+    function getSandwichExtras($orders_sandwiches_id){
+        $sql = "SELECT * FROM orders_sandwiches_extra WHERE orders_sandwich_id=$orders_sandwiches_id"; 
+        $query = $this->db->query($sql);
+        $array = $query->result_array(); 
+
+        return $array; 
+    }
+
+    function getSandwichPrice($orders_sandwiches_id){
+        $sandwich = $this->getSandwich($orders_sandwiches_id); 
+
+        $bread_id = $sandwich['bread_id']; 
+        $topping_id = $sandwich['topping_id']; 
+
+        $bread = $this->getBreads($bread_id); 
+        $topping = $this->getToppings($topping_id);
+        $extra_price = 0;  
+
+        $sql = "SELECT * FROM orders_sandwiches_extra WHERE orders_sandwich_id=$orders_sandwiches_id"; 
+        $query = $this->db->query($sql);
+
+        foreach($query->result_array() as $row){
+            $extra_id = $row['extra_id']; 
+            $extra = $this->getExtras($extra_id); 
+            $extra_price += $extra['xtrPrice']; 
+        }
+
+        $sandwich_price = $bread['brdPrice'] + $topping['topPrice'] + $extra_price; 
+        return $sandwich_price;
+    }
+
+    function getUserOrders($user_id){
+        $sql = "SELECT * FROM orders WHERE user_id=$user_id"; 
+        $query = $this->db->query($sql);
+        $result = $query->result_array(); 
+        return $result;
+    }
+
+    function getOrder($order_id){
+        $sql = "SELECT * FROM orders_sandwiches WHERE order_id=$order_id"; 
+        $query = $this->db->query($sql);
+        $array = $query->result_array(); 
+
+        return $array; 
+    }
+
+    function getOrderPrice($order_id){
+        // Get (multiple) orders_sandwiches_id by order_id:
+        $order = $this->getOrder($order_id);
+        $order_price = 0;  
+        foreach($order as $orders_sandwiches){
+            $sandwich_price = $this->getSandwichPrice($orders_sandwiches['id']); 
+            $sandwich_amount = $orders_sandwiches['orsAmount']; 
+
+            // Get total order price
+            $order_price += ($sandwich_price * $sandwich_amount); 
+        }
+        return $order_price;
+    }
 }

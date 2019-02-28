@@ -76,35 +76,6 @@
     </form>
 </div>
 
-    <!-- OUD? -->
-
-    <!-- <div class="form-group">
-            <select id="extra" name="extra" class="selectpicker menu-input" onchange="calculateTotal()">
-                <option selected disabled>Wil je extra's?</option>
-                <?php foreach($extras as $extra) : ?>
-                <option value="<?php echo $extra['id']; ?>"><?php echo $extra['xtrName'] . " - &euro;" . $extra['xtrPrice']; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div> -->
-
-        <!-- <div class="dropdown show menu-input menu-dropdown">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">Wil je extra's?</a>
-
-            <div id="extra" name="extra" class="dropdown-menu" aria-labelledby="dropdownMenuLink" onchange="calculateTotal()">
-                <?php foreach($extras as $extra) : ?>
-                <input class="form-check-input menu-drop-input" type="checkbox" value="<?php echo $extra['id']; ?>">
-                <?php echo $extra['xtrName'] . " - &euro;" . $extra['xtrPrice'] .'<br>'; ?>
-                <?php endforeach; ?> -->
-
-
-            <!-- <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-            </a> -->
-                <!-- <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a> -->
-            <!-- </div>
-        </div> -->
 
 <script>
 

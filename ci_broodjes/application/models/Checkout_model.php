@@ -28,7 +28,12 @@
                 $orsAmount = $sandwich['qty']; 
                 $bread_id = $sandwich['bread_id']; 
                 $topping_id = $sandwich['topping_id']; 
-                $orsNote = $sandwich['options']['opmerking'][0]; 
+                
+                if($sandwich['options']['opmerking'][0] == ''){
+                    $orsNote = "geen opmerking"; 
+                } else {
+                    $orsNote = $sandwich['options']['opmerking'][0]; 
+                }
                 
                 $data = array(
                     'order_id'=> $order_id, 
@@ -66,32 +71,4 @@
             }
             return $result;
         }
-
-        // public function setOrdersSandwichesExtra($orders_sandwich_id){
-        //         // Insert extra(s) in orders_sandwiches_extra table:
-        //     foreach($this->cart->contents() as $sandwich){      
-        //         // Get extra_id by extra name:
-
-        //         $xtrName = $sandwich['options']['extra']; 
-        //         if($xtrName != NULL){
-        //             foreach($xtrName as $extra_id=>$extra_name){
-        //                 $sql = "SELECT id FROM extras WHERE xtrName = '" . $extra_name ."' LIMIT 1";
-        //                 $result = $this->db->query($sql);
-        //                 $row = $result->row(); 
-        //                 $extra_id = $row->id; 
-
-        //                 $data_extra = array(
-        //                     'orders_sandwich_id' => $orders_sandwich_id, 
-        //                     'extra_id' => $extra_id
-        //                 ); 
-    
-        //                 $result = $this->db->insert('orders_sandwiches_extra', $data_extra);
-        //             } 
-        //             // return $result;
-        //         } else {
-        //             return true;
-        //         }
-        //         return $result;
-        //     }
-        // }
     }
