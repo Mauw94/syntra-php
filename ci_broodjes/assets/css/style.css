@@ -685,72 +685,102 @@
   }
   
   /* Login */
-  
-  .login-underline {
+.login-underline {
     border-top: 1px solid white;
     width: 101px;
     margin: -20px auto 10px auto;
-  }
-  
-  .login-message {
+}
+
+.login-message {
     width: 90%;
     padding: 10px;
     font-size: 15px;
+    
     display: block;
     margin: 0px auto 5px auto;
-  }
-  
-  .false-message {
+}
+
+.login-btn {
+    border: 0px solid;
+    margin: 12px 6px;
+    height: 46px;
+    border-radius: 23px;
+
+    padding: auto;
+    display: block;
+}
+
+.login-btn:hover {
+    cursor: pointer;
+}
+
+.login-login {
+    background-color: #b6d02c;
+    color: white;
+    width: 13%;
+    float: left;
+}
+
+.login-register {
+    text-decoration: none;
+    color: #b6d02c;
+    background-color: white;
+
+    width: 16%;
+    float: right;
+}
+
+.false-message {
     float: left;
     padding: 10px;
-    margin-left: 48px;
+    margin-left: 48px;    
     display: block;
-  }
-  
-  .false-btn {
+}
+
+.false-btn {
     background-color: #b6d02c;
     color: white;
     width: 13%;
     clear: both;
-  }
-  
-  /* Register */
-  
-  .register-underline {
+}
+
+/* Register */
+.register-underline {
     border-top: 1px solid white;
     width: 148px;
     margin: -20px auto 10px auto;
-  }
-  
-  .reg-input {
+}
+
+.reg-input {
     width: 60%;
-  }
-  
-  .reg-label {
+}
+
+.reg-label {
     margin-left: 217px;
-  }
-  
-  .reg-org {
+}
+
+.reg-org {
     width: 30%;
     margin-left: 20%;
-  }
-  
-  .reg-reg {
+}
+
+.reg-reg {
     background-color: #b6d02c;
     color: white;
     width: 13%;
     float: left;
     margin-left: 20%;
-  }
-  
-  .reg-terug {
+}
+
+.reg-terug {
     text-decoration: none;
     color: #b6d02c;
     background-color: white;
+
     width: 10%;
     float: right;
     margin-right: 20%;
-  }
+}
   
   /* Profile */
   

@@ -52,7 +52,7 @@
                 <div class="btn-group">
                 <button type="button" class="cirkel" style="border:none;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="user-man">
-                        <i class="fas fa-user fa-2x"></i>
+                    <i class="fas fa-user fa-2x"></i>
                     </div>
                 </button>
                 <div class="dropdown-menu dropdown-menu-right user-dropdown">
@@ -61,6 +61,9 @@
                         <a class="dropdown-item" href="<?php echo base_url(); ?>user/user_details">Persoonlijke gegevens</a>
                         <a class="dropdown-item" href="<?php echo base_url(); ?>user/contact">Contact</a>
                         <div class="dropdown-divider"></div>
+                        <?php if ($this->session->userdata('user')['admin'] == 1) {
+                            ?> <a class="dropdown-item" href="<?php echo base_url().'orders_sandwiches/adminOrdersSandwiches';?>">Besteloverzicht</a>        
+                         <?php } ?>
                         <a class="dropdown-item" href="<?php echo base_url(); ?>login/logout_user">Uitloggen</a>
                     </div>
                 </div>
