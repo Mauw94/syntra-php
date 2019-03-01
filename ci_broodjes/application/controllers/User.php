@@ -10,13 +10,13 @@ class User extends Auth {
         $this->load->library('form_validation');
     }
 
-    function user_details()
-    {
-        $data['user_details'] = $this->User_model->get_user_details();
-        $data['action'] = site_url('user/update_user');
-        $this->load->view('templates/header_user');
-        $this->load->view('user/profile', $data);
-    }
+    // function user_details()
+    // {
+    //     $data['user_details'] = $this->User_model->get_user_details();
+    //     $data['action'] = site_url('user/update_user');
+    //     $this->load->view('templates/header_user');
+    //     $this->load->view('usermenu/profile', $data);
+    // }
 
     function update_user()
     {
@@ -26,7 +26,7 @@ class User extends Auth {
         $this->form_validation->set_rules('phone', 'telefoon nr', 'trim|required');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->user_details();
+            $this->information();
         } else {
             $result = $this->User_model->update_user();
 
@@ -36,9 +36,9 @@ class User extends Auth {
                 $data['user_details'] = $this->User_model->get_user_details();
                 $data['action'] = site_url('user/update_user');
                 $this->load->view('templates/header_user');
-                $this->load->view('user/profile', $data);
+                $this->load->view('usermenu/profile', $data);
             } else {
-                redirect('user/user_details');
+                redirect('user/information');
             }
         }
     }
@@ -54,9 +54,7 @@ class User extends Auth {
 
     function history(){
         $user_id = $this->session->userdata('user')['user_id'];
-        // $data['orders'] = $this->User_model->getUserOrders($user_id); 
-        // $data['order_price'] = $this->User_model->getOrderPrice(108); 
-
+        
         $this->db->select('*, orders_sandwiches.id AS ors_id, statussen.staDescription AS status_name, orders.id AS ord_id');
         $this->db->from('orders');
         $this->db->join('orders_sandwiches', 'orders.id = orders_sandwiches.order_id'); 
@@ -79,14 +77,4 @@ class User extends Auth {
         $this->load->view('usermenu/contact');
         $this->load->view('templates/footer_yvette');
     }
-
-    function logout(){
-        $this->load->view('templates/header_user');
-        $this->load->view('usermenu/uitloggen');
-        $this->load->view('templates/footer_yvette');
-    }
-
-
-
-
 }

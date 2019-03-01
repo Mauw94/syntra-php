@@ -34,15 +34,15 @@
             <label>Password</label>
             <input type="password" placeholder="Password" class="menu-input" name="password">
         </div>
-        <input type="submit" value="Login" class="login-btn login-login">
+        <input type="submit" value="Login" class="btn-left sm-btn-green">
     <form>
 
     <a href="<?php echo site_url('login/forgot_password_link');?>">
-                <input type="button" class="login-btn login-register" value="Wachtwoord vergeten?">
+                <input type="button" class="btn-right big-btn-white " value="Wachtwoord vergeten?">
     </a>
 
     <a href="<?php echo site_url('register');?>">
-                <input type="button" class="login-btn login-register" value="Registreren">
+                <input type="button" class="btn-right big-btn-white" value="Registreren">
     </a>
 
 </div>
