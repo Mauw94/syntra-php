@@ -10,7 +10,7 @@ class Register extends CI_Controller {
     {
         parent::__construct();
     }
-
+ 
     function index()
     {
         echo 'register';
