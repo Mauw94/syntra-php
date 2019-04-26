@@ -12,7 +12,7 @@ class Home extends CI_Controller {
     public function index()
     {
         if ($this->session->userdata('user')['setup_profile'] == 0) {
-            redirect('user/profile');
+            redirect('user');
         }
         $this->data = array(
             'title' => 'Home',
