@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .demo-card-wide.mdl-card {
+      width: 100%;
+      padding: 30px;
+    } 
+    .details {
+        display: none;
+    }
+    .blue {
+        color: blue;
+    }
+    .red {
+        color: red;
+    }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function() { 
+        $.fn.details = function() {
+            $(".details").removeClass('details');
+        }
+        $(".details").details();
+
+                $('form').submit(function(event) {
+                            event.preventDefault();
+                            var movieName = $('#search').val();
+                            var movieYear = $('#year').val();
+                            
+                            var request = $.getJSON("http://www.omdbapi.com/?i=tt3896198&apikey=a669d094&s=" + movieName + "&y=" + movieYear);
+                                request.done(function(data) {
+                                console.log(data);                                
+                                if (data.imdbID == 'tt3896198' || data.Response == 'False') {
+                                    $("#masMovie").html("Niets gevonden").fadeOut(1000);                                    
+                                } 
+
+                                $.each(data.Search, function( i, l ){
+                                    console.log( i + ": " + l );
+                                    if (l['Type'] == 'movies') {
+                                        $('#masMovie').css('color', 'blue');
+                                    } else {
+                                        $('#masMovie').css('color', 'red');
+                                    }
+                                    $( "#masMovie" ).append( 
+                                      "<div class='mdl-cell mdl-cell--4-col' id='"+l['Title']+"'><h4>" + l['Title'] + " : " + l['Year'] +"</h4></div>"+
+                                      "<div class='mdl-cell mdl-cell--4-col'><img src="+l['Poster']+" class='materialboxed' width='100'></div>" +
+                                      "<div class='mdl-cell mdl-cell--4-col'>" +
+                                      "<div class='mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'>" + l['Type'] +
+                                      "</div></div>"
+                                    ); }); 
+                                });
+                });
+
+    });
+    </script>
+  </head>
+  <body>
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+             <h2>// Movie zoekdatabase</h2>
+             <form>
+                  <label for="search"></label>
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                       <input class="mdl-textfield__input" type="text" name="search" id="search"> 
+                       <label class="mdl-textfield__label" for="search">Geef een filmpje op</label>                
+                   </div>
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" name="year" id="year">
+                        <label class="mdl-textfield__label" for="year">Geef een jaar op</label>
+                   </div>
+                  <br>
+                  <input type="submit" value="Zoeken" id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                </form>
+            <div class="mdl-grid" id="masMovie"></div>
+            <div class="mdl-grid" id="details"></div>
+          </div>
+         <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+               <div class="mdl-logo">(C) De Nittis Massimo 2019 - i.o. Syntra-Limburg</div>
+            </div>
+        </footer>
+  </body>
+</html>
