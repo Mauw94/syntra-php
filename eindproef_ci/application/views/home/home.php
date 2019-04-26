@@ -1,34 +1,8 @@
-   <body onload="showTime()">
-      <div class="row sticky-top">
-         <div class="col-md-12">
-            <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-               <a class="navbar-brand" href="#">FreelancePlatform</a>
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-               </button>
-               <div class="collapse navbar-collapse" id="navbarText">
-                  <ul class="navbar-nav mr-auto">
-                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="#">Vacatures</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>register/index">Sign-up</a>
-                     </li>
-                  </ul>
-                  <span class="navbar-text" id="clock" style="font-weight: bold;">
-                  </span>
-               </div>
-            </nav>
-         </div>
-      </div>
       <div class="container" style="margin-top: 30px;">
+         <h1 class="menu-title"><?php echo $title; ?></h1>
+         <div class="login-underline"></div>
          <div class="row">
-            <div class="col-md-6">
-               <h1><?php echo $title; ?></h1>
-            </div>
+            <div class="col-md-6"></div>
             <div class="col-md-6"></div>
          </div>
          <div class="row" style="margin-top: 90px;">

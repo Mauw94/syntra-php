@@ -15,7 +15,7 @@ class Login_model extends CI_Model {
 
         if ($result->num_rows() === 1) {            
             if ($row->usrEmailConfirmed) {
-                if ($row->usrPassword === sha1($this->config->item('salt') . $password)) {
+                if ($row->usrPassword === sha1  ($this->config->item('salt') . $password)) {
                     $session_data = array (
                         'user_id' => $row->id,
                         'firstname' => $row->usrFirstName,
