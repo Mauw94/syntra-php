@@ -24,8 +24,13 @@
         <div class="form-group">
             <input type="number" name="min_days_week" placeholder="min days/week available" class="btn menu-input">
         </div>
+        <div class="form-group">
+            <input type="number" name="experience" placeholder="years of experience" class="btn menu-input">
+        </div>
+        
         
         <hr style="color:white;">
+
         <div class="form-group">
             <input type="number" name="age" placeholder="age" class="btn menu-input">
         </div>
@@ -36,7 +41,7 @@
             <input type="text" name="hobbies" placeholder="hobbies" class="btn menu-input">
         </div>
         <div class="form-group">
-            <label style="color:black;">Are you available right now?</label>
+            <label style="color:white; font-size: 30px;">Are you available right now?</label>
             <input type="checkbox" name="available" placeholder="available right now?" class="menu-input">
         </div>
         <div class="form-group">

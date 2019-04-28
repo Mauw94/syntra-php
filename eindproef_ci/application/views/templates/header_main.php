@@ -24,7 +24,7 @@
                         <a class="nav-link" href="<?php echo base_url();?>home">Home <span class="sr-only">(current)</span></a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">Vacatures</a>
+                        <a class="nav-link" href="#">Profile page</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url();?>login/logout">Sign-out</a>

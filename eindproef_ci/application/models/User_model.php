@@ -45,27 +45,37 @@ class User_model extends CI_Model {
         $age = $this->input->post('age');
         $nationality = $this->input->post('nationality');
         $hobbies = $this->input->post('hobbies');
+        $experience = $this->input->post('experience');
         $available = $this->input->post('available');
         if ($available) {
             $available = 1;
         } else {
             $available = 0;
         }
-        echo $available;
 
         $sql = "UPDATE users SET github = '$github', price_h = '$price_h', 
                 min_days_week = '$min_days', age = '$age',
                 prog_languages = '$prog_languages', pref_language = '$pref_language',
-                nationality = '$nationality', hobbies = '$hobbies', available = '$available'
+                nationality = '$nationality', hobbies = '$hobbies', available = '$available', setup_profile = 1, 
+                years_experience = '$experience'
                 WHERE id = ${userid}";
 
         $result = $this->db->query($sql);
 
         if ($this->db->affected_rows() === 1) {
+            $_SESSION['user']['setup_profile'] = 1;
             return $result;
         } else {
-            echo 'something went wrong update ur profile';
+            echo 'something went wrong setting up your profile';
         }
+    }
+
+    private function update_session($sess_array) {       
+        $sess_data = array (
+            'logged_in' => 1,
+            'setup_profile' => $sess_array['setup_profile']
+        );
+        $this->session->update_userdata('user', $sess_data);
     }
 
     private function send_validation_email($email)
