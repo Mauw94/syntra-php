@@ -30,6 +30,12 @@
                         <a class="nav-link" href="<?php echo base_url();?>login/logout">Sign-out</a>
                      </li>
                   </ul>
+                  <?php
+                     if ($this->session->userdata('user')['setup_profile'] == 1) {
+                        ?><span class="navbar-text">Welcome, <?php echo $this->session->userdata('user')['firstname'];
+                        ?> - <?php
+                     }
+                  ?>
                   <span class="navbar-text" id="clock" style="font-weight: bold;">
                   </span>
                </div>

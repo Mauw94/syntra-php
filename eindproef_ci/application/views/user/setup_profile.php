@@ -26,8 +26,7 @@
         </div>
         <div class="form-group">
             <input type="number" name="experience" placeholder="years of experience" class="btn menu-input">
-        </div>
-        
+        </div>   
         
         <hr style="color:white;">
 

@@ -10,11 +10,18 @@ class User extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        if (!$_SESSION['user']) {
+            redirect('login');
+        }
         $this->load->model('User_model');
     }
 
     function index()
     {
+        
+        if ($this->session->userdata('user')['setup_profile'] == 1) {
+            redirect('home');
+        }
         $this->data = array(
             'title' => 'Profile page',
             'action' => site_url('user/save_profile'),
@@ -22,7 +29,7 @@ class User extends CI_Controller {
         );
         
         $this->load->view('templates/header_main');
-        $this->load->view('user/profile', $this->data);
+        $this->load->view('user/setup_profile', $this->data);
         $this->load->view('templates/footer');
     }
 
@@ -35,6 +42,9 @@ class User extends CI_Controller {
             $this->index();
         } else {
             $result = $this->User_model->save_profile_details();    
+            if ($result) {
+                redirect('home');
+            }
         }
     }
 }
