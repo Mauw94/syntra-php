@@ -3,7 +3,7 @@
     <div class="login-underline"></div>
     <div class="login-message">
     <?php
-    if($this->session->userdata('user')['logged_in'] == 1) {
+    if($this->session->userdata('user')['logged_in'] == 1 || $this->session->userdata('company')['logged_in'] == 1) {
         ?>
         <a href="<?= base_url().'home';?>"><div class="alert alert-success" style="width: 50%; margin-top: 10px;">Already logged in. Continue to homepage.</div></a>
         <?php

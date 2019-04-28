@@ -11,6 +11,7 @@ class Register extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Company_model');
         $this->load->model('User_model');
     }
  
@@ -46,12 +47,12 @@ class Register extends CI_Controller {
     {
         $this->form_validation->set_rules('firstname', 'voornaam', 'trim|required|min_length[3]|max_length[24]');
         $this->form_validation->set_rules('lastname', 'achternaam', 'trim|required|min_length[2]|max_length[24]');
-        $this->form_validation->set_rules('email', 'email adres', 'trim|required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]');
+        $this->form_validation->set_rules('email', 'email adres', 'trim|required|min_length[6]|max_length[50]|valid_email|is_unique[users.email]|is_unique[companies.email]');
         $this->form_validation->set_rules('password', 'wachtwoord', 'trim|required|min_length[6]|max_length[50]|matches[confirmpassword]');
         $this->form_validation->set_rules('confirmpassword', 'bevestig wachtwoord', 'trim|required|min_length[6]|max_length[50]');
 
         if ($this->form_validation->run() == FALSE) {
-            $this->index();
+            $this->user_reg_page();
         } else {
             $result = $this->User_model->insert_user();
             
@@ -65,6 +66,21 @@ class Register extends CI_Controller {
 
     function register_company()
     {
+        $this->form_validation->set_rules('name', 'company name', 'trim|required|min_length[3]|max_length[24]');
+        $this->form_validation->set_rules('contact_person', 'contact person', 'trim|required|min_length[2]|max_length[24]');
+        $this->form_validation->set_rules('phone', 'phone number', 'trim|required|min_length[2]|max_length[20]');
+        $this->form_validation->set_rules('email', 'email adres', 'trim|required|min_length[6]|max_length[50]|valid_email|is_unique[companies.email]|is_unique[users.email]');
+        $this->form_validation->set_rules('password', 'wachtwoord', 'trim|required|min_length[6]|max_length[50]|matches[confirmpassword]');
+        $this->form_validation->set_rules('confirmpassword', 'bevestig wachtwoord', 'trim|required|min_length[6]|max_length[50]');
 
+        if ($this->form_validation->run() == FALSE) {
+            $this->company_reg_page();
+        } else {
+            $result = $this->Company_model->insert_company();
+            
+            if ($result) {
+                echo 'company added';
+            }
+        }
     }
 }

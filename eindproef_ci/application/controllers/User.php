@@ -10,7 +10,7 @@ class User extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        if (!$_SESSION['user']) {
+        if (!$_SESSION) {
             redirect('login');
         }
         $this->load->model('User_model');
@@ -18,10 +18,12 @@ class User extends CI_Controller {
 
     function index()
     {
-        
-        if ($this->session->userdata('user')['setup_profile'] == 1) {
-            redirect('home');
+        if (null !== $this->session->userdata('user')) {
+            if ($this->session->userdata('user')['setup_profile'] == 1) {
+                redirect('home');
+            }
         }
+        redirect('login');
         $this->data = array(
             'title' => 'Profile page',
             'action' => site_url('user/save_profile'),
