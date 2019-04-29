@@ -10,7 +10,9 @@ class User extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        if (!$_SESSION) {
+        if (isset($_SESSION['user']) || isset($_SESSION['company'])) {
+            echo 'ok we in';
+        } else {
             redirect('login');
         }
         $this->load->model('User_model');

@@ -6,9 +6,11 @@ class Home extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        if (!$_SESSION) {
+        if (isset($_SESSION['user']) || isset($_SESSION['company'])) {
+            echo 'ok we in';
+        } else {
             redirect('login');
-        } 
+        }
         $this->load->helper('url_helper');
     }
 
