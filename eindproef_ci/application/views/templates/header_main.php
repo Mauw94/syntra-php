@@ -7,6 +7,7 @@
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
       <link rel="stylesheet" href="<?= base_url(); ?>css/main.css"> 
+      <script src="<?= base_url(); ?>js/time.js"></script>
       <title>FreelancePlatform 101</title>
    </head>
    <body onload="showTime()">
@@ -23,12 +24,18 @@
                         <a class="nav-link" href="<?php echo base_url();?>home">Home <span class="sr-only">(current)</span></a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">Vacatures</a>
+                        <a class="nav-link" href="#">Profile page</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url();?>login/logout">Sign-out</a>
                      </li>
                   </ul>
+                  <?php
+                     if ($this->session->userdata('user')['setup_profile'] == 1) {
+                        ?><span class="navbar-text">Welcome, <?php echo $this->session->userdata('user')['firstname'];
+                        ?> - <?php
+                     }
+                  ?>
                   <span class="navbar-text" id="clock" style="font-weight: bold;">
                   </span>
                </div>

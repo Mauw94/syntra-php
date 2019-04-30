@@ -10,6 +10,7 @@ class Login extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        print_r($_SESSION);
         $this->load->model('Login_model');
         $this->load->model('User_model');
 
@@ -34,7 +35,7 @@ class Login extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->index();            
         } else {
-            $result = $this->Login_model->login_user();
+            $result = $this->Login_model->login();
 
             switch($result) {
                 case 'logged_in':
@@ -58,8 +59,8 @@ class Login extends CI_Controller {
 
     function logout()
     {
-        if (isset($_SESSION['user'])) {
-            unset($_SESSION['user']);
+        if (isset($_SESSION)) {
+            unset($_SESSION);
             $this->session->sess_destroy();
             redirect('login');
         }
