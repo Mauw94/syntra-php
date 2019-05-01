@@ -33,4 +33,21 @@ class Company_model extends CI_Model {
             echo 'NO';
         }
     }
+
+    function save_company_profile()
+    {
+        $looking_for = $this->input->post('looking');
+        $id = $this->input->post('userid');
+
+        $sql = "UPDATE companies set looking_for = '$looking_for'
+                WHERE id = '$id'";
+
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() === 1) {
+            return $result;
+        } else {
+            echo 'something went wrong';
+        }
+    }
 }

@@ -30,6 +30,18 @@ class Company extends CI_Controller {
 
     function save_company()
     {
+        $this->form_validation->set_rules('looking', 'looking for', 'required');
 
+        if ($this->form_validation->run() == FALSE) {
+            $this->index();
+        } else {
+            $result = $this->Company_model->save_company_profile();
+
+            if ($result) {
+                echo 'works!';
+            } else {
+                echo 'oops, something went wrong';
+            }
+        }
     }
 }

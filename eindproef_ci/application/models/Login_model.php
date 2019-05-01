@@ -87,7 +87,7 @@ class Login_model extends CI_Model {
     private function set_company_session($session_data)
     {
         $sess_data = array (
-            'user_id' => $session_data['user_id'],
+            'user_id' => $session_data['company_id'],
             'name' => $session_data['name'],
             'contact_person' => $session_data['contact_person'],
             'email' => $session_data['email'],

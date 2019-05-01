@@ -8,9 +8,11 @@
     <?php echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">'); ?>
 
     <form action="<?php echo $action;?>" method="post">
+    <?php echo $userid; ?>
     <input type="hidden" name="userid" value="<?php echo $userid; ?>">
+
         <div class="form-group">
-            <input type="text" placeholder="looking for" class="btn menu-input" name="looking for" >
+            <input type="text" placeholder="kind of developer you are looking for" class="btn menu-input" name="looking" >
         </div>
         
         <div class="form-group">
