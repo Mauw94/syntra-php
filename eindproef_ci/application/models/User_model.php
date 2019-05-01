@@ -28,6 +28,7 @@ class User_model extends CI_Model {
         $result = $this->db->query($sql);
 
         if ($this->db->affected_rows() === 1) {
+            //$this->send_validation_email();
             return $result;
         } else {
             echo 'NO';
