@@ -1,16 +1,16 @@
 <?php
-class Home extends CI_Controller {
+require_once(APPPATH . 'controllers/Auth.php');
+
+if (!defined('BASEPATH')) 
+    exit('No direct script access allowed');
+
+class Home extends Auth {
 
     private $data;
     
     function __construct()
     {
         parent::__construct();
-        if (isset($_SESSION['user']) || isset($_SESSION['company'])) {
-            echo 'ok we in';
-        } else {
-            redirect('login');
-        }
         $this->load->helper('url_helper');
     }
 
