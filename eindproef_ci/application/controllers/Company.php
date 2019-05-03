@@ -38,6 +38,7 @@ class Company extends CI_Controller {
             $result = $this->Company_model->save_company_profile();
 
             if ($result) {
+                // redirect home page for companies
                 echo 'works!';
             } else {
                 echo 'oops, something went wrong';

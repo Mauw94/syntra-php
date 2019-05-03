@@ -39,12 +39,13 @@ class Company_model extends CI_Model {
         $looking_for = $this->input->post('looking');
         $id = $this->input->post('userid');
 
-        $sql = "UPDATE companies set looking_for = '$looking_for'
+        $sql = "UPDATE companies set looking_for = '$looking_for', setup_profile = 1
                 WHERE id = '$id'";
 
         $result = $this->db->query($sql);
 
         if ($this->db->affected_rows() === 1) {
+            $_SESSION['company']['setup_profile'] = 1;
             return $result;
         } else {
             echo 'something went wrong';
