@@ -29,7 +29,7 @@ class Company extends CI_Controller {
     }
 
     function save_company()
-    {
+    {   
         $this->form_validation->set_rules('looking', 'looking for', 'required');
 
         if ($this->form_validation->run() == FALSE) {
