@@ -1,23 +1,27 @@
 <?php
+require_once(APPPATH . 'controllers/Auth.php');
 
 if (!defined('BASEPATH')) 
     exit('No direct script access allowed');
 
-class Company extends CI_Controller {
+class Company extends Auth {
 
     private $data;
     
     function __construct()
     {
         parent::__construct();
-        if (!$_SESSION) {
-            redirect('login');
-        }
         $this->load->model('Company_model');
     }
 
     function index()
     {
+        if (null !== $this->session->userdata('company')) {
+            if ($this->session->userdata('company')['setup_profile'] == 1) {
+                redirect('company_landing');
+            }
+        }
+
         $this->data = array(    
             'title' => 'Setup',
             'action' => site_url('company/save_company'),

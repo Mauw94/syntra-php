@@ -16,16 +16,14 @@ class Home extends Auth {
 
     public function index()
     {      
-        if (null !== $this->session->userdata('user')) {
-            if ($this->session->userdata('user')['setup_profile'] == 0) {
-                redirect('user');
-            }
+        if (null !== $this->session->userdata('user')) {  
+            redirect('user');       
         }
+
         if (null !== $this->session->userdata('company')) {
-            if ($this->session->userdata('company')['setup_profile'] == 0) {
-                redirect('company');
-            }
+            redirect('company');
         }
+        
         $this->data = array(
             'title' => 'Home',
         );

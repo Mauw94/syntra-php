@@ -39,7 +39,7 @@ class Login extends CI_Controller {
 
             switch($result) {
                 case 'logged_in':
-                    redirect('/home');
+                    redirect('home');
                     break;
                 case 'incorrect_password':
                     $this->data['failed'] = 'password is incorrect';
