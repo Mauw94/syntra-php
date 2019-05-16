@@ -49,4 +49,18 @@ class Company extends Auth {
             }
         }
     }
+
+    function profile()
+    {
+        $this->load->view('templates/header_company');
+        $this->load->view('company/profile');
+        $this->load->view('templates/footer');
+    }
+
+    function projects()
+    {
+        $this->load->view('templates/header_company');
+        $this->load->view('company/projects');
+        $this->load->view('templates/footer');
+    }
 }

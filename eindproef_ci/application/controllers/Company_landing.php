@@ -11,6 +11,7 @@ class Company_landing extends Auth {
     function __construct()
     {
         parent::__construct();
+        $this->load->model('Project_model');
     }
 
     /*
@@ -19,11 +20,24 @@ class Company_landing extends Auth {
     function index()
     {
         $this->data = array (
-            'title' => 'company?'
+            'title' => 'company?',
+            'projects' => $this->retrieve_projects()
         );
-
-        $this->load->view('templates/header_main');
+    
+        $this->load->view('templates/header_company');
         $this->load->view('company/landing', $this->data);
         $this->load->view('templates/footer');
+    }
+
+    private function retrieve_projects()
+    {
+        $company_id = $this->session->userdata('company')['user_id'];
+        $result = $this->Project_model->get_projects_from_company($company_id);
+
+        if (!$result) {
+            // go to project add page with message, add a project
+        }
+
+        return $result;        
     }
 }
