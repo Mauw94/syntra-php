@@ -18,7 +18,7 @@ class Company extends CI_Controller {
 
     function index()
     {
-        $this->data = array(
+        $this->data = array(    
             'title' => 'Setup',
             'action' => site_url('company/save_company'),
             'userid' => $this->session->userdata('company')['user_id']
