@@ -25,6 +25,11 @@
   
   /* Small green button */
   
+  .btn-info {
+    background-color: #b6d02c;
+    border-color: #b6d02c;
+  }
+
   .sm-btn-green {
     border: 0px solid;
     width: 129px !important;
@@ -993,4 +998,10 @@
     margin: auto 10px;
   }
 
+  .company-landing {
+    margin-top: 100px;
+    padding: 15px;
+    border-left: solid 10px #B6D02C;
+    background-color: white;
+  }
   
