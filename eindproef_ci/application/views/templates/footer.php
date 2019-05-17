@@ -17,9 +17,9 @@
                      <img src="<?= base_url(); ?>images/mail-icon.png" width="20px" height="20px">
                      </a>
                      <br>
-                     <br> <span style="color:">© 2019 Copyright</span>
+                     <br> <span style="color:white">© 2019 Copyright</span>
                      <!-- <a href="#" style="text-decoration: none"> link</a> -->
-                     <p style="font-size: 13px; color:">made by Maurits Seelen
+                     <p style="font-size: 13px; color:white">made by Maurits Seelen
                         <a href="https://www.linkedin.com/in/maurits-seelen-245b39113/">
                         <img style="height: 15px; width: 15px;" src="<?= base_url(); ?>images/linkedin.png">
                         </a>
