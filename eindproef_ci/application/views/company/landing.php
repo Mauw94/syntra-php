@@ -24,6 +24,7 @@
                 <div class="collapse" id="collapse<?php echo $project->id;?>">
                     <div class="card card-body">
                         <?php echo $project->description; ?>
+                        <hr>
                         <div style="width: 50%; display:flex;">
                             <a href="#" class="btn btn-sm btn-info" style="margin-right: 10px;"><i class="fa fa-folder"></i></a>
                             <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>

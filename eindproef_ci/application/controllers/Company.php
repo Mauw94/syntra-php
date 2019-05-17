@@ -59,9 +59,33 @@ class Company extends Auth {
 
     function profile()
     {
+        $id = $this->session->userdata('company')['user_id'];
+        $data = array(
+            'company' => $this->Company_model->get_company_details($id),
+            'action' => site_url('company/update_profile')
+        );
+
         $this->load->view('templates/header_company');
-        $this->load->view('company/profile');
+        $this->load->view('company/profile', $data);
         $this->load->view('templates/footer');
+    }
+
+    function update_profile()
+    {
+        $this->form_validation->set_rules('name', 'name', 'required');
+        $this->form_validation->set_rules('looking_for', 'looking for', 'required');
+        
+        if ($this->form_validation->run() == FALSE) {
+            $this->profile();
+        } else {
+            $result = $this->Company_model->update_profile();
+
+            if ($result) {
+                $this->profile();
+            } else {
+                echo 'something went horribly horribly wrong.';
+            }
+        }
     }
 
     function projects()
