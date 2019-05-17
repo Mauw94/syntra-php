@@ -21,7 +21,8 @@ class Company_landing extends Auth {
     {
         $this->data = array (
             'title' => 'company?',
-            'projects' => $this->retrieve_projects()
+            'projects' => $this->retrieve_projects(),
+            'name' => $this->session->userdata('company')['name']
         );
     
         $this->load->view('templates/header_company');
@@ -35,7 +36,8 @@ class Company_landing extends Auth {
         $result = $this->Project_model->get_projects_from_company($company_id);
 
         if (!$result) {
-            // go to project add page with message, add a project
+            $msg = 'Click on the Add Project button to enter a new project';
+            return $msg;
         }
 
         return $result;        

@@ -51,4 +51,33 @@ class Company_model extends CI_Model {
             echo 'something went wrong';
         }
     }
+
+    function save_project()
+    {
+        $company_id = $this->session->userdata('company')['user_id'];
+        $name = $this->input->post('name');
+        $title = $this->input->post('title');
+        $project_owner = $this->input->post('project_owner');
+        $description = $this->input->post('description');
+        $prog_lang = $this->input->post('prog_lang');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $sql = "INSERT INTO projects (name, title, description, prog_languages, project_owner, start_date, end_date, company_id)
+                VALUES(" . $this->db->escape($name) . ",
+                        " . $this->db->escape($title) . ",
+                        " . $this->db->escape($description) . ",
+                        " . $this->db->escape($prog_lang) . ",
+                        " . $this->db->escape($project_owner) . ",
+                        " . $this->db->escape($start_date) . ",
+                        " . $this->db->escape($end_date) . ",
+                        '" . $company_id . "')";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() === 1) {
+            return $result;
+        } else {
+            echo 'Something went wrong.';
+        }
+    }
 }

@@ -1,21 +1,25 @@
 <div class="container">
-    <h1>Landing page for companies</h1>
-    <button>go to profile</button>
-    <button>go to all projects</button>
-
-    <h3>Overview of recent projects</h3>
+    <h1 style="color:white; text-align:center; font-weight:bold; font-size: 50px;"><?php echo $name;?></h1>
+    <div style="margin-top: 50px; text-align:center">
+        <a href="<?php echo base_url();?>company/profile" class="btn btn-info">Company profile</a>
+        <a href="<?php echo base_url();?>company/project_add" class="btn btn-info">Add new project</a>
+    <div>
+    <h3 style="color:white;">Overview of company projects</h3>
 
     <div class="row"  style="margin-top: 50px;">
         <!-- iterate over projects and display in cards !-->
         <?php foreach($projects as $project) { ?>
         <div class="col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $project->name;?> </h5>
-                    <p class="card-text"><?php echo $project->description;?> </p>
-                    <hr>
-                    <a href="#" class="btn btn-primary">View project</a>
-                    <!-- make this a collapsing card to view the full details -->
+            <div class="card card-body">
+                <h5 class="card-title"><?php echo $project->name;?> </h5>
+                <p class="card-text"><?php echo $project->title;?> </p>
+                <hr>
+                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    View details</a>                                 
+            </div>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <?php echo $project->description; ?>
                 </div>
             </div>
         </div>

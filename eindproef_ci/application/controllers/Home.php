@@ -11,6 +11,7 @@ class Home extends Auth {
     function __construct()
     {
         parent::__construct();
+        print_r($_SESSION);
         $this->load->helper('url_helper');
         $this->load->model('Project_model');
     }
@@ -26,7 +27,8 @@ class Home extends Auth {
         if (null !== $this->session->userdata('company')) {
             if ($this->session->userdata('company')['setup_profile'] == 0) {
                 redirect('company');
-            }       
+            } 
+            redirect('company');
         }
         
         $this->data = array(

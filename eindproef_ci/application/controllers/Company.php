@@ -50,6 +50,13 @@ class Company extends Auth {
         }
     }
 
+    function company_home()
+    {
+        $this->load->view('templates/header_company');
+        $this->load->view('company/landing');
+        $this->load->view('templates/footer');
+    }
+
     function profile()
     {
         $this->load->view('templates/header_company');
@@ -62,5 +69,33 @@ class Company extends Auth {
         $this->load->view('templates/header_company');
         $this->load->view('company/projects');
         $this->load->view('templates/footer');
+    }
+
+    function project_add()
+    {
+        $data = array(
+            'action' => site_url('company/save_project')
+        );
+
+        $this->load->view('templates/header_company');
+        $this->load->view('company/project_add', $data);
+        $this->load->view('templates/footer');
+    }
+
+    function save_project()
+    {
+        $this->form_validation->set_rules('title', 'title', 'required');
+        $this->form_validation->set_rules('description', 'description', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->project_add();
+        } else {
+            $result = $this->Company_model->save_project();
+            if ($result) {
+                redirect('company');
+            } else {
+                $this->project_add();
+            }
+        }
     }
 }
