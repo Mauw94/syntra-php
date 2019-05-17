@@ -52,6 +52,7 @@ class Company extends Auth {
 
     function company_home()
     {
+        
         $this->load->view('templates/header_company');
         $this->load->view('company/landing');
         $this->load->view('templates/footer');

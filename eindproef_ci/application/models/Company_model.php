@@ -59,6 +59,7 @@ class Company_model extends CI_Model {
         $result = $this->db->query($sql);
 
         if ($this->db->affected_rows() == 1) {
+            $this->session->userdata('company')['name'] = $name;
             return $result;
         } else {
             echo 'something went wrong';
