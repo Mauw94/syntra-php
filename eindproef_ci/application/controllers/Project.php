@@ -12,15 +12,14 @@ class Project extends Auth {
         $this->load->model('Project_model');
     }
 
-    function index()
-    {
-
-    }
-
     function details($id)
     {
-        $result = $this->Project_model->details($id);
+        $data = array(
+            'project' => $this->Project_model->details($id)
+        );
 
-        print_r($result);
+        $this->load->view('templates/header_main');
+        $this->load->view('project/detail', $data);
+        $this->load->view('templates/footer');
     }
 }

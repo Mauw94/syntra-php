@@ -28,7 +28,13 @@
                         <a class="nav-link" href="<?php echo base_url();?>home">Home <span class="sr-only">(current)</span></a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">Profile page</a>
+                        <a class="nav-link" href="#">Profile</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">Saved projects</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#">Applications</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url();?>login/logout">Sign-out</a>
