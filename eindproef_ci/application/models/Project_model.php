@@ -34,4 +34,17 @@ class Project_model extends CI_Model {
             echo 'something went wrong';
         }
     }
+
+    function details($id)
+    {
+        $sql = "SELECT * FROM projects WHERE id = ${id}";
+
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() === 1) {
+            return $result->result();
+        } else {
+            echo 'Not found';
+        }
+    }
 }

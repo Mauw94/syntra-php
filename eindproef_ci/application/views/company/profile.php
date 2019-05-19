@@ -4,14 +4,6 @@
 
     <div class="company-landing">
         <form action="<?php echo $action;?>" method="post" style="width: 50%;">
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Company name</span>
-                    </div>
-                    <input type="text" class="form-control" name="name" value="<?php echo $company[0]->name;?>">
-                </div>
-            </div>
 
             <div class="form-group">
                 <div class="input-group">

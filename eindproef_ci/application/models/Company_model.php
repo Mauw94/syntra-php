@@ -48,18 +48,16 @@ class Company_model extends CI_Model {
 
     function update_profile()
     {
-        $name = $this->input->post('name');
         $contact_person = $this->input->post('contact_person');
         $looking_for = $this->input->post('looking_for');
         $email = $this->input->post('email');
         $phone = $this->input->post('phone');
 
-        $sql = "UPDATE companies set name = '$name', contact_person = '$contact_person', 
+        $sql = "UPDATE companies set contact_person = '$contact_person', 
                     looking_for = '$looking_for', email = '$email', phone = '$phone'";
         $result = $this->db->query($sql);
 
         if ($this->db->affected_rows() == 1) {
-            $this->session->userdata('company')['name'] = $name;
             return $result;
         } else {
             echo 'something went wrong';

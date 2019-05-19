@@ -31,9 +31,6 @@
                         <a class="nav-link" href="<?php echo base_url();?>company/profile">Profile</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url();?>company/projects">Projects</a>
-                     </li>
-                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url();?>company/project_add">Add Project</a>
                      </li>
                      <li class="nav-item">

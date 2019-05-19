@@ -73,7 +73,6 @@ class Company extends Auth {
 
     function update_profile()
     {
-        $this->form_validation->set_rules('name', 'name', 'required');
         $this->form_validation->set_rules('looking_for', 'looking for', 'required');
         
         if ($this->form_validation->run() == FALSE) {
