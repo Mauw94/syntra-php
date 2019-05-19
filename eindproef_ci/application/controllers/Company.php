@@ -107,6 +107,16 @@ class Company extends Auth {
         $this->load->view('templates/footer');
     }
 
+    function delete_project($id)
+    {
+        $result = $this->Company_model->delete_project($id);
+        if ($result) {
+            echo 'done';
+        } else {
+            echo 'error';
+        }
+    }
+
     function save_project()
     {
         $this->form_validation->set_rules('title', 'title', 'required');

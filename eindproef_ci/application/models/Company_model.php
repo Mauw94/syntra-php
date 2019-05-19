@@ -112,4 +112,16 @@ class Company_model extends CI_Model {
             echo 'Something went wrong.';
         }
     }
+
+    function delete_project($id) 
+    {
+        $sql = "DELETE FROM projects WHERE id = ${id}";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() === 1) {
+            return $result;
+        } else {
+            echo 'error in deleting';
+        }
+    }
 }

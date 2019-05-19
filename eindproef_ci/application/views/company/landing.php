@@ -7,7 +7,7 @@
     <div> -->
 
     <div class="company-landing">
-        <p>Overview of company projects</p>
+        <p>Overview of <?php echo $name;?> projects</p>
 
         <div class="row"  style="margin-top: 50px;">
             <!-- iterate over projects and display in cards !-->
@@ -26,8 +26,8 @@
                         <?php echo $project->description; ?>
                         <hr>
                         <div style="width: 50%; display:flex;">
-                            <a href="#" class="btn btn-sm btn-info" style="margin-right: 10px;"><i class="fa fa-folder"></i></a>
-                            <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="<?php echo base_url();?>company/edit_project/<?php echo $project->id;?>" class="btn btn-sm btn-info" style="margin-right: 10px;"><i class="fa fa-folder"></i></a>
+                            <a href="<?php echo base_url();?>company/delete_project/<?php echo $project->id;?>" class="btn btn-sm btn-danger" onclick="delete()"><i class="fa fa-trash"></i></a>
                         </div>
                     </div>
                 </div>
@@ -36,3 +36,14 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function delete() {
+        var r = confirm('Are you sure you want to delete this project?');
+        if (r==true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
