@@ -11,7 +11,7 @@ class Home extends Auth {
     function __construct()
     {
         parent::__construct();
-        print_r($_SESSION);
+        // print_r($_SESSION);
         $this->load->helper('url_helper');
         $this->load->model('Project_model');
     }
@@ -44,7 +44,6 @@ class Home extends Auth {
     private function get_newest_projects()
     {
         $result = $this->Project_model->get_latest_projects();
-
-        print_r($result);
+        return $result;
     }
 }

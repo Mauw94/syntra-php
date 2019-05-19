@@ -25,7 +25,7 @@ class Project_model extends CI_Model {
     function get_latest_projects()
     {
         $sql = "SELECT * FROM projects";
-        $this->db->limit(3);
+        // $this->db->limit(3);
         $query = $this->db->query($sql);
 
         if ($this->db->affected_rows() > 0) {
