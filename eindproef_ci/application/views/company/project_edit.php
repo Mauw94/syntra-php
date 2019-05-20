@@ -17,9 +17,9 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Title</span>
+                        <span class="input-group-text">Programming language</span>
                     </div>
-                <input type="text" class="form-control" name="title" value="<?php echo $project[0]->title;?>">
+                <input type="text" class="form-control" name="prog_lang" value="<?php echo $project[0]->prog_lang;?>">
                 </div>
             </div>
 

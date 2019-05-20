@@ -111,7 +111,7 @@ class Company extends Auth {
     {
         $result = $this->Company_model->delete_project($id);
         if ($result) {
-            echo 'done';
+            $this->index();
         } else {
             echo 'error';
         }
@@ -134,7 +134,7 @@ class Company extends Auth {
     function update_project()
     {
         $this->form_validation->set_rules('name', 'name', 'required');
-        $this->form_validation->set_rules('title', 'title', 'required');
+        $this->form_validation->set_rules('prog_lang', 'prog_lang', 'required');
         $this->form_validation->set_rules('description', 'description', 'required');
         $this->form_validation->set_rules('project_owner', 'project_owner', 'required');
         $this->form_validation->set_rules('start_date', 'start_date', 'required');
@@ -155,7 +155,7 @@ class Company extends Auth {
 
     function save_project()
     {
-        $this->form_validation->set_rules('title', 'title', 'required');
+        $this->form_validation->set_rules('prog_lang', 'prog_lang', 'required');
         $this->form_validation->set_rules('description', 'description', 'required');
 
         if ($this->form_validation->run() == FALSE) {

@@ -15,8 +15,8 @@
                   <div class="card">
                      <img class="card-img-top" src="images/placeholder.png" alt="Card image cap">
                         <div class="card-body">
-                           <h5 class="card-title"><?php echo $project->title; ?></h5>
-                           <p class="card-text"><?php echo $project->description;?></p>
+                           <h5 class="card-title"><?php echo $project->name; ?></h5>
+                           <p class="card-text"><?php echo $project->prog_lang;?></p>
                            <a href="<?php echo base_url();?>project/details/<?php echo $project->id;?>" class="btn btn-info">View details</a>
                         </div>
                   </div>

@@ -16,7 +16,7 @@
             <div class="col-md-3">
                 <div class="card card-body">
                     <h5 class="card-title"><?php echo $project->name;?> </h5>
-                    <p class="card-text"><?php echo $project->title;?> </p>
+                    <p class="card-text"><?php echo $project->prog_lang;?> </p>
                     <hr>
                     <a class="btn btn-info" data-toggle="collapse" href="#collapse<?php echo $project->id;?>" role="button" aria-expanded="false" aria-controls="collapse<?php echo $project->id;?>">
                         View details</a>                                 

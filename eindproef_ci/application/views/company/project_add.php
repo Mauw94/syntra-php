@@ -6,7 +6,7 @@
                 <input type="text"  class="menu-input reg-input" name="name" placeholder="Name">
             </div>
             <div class="form-group">
-                <input type="text" class="menu-input reg-input" name="title" placeholder="Title">
+                <input type="text" class="menu-input reg-input" name="prog_lang" placeholder="Programming language">
             </div>
             <div class="form-group">
                 <input type="text" class="menu-input reg-input" name="project_owner" placeholder="Project leader">

@@ -86,16 +86,16 @@ class Company_model extends CI_Model {
     {
         $company_id = $this->session->userdata('company')['user_id'];
         $name = $this->input->post('name');
-        $title = $this->input->post('title');
+        $prog_lang = $this->input->post('prog_lang');
         $project_owner = $this->input->post('project_owner');
         $description = $this->input->post('description');
         $keys = $this->input->post('keys');
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
 
-        $sql = "INSERT INTO projects (name, title, description, keyswords, project_owner, start_date, end_date, company_id)
+        $sql = "INSERT INTO projects (name, prog_lang, description, keywords, project_owner, start_date, end_date, company_id)
                 VALUES(" . $this->db->escape($name) . ",
-                        " . $this->db->escape($title) . ",
+                        " . $this->db->escape($prog_lang) . ",
                         " . $this->db->escape($description) . ",
                         " . $this->db->escape($keys) . ",
                         " . $this->db->escape($project_owner) . ",
