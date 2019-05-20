@@ -47,4 +47,24 @@ class Project_model extends CI_Model {
             echo 'Not found';
         }
     }
+
+    function update_project()
+    {
+        $name = $this->input->post('name');
+        $title = $this->input->post('title');
+        $project_owner = $this->input->post('project_owner');
+        $description = $this->input->post('description');
+        $start_date = $this->input->post('start_date');
+        $end_date = $this->input->post('end_date');
+
+        $sql = "UPDATE projects SET name = '$name', title = '$title', description = '$description', 
+                            project_owner = '$project_owner', start_date = '$start_date', end_date = '$end_date'";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() === 1) {
+            return $result;
+        } else {
+            echo 'error';
+        }
+    }
 }
