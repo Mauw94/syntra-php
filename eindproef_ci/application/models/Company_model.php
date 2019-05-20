@@ -89,15 +89,15 @@ class Company_model extends CI_Model {
         $title = $this->input->post('title');
         $project_owner = $this->input->post('project_owner');
         $description = $this->input->post('description');
-        $prog_lang = $this->input->post('prog_lang');
+        $keys = $this->input->post('keys');
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
 
-        $sql = "INSERT INTO projects (name, title, description, prog_languages, project_owner, start_date, end_date, company_id)
+        $sql = "INSERT INTO projects (name, title, description, keyswords, project_owner, start_date, end_date, company_id)
                 VALUES(" . $this->db->escape($name) . ",
                         " . $this->db->escape($title) . ",
                         " . $this->db->escape($description) . ",
-                        " . $this->db->escape($prog_lang) . ",
+                        " . $this->db->escape($keys) . ",
                         " . $this->db->escape($project_owner) . ",
                         " . $this->db->escape($start_date) . ",
                         " . $this->db->escape($end_date) . ",

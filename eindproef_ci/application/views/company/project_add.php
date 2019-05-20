@@ -15,7 +15,7 @@
                 <textarea type="text" class="menu-input reg-input" name="description" placeholder="Description"></textarea>
             </div>
             <div class="form-group">
-                <input type="text" class="menu-input reg-input" name="prog_lang" placeholder="Programming languages">
+                <input type="text" class="menu-input reg-input" name="keys" placeholder="Key words">
             </div>    
             <div class="form-group">
                 <label style="margin-left: 200px;">Project start date</label>    

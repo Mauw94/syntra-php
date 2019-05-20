@@ -71,6 +71,19 @@ class User_model extends CI_Model {
         }
     }
 
+    function get_user_details($id)
+    {
+        $sql = "SELECT * FROM users WHERE id = ${id}";
+
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() > 0) {
+            return $result->result();
+        } else {
+            echo 'not found';
+        }
+    }
+
     private function update_session($sess_array) {       
         $sess_data = array (
             'logged_in' => 1,
