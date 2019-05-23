@@ -87,10 +87,12 @@ class User extends Auth {
     function favorite()
     {
         $data = array(
-
+            'favorites' => $this->Project_model->get_fav_projects(),
+            'companies' => $this->Project_model->get_companies_from_fav_projects()            
         );
+
         $this->load->view('templates/header_main');
-        $this->load->view('project/favorites');
+        $this->load->view('project/favorites', $data);
         $this->load->view('templates/footer');
     }
 
@@ -103,6 +105,16 @@ class User extends Auth {
             redirect('home');
         } else {
             echo 'oops';
+        }
+    }
+
+    function remove_favorite($id)
+    {
+        $user_id = $this->session->userdata('user')['user_id'];
+        $result = $this->Project_model->remove_favorite_project($id, $user_id);
+
+        if ($result) {
+            redirect('user/favorite');
         }
     }
 }

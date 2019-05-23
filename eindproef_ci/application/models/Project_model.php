@@ -82,19 +82,51 @@ class Project_model extends CI_Model {
         }
     }
 
+    function remove_favorite_project($proj_id, $user_id) 
+    {   
+        $sql = "DELETE FROM saved_projects WHERE user_id = $user_id AND project_id = $proj_id";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() >= 1) {
+            return $result;
+        } else {
+            echo 'something went wrong unfavoriting';
+        }
+    }
+
     function get_fav_projects()
     {
         $fav_ids = $this->retrieve_favorited_project_ids();
         $projects = array();
         foreach ($fav_ids as $fav) {
-            //echo $fav->project_id;
-            $sql = "SELECT * FROM projects WHERE id = $fav->project_id";
+            $sql = "SELECT * FROM projects WHERE id = $fav";
             $result = $this->db->query($sql);
             if ($this->db->affected_rows() === 1) {
                 array_push($projects, $result->result());
             }
         }
         return $projects;
+    }
+
+    function get_companies_from_fav_projects()
+    {
+        $data = $this->get_fav_projects();
+        $company_ids = array();
+        $companies = array();
+
+        foreach ($data as $d) {
+            array_push($company_ids, $d[0]->company_id);
+        }
+
+        foreach ($company_ids as $comp) {
+            $sql = "SELECT * FROM companies where ID = $comp";
+
+            $result = $this->db->query($sql);
+            if ($this->db->affected_rows() === 1) {
+                array_push($companies, $result->result());
+            }
+        }
+        return $companies;
     }
 
     function retrieve_favorited_project_ids()
