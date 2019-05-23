@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container menu-container">
     <h1 class="menu-title"><?php echo $company[0]->name;?>, profile page</h1>
     <div class="login-underline"></div>
-
+    
+    <form>
     <div class="company-landing">
         <form action="<?php echo $action;?>" method="post" style="width: 50%;">
 
