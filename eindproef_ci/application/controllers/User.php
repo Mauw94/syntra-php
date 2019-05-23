@@ -12,6 +12,7 @@ class User extends Auth {
     {
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->model('Project_model');
     }
 
     function index()
@@ -80,6 +81,28 @@ class User extends Auth {
             if ($result) {
                 $this->profile();
             }
+        }
+    }
+
+    function favorite()
+    {
+        $data = array(
+
+        );
+        $this->load->view('templates/header_main');
+        $this->load->view('project/favorites');
+        $this->load->view('templates/footer');
+    }
+
+    function favorite_project($id)
+    {
+        $user_id = $this->session->userdata('user')['user_id'];
+        $result = $this->Project_model->favorite_project($id, $user_id);
+
+        if ($result) {
+            redirect('home');
+        } else {
+            echo 'oops';
         }
     }
 }

@@ -8,7 +8,6 @@
          <div class="company-landing">            
             <div class="row" style="margin-top: 90px;">
             <?php 
-            // print_r($projects);
             foreach ($projects as $project) { ?>             
                <div class="col-md-3" style="width: 18rem;">
                   <div class="card">
@@ -35,7 +34,17 @@
                            <h5 class="card-title"><?php echo $project->name; ?></h5>
                            <p class="card-text"><?php echo $project->prog_lang;?></p>
                            <a href="<?php echo base_url();?>project/details/<?php echo $project->id;?>/<?php echo $project->company_id;?>" class="btn btn-info">View details</a>
-                           <a href="#" class="btn btn-info" style="margin-right: 10px;"><i class="far fa-heart"></i></a>
+
+                           <?php
+                           if (in_array($project->id, $favorites)) {
+                              ?><a href="<?php echo base_url();?>user/favorite_project/<?php echo $project->id;?>" class="btn btn-info" style="margin-right: 10px;"><i class="fas fa-heart"></i></a>
+                              <?php
+                           } else {
+                              ?>
+                              <a href="<?php echo base_url();?>user/favorite_project/<?php echo $project->id;?>" class="btn btn-info" style="margin-right: 10px;"><i class="far fa-heart"></i></a>
+                              <?php
+                           }
+                           ?>                                                     
                         </div>
                   </div>
                </div>

@@ -68,4 +68,58 @@ class Project_model extends CI_Model {
             echo 'error';
         }
     }
+
+    function favorite_project($proj_id, $user_id)
+    {
+        $sql = "INSERT INTO saved_projects (user_id, project_id) VALUES (" . $user_id . ",
+                                                                        ". $proj_id. ")";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() === 1) {
+            return $result;
+        } else {
+            echo 'something went wrong favoriting';
+        }
+    }
+
+    function get_fav_projects()
+    {
+        $fav_ids = $this->retrieve_favorited_project_ids();
+        $projects = array();
+        foreach ($fav_ids as $fav) {
+            //echo $fav->project_id;
+            $sql = "SELECT * FROM projects WHERE id = $fav->project_id";
+            $result = $this->db->query($sql);
+            if ($this->db->affected_rows() === 1) {
+                array_push($projects, $result->result());
+            }
+        }
+        return $projects;
+    }
+
+    function retrieve_favorited_project_ids()
+    {
+        // get user id
+        // get favorite project ids
+        // get projects with the fav ids
+        $favs = array();
+        $user_id = $this->session->userdata('user')['user_id'];
+
+        $sql = "SELECT project_id FROM saved_projects WHERE user_id = ${user_id}";
+
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() > 0) {
+            $favorites = $result->result();
+        } else {
+            echo 'something went wrong';
+        }   
+
+        foreach ($favorites as $fav) {
+            array_push($favs, $fav->project_id);
+        }
+        return $favs;
+    }
+
+
 }

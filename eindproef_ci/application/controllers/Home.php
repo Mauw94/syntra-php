@@ -33,8 +33,9 @@ class Home extends Auth {
         
         $this->data = array(
             'title' => 'Home',
-            'projects' => $this->get_newest_projects()
-        );
+            'projects' => $this->get_newest_projects(),
+            'favorites' => $this->Project_model->retrieve_favorited_project_ids()
+        );        
 
         $this->load->view('templates/header_main');
         $this->load->view('home/home', $this->data);

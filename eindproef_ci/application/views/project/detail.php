@@ -103,7 +103,7 @@
         </ul>
         <hr>
         
-        <a href="#" class="btn btn-info">Save</a>
+        <a href="#" class="btn btn-info">Favorite</a>
         <a href="#" class="btn btn-info">Apply!</a>
 
         <a href="<?php echo base_url();?>home" class="btn btn-sm-white">Back</a>
