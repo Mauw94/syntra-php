@@ -34,7 +34,8 @@
                         <div class="card-body">
                            <h5 class="card-title"><?php echo $project->name; ?></h5>
                            <p class="card-text"><?php echo $project->prog_lang;?></p>
-                           <a href="<?php echo base_url();?>project/details/<?php echo $project->id;?>" class="btn btn-info">View details</a>
+                           <a href="<?php echo base_url();?>project/details/<?php echo $project->id;?>/<?php echo $project->company_id;?>" class="btn btn-info">View details</a>
+                           <a href="#" class="btn btn-info" style="margin-right: 10px;"><i class="far fa-heart"></i></a>
                         </div>
                   </div>
                </div>
