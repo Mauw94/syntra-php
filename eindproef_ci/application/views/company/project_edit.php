@@ -44,6 +44,15 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-prepend">
+                        <span class="input-group-text">Location</span>
+                    </div>
+                <input type="text" class="form-control" name="location" value="<?php echo $project[0]->location;?>">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
                         <span class="input-group-text">Start date</span>
                     </div>
                 <input type="date" class="form-control" name="start_date" value="<?php echo $project[0]->start_date;?>">

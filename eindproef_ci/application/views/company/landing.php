@@ -11,7 +11,13 @@
 
         <div class="row"  style="margin-top: 50px;">
             <!-- iterate over projects and display in cards !-->
+            <?php             
+            if ($projects == 'none found') {
+                ?>
+                <p>You have no projects added yet, click <a href="<?php echo base_url();?>company/project_add" class="btn btn-info">here</a> to add one!</p>
             <?php 
+            } 
+            else {
             foreach($projects as $project) { ?>
             <div class="col-md-3">
                 <div class="card card-body">
@@ -32,7 +38,8 @@
                     </div>
                 </div>
             </div>
-            <?php } ?>
+            <?php } 
+            } ?>
         </div>
     </div>
 </div>

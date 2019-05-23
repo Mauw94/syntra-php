@@ -43,8 +43,7 @@ class Company extends Auth {
             $result = $this->Company_model->save_company_profile();
 
             if ($result) {
-                // redirect home page for companies
-                echo 'works!';
+                $this->index();
             } else {
                 echo 'oops, something went wrong';
             }
@@ -137,6 +136,7 @@ class Company extends Auth {
         $this->form_validation->set_rules('prog_lang', 'prog_lang', 'required');
         $this->form_validation->set_rules('description', 'description', 'required');
         $this->form_validation->set_rules('project_owner', 'project_owner', 'required');
+        $this->form_validation->set_rules('location', 'location', 'required');
         $this->form_validation->set_rules('start_date', 'start_date', 'required');
         $this->form_validation->set_rules('end_date', 'end_date', 'required');
 
@@ -157,13 +157,14 @@ class Company extends Auth {
     {
         $this->form_validation->set_rules('prog_lang', 'prog_lang', 'required');
         $this->form_validation->set_rules('description', 'description', 'required');
+        $this->form_validation->set_rules('location', 'locaiton', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->project_add();
         } else {
             $result = $this->Company_model->save_project();
             if ($result) {
-                redirect('company');
+                $this->index();
             } else {
                 $this->project_add();
             }

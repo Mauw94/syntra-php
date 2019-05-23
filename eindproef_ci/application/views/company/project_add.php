@@ -6,13 +6,16 @@
                 <input type="text"  class="menu-input reg-input" name="name" placeholder="Name">
             </div>
             <div class="form-group">
-                <input type="text" class="menu-input reg-input" name="prog_lang" placeholder="Programming language">
+                <input type="text" class="menu-input reg-input" name="prog_lang" placeholder="Main programming language">
             </div>
             <div class="form-group">
                 <input type="text" class="menu-input reg-input" name="project_owner" placeholder="Project leader">
             </div>
             <div class="form-group">
                 <textarea type="text" class="menu-input reg-input" name="description" placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <textarea type="text" class="menu-input reg-input" name="location" placeholder="Location"></textarea>
             </div>
             <div class="form-group">
                 <input type="text" class="menu-input reg-input" name="keys" placeholder="Key words">

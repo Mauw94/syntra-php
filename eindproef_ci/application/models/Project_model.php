@@ -18,7 +18,7 @@ class Project_model extends CI_Model {
         if ($this->db->affected_rows() > 0) {
             return $query->result();
         } else {
-            echo 'none found';
+            return 'none found';
         }
     }
 
@@ -44,7 +44,7 @@ class Project_model extends CI_Model {
         if ($this->db->affected_rows() === 1) {
             return $result->result();
         } else {
-            echo 'Not found';
+            return 'Not found';
         }
     }
 
@@ -54,11 +54,12 @@ class Project_model extends CI_Model {
         $prog_lang = $this->input->post('prog_lang');
         $project_owner = $this->input->post('project_owner');
         $description = $this->input->post('description');
+        $location = $this->input->post('location');
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
 
         $sql = "UPDATE projects SET name = '$name', prog_lang = '$prog_lang', description = '$description', 
-                            project_owner = '$project_owner', start_date = '$start_date', end_date = '$end_date'";
+                            project_owner = '$project_owner', start_date = '$start_date', end_date = '$end_date', location = '$location'";
         $result = $this->db->query($sql);
 
         if ($this->db->affected_rows() === 1) {

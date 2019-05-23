@@ -79,7 +79,7 @@ class Register extends CI_Controller {
             $result = $this->Company_model->insert_company();
             
             if ($result) {
-                echo 'company added';
+                redirect('login');
             }
         }
     }

@@ -90,10 +90,11 @@ class Company_model extends CI_Model {
         $project_owner = $this->input->post('project_owner');
         $description = $this->input->post('description');
         $keys = $this->input->post('keys');
+        $location = $this->input->post('location');
         $start_date = $this->input->post('start_date');
         $end_date = $this->input->post('end_date');
 
-        $sql = "INSERT INTO projects (name, prog_lang, description, keywords, project_owner, start_date, end_date, company_id)
+        $sql = "INSERT INTO projects (name, prog_lang, description, keywords, project_owner, start_date, end_date, location, company_id)
                 VALUES(" . $this->db->escape($name) . ",
                         " . $this->db->escape($prog_lang) . ",
                         " . $this->db->escape($description) . ",
@@ -101,6 +102,7 @@ class Company_model extends CI_Model {
                         " . $this->db->escape($project_owner) . ",
                         " . $this->db->escape($start_date) . ",
                         " . $this->db->escape($end_date) . ",
+                        " . $this->db->escape($location) . ",
                         '" . $company_id . "')";
         $result = $this->db->query($sql);
 

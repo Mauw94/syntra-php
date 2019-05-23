@@ -35,11 +35,6 @@ class Company_landing extends Auth {
         $company_id = $this->session->userdata('company')['user_id'];
         $result = $this->Project_model->get_projects_from_company($company_id);
 
-        if (!$result) {
-            $msg = 'Click on the Add Project button to enter a new project';
-            return $msg;
-        }
-
-        return $result;        
+        return $result;    
     }
 }
