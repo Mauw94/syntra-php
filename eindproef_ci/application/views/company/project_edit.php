@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container menu-container">
     <h1 class="menu-title"><?php echo $project[0]->name; ?></h1>
     <div class="login-underline"></div>
-
+    <form>
     <div class="company-landing">
         <form action="<?php echo $action;?>" method="post" style="width: 50%;">
 

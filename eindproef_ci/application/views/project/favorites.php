@@ -9,8 +9,9 @@
             <h5 class="mb-0">
                 <button class="btn btn-info" data-toggle="collapse" data-target="#collapse<?php echo $key;?>" aria-expanded="true" aria-controls="collapseOne">
                 <?php echo $fav[0]->name; ?>
-                </button>
+                </button>                
                 <a href="<?php echo base_url();?>user/remove_favorite/<?php echo $fav[0]->id;?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                <a href="<?php echo base_url();?>project/details/<?php echo $fav[0]->id;?>/<?php echo $companies[$key][0]->id;?>" class="btn btn-info" style="float:right;">Details</a>
             </h5>
             </div>
     

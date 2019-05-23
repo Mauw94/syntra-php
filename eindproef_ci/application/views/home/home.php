@@ -9,7 +9,7 @@
             <div class="row" style="margin-top: 90px;">
             <?php 
             foreach ($projects as $project) { ?>             
-               <div class="col-md-3" style="width: 18rem;">
+               <div class="col-md-3" style="width: 18rem; margin-top:15px;">
                   <div class="card">
                      <?php 
                      $key = strtolower($project->prog_lang);

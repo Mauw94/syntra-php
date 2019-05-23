@@ -102,11 +102,11 @@
             </li>
         </ul>
         <hr>
-        
-        <a href="#" class="btn btn-info">Favorite</a>
-        <a href="#" class="btn btn-info">Apply!</a>
+                
+        <a href="#" class="btn btn-info"><b>APPLY!</b></a>
+        <a style="float:right;" href="<?php echo base_url();?>user/favorite_project/<?php echo $project[0]->id;?>" class="btn btn-info">Favorite <i class="fas fa-heart"></i></a>
 
-        <a href="<?php echo base_url();?>home" class="btn btn-sm-white">Back</a>
+        <a style="float:right;" href="<?php echo base_url();?>home" class="btn btn-sm-white">Back</a>
     </div>
 
 </div>
