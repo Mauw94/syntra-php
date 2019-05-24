@@ -9,6 +9,7 @@ class Project extends Auth {
     function __construct()
     {
         parent::__construct();
+        parent::deny_company();
         $this->load->model('Project_model');
         $this->load->model('Company_model');
     }

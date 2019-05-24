@@ -11,6 +11,7 @@ class Company_landing extends Auth {
     function __construct()
     {
         parent::__construct();
+        parent::deny_user();
         $this->load->model('Project_model');
     }
 

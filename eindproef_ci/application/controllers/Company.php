@@ -11,6 +11,7 @@ class Company extends Auth {
     function __construct()
     {
         parent::__construct();
+        parent::deny_user();
         $this->load->model('Company_model');
         $this->load->model('Project_model');
     }

@@ -11,6 +11,7 @@ class User extends Auth {
     function __construct()
     {
         parent::__construct();
+        parent::deny_company();
         $this->load->model('User_model');
         $this->load->model('Project_model');
     }
