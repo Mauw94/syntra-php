@@ -23,7 +23,7 @@ class User extends Auth {
                 redirect('home');
             }
         }
-        //redirect('login');
+
         $this->data = array(
             'title' => 'Profile page',
             'action' => site_url('user/save_profile'),

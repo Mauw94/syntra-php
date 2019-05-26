@@ -20,12 +20,15 @@
                         case strpos($key, '.net'): ?>
                            <img class="card-img-top" src="<?= base_url(); ?>images/net.jpg"> <?php
                            break;
+                        case strpos($key, 'javascript'): ?>
+                           <img class="card-img-top" src="<?= base_url(); ?>images/javascript.png"> <?php
+                           break;
                         case strpos($key, 'java'): ?>
                            <img class="card-img-top" src="<?= base_url(); ?>images/java.png"> <?php
                            break;
                         case strpos($key, 'react'): ?>
                            <img class="card-img-top" src="<?= base_url(); ?>images/react.png"> <?php
-                           break;
+                           break;                        
                         default: ?>
                            <img class="card-img-top" src="images/placeholder.png" alt="Card image cap"> <?php
                      }
