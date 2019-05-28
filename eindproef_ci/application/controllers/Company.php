@@ -20,18 +20,39 @@ class Company extends Auth {
     {
         if (null !== $this->session->userdata('company')) {
             if ($this->session->userdata('company')['setup_profile'] == 1) {
-                redirect('company_landing');
+                $this->company_landing();                
+            } else {
+                $this->data = array(    
+                    'title' => 'Setup',
+                    'action' => site_url('company/save_company'),
+                    'userid' => $this->session->userdata('company')['user_id']
+                );
+                $this->load->view('templates/header_main');
+                $this->load->view('company/setup_profile', $this->data);
+                $this->load->view('templates/footer');
             }
-        }
+        } 
+    }
 
-        $this->data = array(    
-            'title' => 'Setup',
-            'action' => site_url('company/save_company'),
-            'userid' => $this->session->userdata('company')['user_id']
+    function company_landing()
+    {
+        $this->data = array (
+            'title' => 'company?',
+            'projects' => $this->retrieve_projects(),
+            'name' => $this->session->userdata('company')['name']
         );
-        $this->load->view('templates/header_main');
-        $this->load->view('company/setup_profile', $this->data);
+    
+        $this->load->view('templates/header_company');
+        $this->load->view('company/landing', $this->data);
         $this->load->view('templates/footer');
+    }
+
+    private function retrieve_projects()
+    {
+        $company_id = $this->session->userdata('company')['user_id'];
+        $result = $this->Project_model->get_projects_from_company($company_id);
+
+        return $result;    
     }
 
     function save_company()

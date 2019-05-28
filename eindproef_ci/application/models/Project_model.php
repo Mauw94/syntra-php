@@ -153,5 +153,18 @@ class Project_model extends CI_Model {
         return $favs;
     }
 
+    function apply_to_project($id, $company_id, $user_id)
+    {
+        $sql = "INSERT INTO applied_projects (user_id, project_id, company_id) VALUES (" . $user_id . ",
+                                                                        ". $id. ",
+                                                                        ". $company_id . ")";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() === 1) {
+            return $result;
+        } else {
+            echo 'something went wrong applying';
+        }
+    }
 
 }
