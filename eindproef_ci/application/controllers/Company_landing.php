@@ -25,7 +25,7 @@ class Company_landing extends Auth {
             'projects' => $this->retrieve_projects(),
             'name' => $this->session->userdata('company')['name']
         );
-    
+                            
         $this->load->view('templates/header_company');
         $this->load->view('company/landing', $this->data);
         $this->load->view('templates/footer');
