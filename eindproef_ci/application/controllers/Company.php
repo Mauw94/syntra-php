@@ -192,4 +192,13 @@ class Company extends Auth {
             }
         }
     }
+
+    function view_applicants($projectid)
+    {
+        $result = $this->Company_model->get_applicants_for($projectid);
+
+        if ($result) {
+            print_r($result);
+        }
+    }
 }

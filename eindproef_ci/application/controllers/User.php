@@ -59,7 +59,7 @@ class User extends Auth {
     function profile()
     {        
         $data = array(
-            'user' => $this->User_model->get_user_details($id),
+            'user' => $this->User_model->get_user_details($this->user_id),
             'action' => site_url('user/update_profile'),
             'id' => $this->user_id
         );
@@ -87,11 +87,12 @@ class User extends Auth {
         }
     }
 
-    function favorite()
+    function favorite($msg = null)
     {
         $data = array(
             'favorites' => $this->Project_model->get_fav_projects(),
-            'companies' => $this->Project_model->get_companies_from_fav_projects()            
+            'companies' => $this->Project_model->get_companies_from_fav_projects(),
+            'msg' => $msg
         );
 
         $this->load->view('templates/header_main');
@@ -112,7 +113,8 @@ class User extends Auth {
 
     function favorite_project($id)
     {
-        $result = $this->Project_model->favorite_project($id, $this->user_id);
+        $result = $this->Project_model->
+                favorite_project($id, $this->user_id);
 
         if ($result) {
             redirect('home');
@@ -123,7 +125,8 @@ class User extends Auth {
 
     function remove_favorite($id)
     {
-        $result = $this->Project_model->remove_favorite_project($id, $this->user_id);
+        $result = $this->Project_model->
+                remove_favorite_project($id, $this->user_id);
 
         if ($result) {
             redirect('user/favorite');
@@ -132,10 +135,12 @@ class User extends Auth {
 
     function apply_to_project($id, $company_id)
     {
-        $result = $this->Project_model->apply_to_project($id, $company_id, $this->user_id);
+        $result = $this->Project_model->
+                apply_to_project($id, $company_id, $this->user_id);
 
         if ($result) {
-            echo 'ok';
+            $msg = "Succesfully applied!";
+            $this->favorite($msg);
         }
     }
 }

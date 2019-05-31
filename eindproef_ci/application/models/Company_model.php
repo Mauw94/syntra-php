@@ -124,4 +124,36 @@ class Company_model extends CI_Model {
             echo 'error in deleting';
         }
     }
+
+    function get_applicants_for($id) 
+    {
+        // get all user_ids from applied_projects where project_id = id
+        $user_ids = array();
+        $users = array();
+        $continue = FALSE;
+
+        $sql = "SELECT user_id FROM applied_projects WHERE project_id = ${id}";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() >= 1) {
+            array_push($user_ids, $result->result());
+            $continue = TRUE;
+        } else {
+            echo 'None found.';
+        }
+
+        if ($continue) {
+            foreach ($user_ids as $user) {
+                $id = $user[0]->user_id;
+                $sql = "SELECT * FROM users WHERE id = ${id}";
+                $result = $this->db->query($sql);
+
+                if ($this->db->affected_rows() === 1) {
+                    array_push($users, $result->result());
+                }
+            }
+        }   
+        
+        return $users;
+    }
 }

@@ -1,8 +1,9 @@
 <div class="container">
     <h1 class="menu-title">Favorites</h1>
     <div class="login-underline"></div>
-
     <div id="accordion" class="company-landing">
+    <h3><?php echo $msg;?></h3>
+    
         <?php foreach($favorites as $key=>$fav) { ?>
           <div class="card" style="margin-top: 30px;">
             <div class="card-header" id="headingOne">

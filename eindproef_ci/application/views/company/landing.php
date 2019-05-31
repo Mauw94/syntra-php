@@ -33,7 +33,8 @@
                         <hr>
                         <div style="width: 50%; display:flex;">
                             <a href="<?php echo base_url();?>company/edit_project/<?php echo $project->id;?>" class="btn btn-sm btn-info" style="margin-right: 10px;"><i class="fa fa-folder"></i></a>
-                            <a href="<?php echo base_url();?>company/delete_project/<?php echo $project->id;?>" class="btn btn-sm btn-danger" onclick="delete()"><i class="fa fa-trash"></i></a>
+                            <a href="<?php echo base_url();?>company/delete_project/<?php echo $project->id;?>" class="btn btn-sm btn-danger" style="margin-right: 10px;" onclick="delete()"><i class="fa fa-trash"></i></a>
+                            <a href="<?php echo base_url();?>company/view_applicants/<?php echo $project->id;?>" class="btn btn-sm btn-info"><b>Applicants</b></a>
                         </div>
                     </div>
                 </div>
