@@ -10,7 +10,7 @@ class Login extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        print_r($_SESSION);
+
         $this->load->model('Login_model');
         $this->load->model('User_model');
 

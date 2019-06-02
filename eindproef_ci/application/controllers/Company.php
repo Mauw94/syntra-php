@@ -110,13 +110,6 @@ class Company extends Auth {
         }
     }
 
-    function projects()
-    {
-        $this->load->view('templates/header_company');
-        $this->load->view('company/projects');
-        $this->load->view('templates/footer');
-    }
-
     function project_add()
     {
         $data = array(
