@@ -35,7 +35,7 @@
                         <a class="nav-link" href="<?php echo base_url();?>user/favorite">Favorite projects</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="#">Applications</a>
+                        <a class="nav-link" href="<?php echo base_url();?>user/applications">Applications</a>
                      </li>
                      <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url();?>login/logout">Sign-out</a>

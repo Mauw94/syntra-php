@@ -94,6 +94,18 @@ class Project_model extends CI_Model {
         }
     }
 
+    function remove_applied_project($proj_id, $user_id)
+    {
+        $sql = "DELETE FROM applied_projects WHERE user_id = $user_id AND project_id = $proj_id";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() >= 1) {
+            return $result;
+        } else {
+            echo 'something went wrong unfavoriting';
+        }
+    }
+
     function get_fav_projects()
     {
         $fav_ids = $this->retrieve_favorited_project_ids();
@@ -151,6 +163,62 @@ class Project_model extends CI_Model {
             array_push($favs, $fav->project_id);
         }
         return $favs;
+    }
+
+    function retrieve_applied_project_ids()
+    {
+        $applies = array();
+        $user_id = $this->session->userdata('user')['user_id'];
+
+        $sql = "SELECT project_id FROM applied_projects WHERE user_id = ${user_id}";
+
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() > 0) {
+            $applications = $result->result();
+        } else {
+            echo 'something went wrong';
+        }   
+
+        foreach ($applications as $appl) {
+            array_push($applies, $appl->project_id);
+        }
+        return $applies;
+    }
+
+    function get_applied_projects()
+    {
+        $appl_ids = $this->retrieve_applied_project_ids();
+        $projects = array();
+        foreach ($appl_ids as $appl) {
+            $sql = "SELECT * FROM projects WHERE id = $appl";
+            $result = $this->db->query($sql);
+            if ($this->db->affected_rows() === 1) {
+                array_push($projects, $result->result());
+            }
+        }
+        return $projects;
+    }
+
+    function get_companies_from_applied_projects()
+    {
+        $data = $this->get_applied_projects();
+        $company_ids = array();
+        $companies = array();
+
+        foreach ($data as $d) {
+            array_push($company_ids, $d[0]->company_id);
+        }
+
+        foreach ($company_ids as $comp) {
+            $sql = "SELECT * FROM companies where ID = $comp";
+
+            $result = $this->db->query($sql);
+            if ($this->db->affected_rows() === 1) {
+                array_push($companies, $result->result());
+            }
+        }
+        return $companies;
     }
 
     function apply_to_project($id, $company_id, $user_id)

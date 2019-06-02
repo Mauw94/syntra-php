@@ -100,10 +100,12 @@ class User extends Auth {
         $this->load->view('templates/footer');
     }
 
-    function applications()
+    function applications($msg = null)
     {
         $data = array(
-            'applications' => $this->Project_model->get_applied_projects()
+            'applications' => $this->Project_model->get_applied_projects(),
+            'companies' => $this->Project_model->get_companies_from_applied_projects(),
+            'msg' => $msg
         );
         
         $this->load->view('templates/header_main');
@@ -130,6 +132,16 @@ class User extends Auth {
 
         if ($result) {
             redirect('user/favorite');
+        }
+    }
+
+    function remove_application($id)
+    {
+        $result = $this->Project_model->
+                remove_applied_project($id, $this->user_id);
+
+        if ($result) {
+            redirect('user/applications');
         }
     }
 
