@@ -10,10 +10,10 @@
     }
     echo validation_errors('<p class="alert alert-danger alert-dismissable" style="margin-top: 10px;">');
 ?>
-    <?php if (isset($success)) {
+    <?php if (isset($msg)) {
     ?>
     <div class="alert alert-success alert-dismissible" style="margin-top: 10px; width: 55%;">
-        <?php echo $success; ?>
+        <?php echo $msg; ?>
     </div>
     <?php
 } ?>
