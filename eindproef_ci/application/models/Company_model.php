@@ -139,7 +139,7 @@ class Company_model extends CI_Model {
             array_push($user_ids, $result->result());
             $continue = TRUE;
         } else {
-            echo 'None found.';
+            return false;
         }
 
         if ($continue) {

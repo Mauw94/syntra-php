@@ -34,12 +34,13 @@ class Company extends Auth {
         } 
     }
 
-    function company_landing()
+    function company_landing($msg = null)
     {
         $this->data = array (
             'title' => 'company?',
             'projects' => $this->retrieve_projects(),
-            'name' => $this->session->userdata('company')['name']
+            'name' => $this->session->userdata('company')['name'],
+            'msg' => $msg
         );
     
         $this->load->view('templates/header_company');
@@ -186,12 +187,22 @@ class Company extends Auth {
         }
     }
 
-    function view_applicants($projectid)
+    function view_applicants($projectid, $projectname)
     {
         $result = $this->Company_model->get_applicants_for($projectid);
 
         if ($result) {
-            print_r($result);
+            $data = array(
+                'applicants' => $result,
+                'projectname' => $projectname
+            );
+
+           $this->load->view('templates/header_company');
+           $this->load->view('company/applicants', $data);
+           $this->load->view('templates/footer');
+        } else {
+            $msg = 'No applicants for this project.';
+            $this->company_landing($msg);
         }
     }
 }
