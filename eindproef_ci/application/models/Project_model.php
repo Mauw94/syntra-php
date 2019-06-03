@@ -110,12 +110,16 @@ class Project_model extends CI_Model {
     {
         $fav_ids = $this->retrieve_favorited_project_ids();
         $projects = array();
-        foreach ($fav_ids as $fav) {
-            $sql = "SELECT * FROM projects WHERE id = $fav";
-            $result = $this->db->query($sql);
-            if ($this->db->affected_rows() === 1) {
-                array_push($projects, $result->result());
+        if ($fav_ids) {
+            foreach ($fav_ids as $fav) {
+                $sql = "SELECT * FROM projects WHERE id = $fav";
+                $result = $this->db->query($sql);
+                if ($this->db->affected_rows() === 1) {
+                    array_push($projects, $result->result());
+                }
             }
+        } else {
+            return null;
         }
         return $projects;
     }
@@ -126,17 +130,21 @@ class Project_model extends CI_Model {
         $company_ids = array();
         $companies = array();
 
-        foreach ($data as $d) {
-            array_push($company_ids, $d[0]->company_id);
-        }
-
-        foreach ($company_ids as $comp) {
-            $sql = "SELECT * FROM companies where ID = $comp";
-
-            $result = $this->db->query($sql);
-            if ($this->db->affected_rows() === 1) {
-                array_push($companies, $result->result());
+        if ($data) {
+            foreach ($data as $d) {
+                array_push($company_ids, $d[0]->company_id);
             }
+
+            foreach ($company_ids as $comp) {
+                $sql = "SELECT * FROM companies where ID = $comp";
+
+                $result = $this->db->query($sql);
+                if ($this->db->affected_rows() === 1) {
+                    array_push($companies, $result->result());
+                }
+            }
+        } else {
+            return null;
         }
         return $companies;
     }
@@ -156,19 +164,24 @@ class Project_model extends CI_Model {
         if ($this->db->affected_rows() > 0) {
             $favorites = $result->result();
         } else {
-            echo 'something went wrong';
+            return false;
         }   
 
-        foreach ($favorites as $fav) {
-            array_push($favs, $fav->project_id);
-        }
-        return $favs;
+        if ($favorites) {
+            foreach ($favorites as $fav) {
+                array_push($favs, $fav->project_id);
+            }
+            return $favs;
+        } else {
+            return NULL;
+        }   
     }
 
     function retrieve_applied_project_ids()
     {
         $applies = array();
         $user_id = $this->session->userdata('user')['user_id'];
+        $cancel = FALSE;
 
         $sql = "SELECT project_id FROM applied_projects WHERE user_id = ${user_id}";
 
@@ -177,12 +190,17 @@ class Project_model extends CI_Model {
         if ($this->db->affected_rows() > 0) {
             $applications = $result->result();
         } else {
-            echo 'something went wrong';
+            $cancel = TRUE;
         }   
 
-        foreach ($applications as $appl) {
-            array_push($applies, $appl->project_id);
+        if ($cancel) {
+            return false;
+        } else {
+            foreach ($applications as $appl) {
+                array_push($applies, $appl->project_id);
+            }
         }
+        
         return $applies;
     }
 
@@ -190,12 +208,17 @@ class Project_model extends CI_Model {
     {
         $appl_ids = $this->retrieve_applied_project_ids();
         $projects = array();
-        foreach ($appl_ids as $appl) {
-            $sql = "SELECT * FROM projects WHERE id = $appl";
-            $result = $this->db->query($sql);
-            if ($this->db->affected_rows() === 1) {
-                array_push($projects, $result->result());
+
+        if ($appl_ids) {
+            foreach ($appl_ids as $appl) {
+                $sql = "SELECT * FROM projects WHERE id = $appl";
+                $result = $this->db->query($sql);
+                if ($this->db->affected_rows() === 1) {
+                    array_push($projects, $result->result());
+                }
             }
+        } else {
+            return null;
         }
         return $projects;
     }
@@ -206,23 +229,29 @@ class Project_model extends CI_Model {
         $company_ids = array();
         $companies = array();
 
-        foreach ($data as $d) {
-            array_push($company_ids, $d[0]->company_id);
-        }
-
-        foreach ($company_ids as $comp) {
-            $sql = "SELECT * FROM companies where ID = $comp";
-
-            $result = $this->db->query($sql);
-            if ($this->db->affected_rows() === 1) {
-                array_push($companies, $result->result());
+        if ($data) {
+            foreach ($data as $d) {
+                array_push($company_ids, $d[0]->company_id);
             }
+
+            foreach ($company_ids as $comp) {
+                $sql = "SELECT * FROM companies where ID = $comp";
+
+                $result = $this->db->query($sql);
+                if ($this->db->affected_rows() === 1) {
+                    array_push($companies, $result->result());
+                }
+            }
+        } else {
+            return null;
         }
         return $companies;
     }
 
     function apply_to_project($id, $company_id, $user_id)
     {
+        $status = "app";
+
         $sql = "INSERT INTO applied_projects (user_id, project_id, company_id) VALUES (" . $user_id . ",
                                                                         ". $id. ",
                                                                         ". $company_id . ")";

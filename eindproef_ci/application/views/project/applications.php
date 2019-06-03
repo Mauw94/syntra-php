@@ -4,7 +4,9 @@
     <div id="accordion" class="company-landing">
     <h3><?php echo $msg;?></h3>
     
-        <?php foreach($applications as $key=>$appl) { ?>
+        <?php 
+        if ($applications) {
+        foreach($applications as $key=>$appl) { ?>
           <div class="card" style="margin-top: 30px;">
             <div class="card-header" id="headingOne">
             <h5 class="mb-0">
@@ -31,6 +33,9 @@
                 </div>
             </div>
         </div>  
-        <?php } ?>
+        <?php }
+        } else {
+            echo 'No applications found.';
+        } ?>
     </div>
 </div>

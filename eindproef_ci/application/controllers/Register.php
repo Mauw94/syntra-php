@@ -57,7 +57,7 @@ class Register extends CI_Controller {
             $result = $this->User_model->insert_user();
             
             if ($result) {
-                echo 'registered';
+                redirect('login');
             } else {
                 echo 'something went wrong';
             }

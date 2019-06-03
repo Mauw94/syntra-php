@@ -139,12 +139,14 @@ class Company_model extends CI_Model {
             array_push($user_ids, $result->result());
             $continue = TRUE;
         } else {
-            return false;
+            $continue = FALSE;
         }
 
         if ($continue) {
-            foreach ($user_ids as $user) {
-                $id = $user[0]->user_id;
+            $new = $user_ids[0];
+            foreach ($new as $user) {
+                $id = $user->user_id;
+                
                 $sql = "SELECT * FROM users WHERE id = ${id}";
                 $result = $this->db->query($sql);
 

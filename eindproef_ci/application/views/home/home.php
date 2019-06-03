@@ -39,14 +39,18 @@
                            <a href="<?php echo base_url();?>project/details/<?php echo $project->id;?>/<?php echo $project->company_id;?>" class="btn btn-info">View details</a>
 
                            <?php
-                           if (in_array($project->id, $favorites)) {
-                              ?><a href="<?php echo base_url();?>user/favorite_project/<?php echo $project->id;?>" class="btn btn-info" style="margin-right: 10px;"><i class="fas fa-heart"></i></a>
-                              <?php
+                           if ($favorites) {
+                              if (in_array($project->id, $favorites)) {
+                                 ?><a href="<?php echo base_url();?>user/favorite_project/<?php echo $project->id;?>" class="btn btn-info" style="margin-right: 10px;"><i class="fas fa-heart"></i></a>
+                                 <?php
+                              } else {
+                                 ?>
+                                 <a href="<?php echo base_url();?>user/favorite_project/<?php echo $project->id;?>" class="btn btn-info" style="margin-right: 10px;"><i class="far fa-heart"></i></a>
+                                 <?php
+                              }
                            } else {
-                              ?>
-                              <a href="<?php echo base_url();?>user/favorite_project/<?php echo $project->id;?>" class="btn btn-info" style="margin-right: 10px;"><i class="far fa-heart"></i></a>
-                              <?php
-                           }
+                              ?><a href="<?php echo base_url();?>user/favorite_project/<?php echo $project->id;?>" class="btn btn-info" style="margin-right: 10px;"><i class="far fa-heart"></i></a><?php
+                           }     
                            ?>                                                     
                         </div>
                   </div>

@@ -40,9 +40,8 @@ class User extends Auth {
 
     function save_profile()
     {
-        $this->form_validation->set_rules('prog_language', 'know prog. language(s)', 'required');
+        $this->form_validation->set_rules('prog_languages', 'know prog. language(s)', 'required');
         $this->form_validation->set_rules('pref_language', 'preferred language(s)/framework(s)', 'required');
-        $this->form_validation->set_rules('available', 'available', 'required');
         $this->form_validation->set_rules('github', 'github', 'trim|required|min_length[6]|max_length[50]');
         $this->form_validation->set_rules('price_h', 'preferred salary/h', 'trim|required');
 
