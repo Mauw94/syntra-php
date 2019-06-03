@@ -11,8 +11,8 @@
                 <button class="btn btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                 <?php echo $appl[0]->first_name . ' ' . $appl[0]->last_name; ?>
                 </button>     
-                <a class="btn btn-danger" style="float:right; margin-right: 10px;"><i class="fas fa-thumbs-down"></i>Reject</a>  
-                <a class="btn btn-info" style="float:right; margin-right: 10px;"><i class="fas fa-check"></i>Accept</a>
+                <a class="btn btn-danger" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-thumbs-down"></i>Reject</a>  
+                <a class="btn btn-info" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-check"></i>Accept</a>
             </h5>
             </div>
         </div> 
