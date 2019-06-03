@@ -8,7 +8,7 @@
 
     <div class="company-landing">
         <p>Overview of <?php echo $name;?> projects</p>
-        <p><?php echo $msg;?></p>
+        <p><b><?php echo $msg;?></b></p>
         <div class="row"  style="margin-top: 50px;">
             <!-- iterate over projects and display in cards !-->
             <?php   

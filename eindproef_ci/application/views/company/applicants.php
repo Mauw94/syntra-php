@@ -8,15 +8,15 @@
           <div class="card" style="margin-top: 30px;">
             <div class="card-header" id="headingOne">
             <h5 class="mb-0">
-                <button class="btn btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <button class="btn btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#model<?php echo $key;?>">
                 <?php echo $appl[0]->first_name . ' ' . $appl[0]->last_name; ?>
                 </button>     
                 <a class="btn btn-danger" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-thumbs-down"></i>Reject</a>  
-                <a class="btn btn-info" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-check"></i>Accept</a>
+                <a href="<?php echo base_url();?>company/accept_applicant/<?php echo $appl[0]->email;?>" class="btn btn-info" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-check"></i>Accept</a>
             </h5>
             </div>
         </div> 
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal fade" id="model<?php echo $key;?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                 <div class="modal-header">

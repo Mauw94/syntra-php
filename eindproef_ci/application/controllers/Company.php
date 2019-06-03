@@ -205,4 +205,15 @@ class Company extends Auth {
             $this->company_landing($msg);
         }
     }
+
+    function accept_applicant($applicant_email)
+    {   
+        $result = $this->Company_model->send_acceptation_email($applicant_email);
+        if ($result) {
+            $msg = 'Acceptation e-mail has been sent.';
+            $this->company_landing($msg);
+        } else {
+            echo 'something went wrong';
+        }
+    }
 }
