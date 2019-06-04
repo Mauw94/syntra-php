@@ -1,11 +1,19 @@
       <div class="container" style="margin-top: 30px;">
          <h1 class="menu-title"><?php echo $title; ?></h1>
          <div class="login-underline"></div>
-         <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6"></div>
-         </div>
-         <div class="company-landing">            
+         <?php if (isset($msg)) { ?>
+            <div class="alert alert-success alert-dismissible" style="margin-top: 10px; width: 55%;">
+               <?php echo $msg; ?> 
+            </div>
+         <?php } ?>
+         <div class="company-landing">    
+                    
+            <form method="post" action="<?php echo $action; ?>">
+               <div class="form-group">
+                  <input type="text" name="filter" placeholder="Filter projects" class="form-control" style="max-width: 50%;">                 
+               </div>
+               <input type="submit" name="search" value="Search" class="btn btn-primary" style="font-weight: bold;">
+            </form>
             <div class="row" style="margin-top: 90px;">
             <?php 
             foreach ($projects as $project) { ?>             

@@ -264,4 +264,18 @@ class Project_model extends CI_Model {
         }
     }
 
+    function filter()
+    {
+        $filter = $this->input->post('filter');
+
+        $sql = "SELECT * FROM projects WHERE prog_lang LIKE '%${filter}%'";
+        $result = $this->db->query($sql);
+
+        if ($this->db->affected_rows() >= 1) {
+            return $result->result();
+        } else {
+            echo 'it broke';
+        }
+    }
+
 }

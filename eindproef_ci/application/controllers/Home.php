@@ -7,7 +7,8 @@ if (!defined('BASEPATH'))
 class Home extends Auth {
 
     private $data;
-    
+    private $filtered = FALSE;
+
     function __construct()
     {
         parent::__construct();
@@ -16,7 +17,7 @@ class Home extends Auth {
         $this->load->model('Project_model');
     }
 
-    public function index()
+    public function index($msg = NULL, $projects = NULL)
     {      
         if (null !== $this->session->userdata('user')) {  
             if ($this->session->userdata('user')['setup_profile'] == 0) {
@@ -31,15 +32,40 @@ class Home extends Auth {
             redirect('company');
         }
         
-        $this->data = array(
-            'title' => 'Home',
-            'projects' => $this->get_newest_projects(),
-            'favorites' => $this->Project_model->retrieve_favorited_project_ids()
-        );        
-
+        if (!$this->filtered) {
+            $this->data = array(
+                'title' => 'Home',
+                'projects' => $this->get_newest_projects(),
+                'favorites' => $this->Project_model->retrieve_favorited_project_ids(),
+                'msg' => $msg,
+                'action' => site_url('home/filter')
+            );        
+        } else {
+            $this->data = array(
+                'title' => 'Home',
+                'projects' => $projects,
+                'favorites' => $this->Project_model->retrieve_favorited_project_ids(),
+                'msg' => $msg,
+                'action' => site_url('home/filter')
+            );
+        }
         $this->load->view('templates/header_main');
         $this->load->view('home/home', $this->data);
         $this->load->view('templates/footer');
+    }
+
+    function filter()
+    {
+        $this->form_validation->set_rules('filter', 'filter', 'trim|required');
+        if ($this->form_validation->run() === FALSE) {
+            $msg = 'Please enter a filter first.';
+            $this->index($msg);
+        } else {
+            $this->filtered = TRUE;
+            $result = $this->Project_model->filter();
+            $msg = 'Filter results below';
+            $this->index($msg, $result);
+        }
     }
 
     private function get_newest_projects()
