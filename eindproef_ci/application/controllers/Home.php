@@ -68,6 +68,12 @@ class Home extends Auth {
         }
     }
 
+    function all()
+    {
+        $this->filtered = FALSE;
+        $this->index();
+    }
+
     private function get_newest_projects()
     {
         $result = $this->Project_model->get_latest_projects();

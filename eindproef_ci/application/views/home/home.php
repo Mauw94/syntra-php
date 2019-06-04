@@ -13,6 +13,7 @@
                   <input type="text" name="filter" placeholder="Filter projects" class="form-control" style="max-width: 50%;">                 
                </div>
                <input type="submit" name="search" value="Search" class="btn btn-primary" style="font-weight: bold;">
+               <a href="<?php echo base_url();?>home/all" type="button" name="All" value="View all" class="btn btn-info" style="font-weight:bold;">View all</a>
             </form>
             <div class="row" style="margin-top: 90px;">
             <?php 
