@@ -194,7 +194,8 @@ class Company extends Auth {
         if ($result) {
             $data = array(
                 'applicants' => $result,
-                'projectname' => $projectname
+                'projectname' => $projectname,
+                'projectid' => $projectid
             );
 
            $this->load->view('templates/header_company');
@@ -206,12 +207,37 @@ class Company extends Auth {
         }
     }
 
-    function accept_applicant($applicant_email)
+    function reject_applicant($applicant_email, $projectid, $userid)
+    {
+        $result = $this->Company_model->send_rejection_email($applicant_email);
+        if ($result) {
+             if ($this->remove_application_fromdb($projectid, $userid)) {
+                $msg = "E-mail has been sent.";
+                $this->company_landing($msg);
+             }
+        } else {
+            echo 'Something went wrong';
+        }
+    }
+
+    private function remove_application_fromdb($projectid, $userid)
+    {
+        $result = $this->Project_model->remove_applied_project($projectid, $userid);
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function accept_applicant($applicant_email, $projectid, $userid)
     {   
         $result = $this->Company_model->send_acceptation_email($applicant_email);
         if ($result) {
-            $msg = 'Acceptation e-mail has been sent.';
-            $this->company_landing($msg);
+            if ($this->remove_application_fromdb($projectid, $userid)) {
+               $msg = "E-mail has been sent.";
+               $this->company_landing($msg);
+            }
         } else {
             echo 'something went wrong';
         }

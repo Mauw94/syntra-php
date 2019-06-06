@@ -159,6 +159,34 @@ class Company_model extends CI_Model {
         return $users;
     }
 
+    function send_rejection_email($applicant_email)
+    {
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'mauritsseelen@gmail.com',
+            'smtp_pass' => 'upbtdwqttfpgngql',
+            'mailtype'  => 'html',
+            'newline'   => "\r\n"
+        );
+        $this->load->library('email', $config);
+        $company_mail = $this->session->userdata('company')['email'];
+        $company_name = $this->session->userdata('company')['name'];
+        $this->email->from($company_mail);
+        $this->email->to($applicant_email);
+        $this->email->subject('Application rejected');
+        $message = '<!DOCTYPE html><html><body>';
+        $message .= '<p>We are sorry, but ' . $company_name . ' has rejected your offer for this project.</p>';
+        $message .= '</body></html>';
+        $this->email->message($message);
+        if ($this->email->send()) {
+            return true;
+        } else {
+            show_error($this->email->print_debugger());
+        }
+    }
+
     function send_acceptation_email($applicant_email)
     {
         $config = Array(

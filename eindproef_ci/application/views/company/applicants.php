@@ -3,16 +3,21 @@
     <div class="login-underline"></div>
     <div id="accordion" class="company-landing">
     <h3>Project: <b><?php echo urldecode($projectname);?></b></h3>
+    
     <p>Applications: <i><?php echo count($applicants);?></i></p>
         <?php foreach($applicants as $key=>$appl) { ?>
+
           <div class="card" style="margin-top: 30px;">
             <div class="card-header" id="headingOne">
             <h5 class="mb-0">
                 <button class="btn btn-info" type="button" class="btn btn-primary" data-toggle="modal" data-target="#model<?php echo $key;?>">
                 <?php echo $appl[0]->first_name . ' ' . $appl[0]->last_name; ?>
                 </button>     
-                <a class="btn btn-danger" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-thumbs-down"></i>Reject</a>  
-                <a href="<?php echo base_url();?>company/accept_applicant/<?php echo $appl[0]->email;?>" class="btn btn-info" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-check"></i>Accept</a>
+                <a href="<?php echo base_url();?>company/reject_applicant/<?php echo $appl[0]->email;?>/<?php echo $projectid;?>/<?php echo $appl[0]->id;?>
+                                    " class="btn btn-danger" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-thumbs-down"></i>Reject</a>  
+                                    
+                <a href="<?php echo base_url();?>company/accept_applicant/<?php echo $appl[0]->email;?>/<?php echo $projectid;?>/<?php echo $appl[0]->id;?>
+                                    " class="btn btn-info" style="float:right; margin-right: 10px; color:white;"><i class="fas fa-check"></i>Accept</a>
             </h5>
             </div>
         </div> 
