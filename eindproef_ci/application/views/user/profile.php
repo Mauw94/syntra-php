@@ -105,7 +105,7 @@
             <div class="form-group">
                 <input type="submit" class="form-control" value="Update" name="submit">
             </div>
-
+            <a href="<?php echo base_url();?>user/index" type="button" class="btn btn-info">Back</a>
         </form>
     </div>
 </div>

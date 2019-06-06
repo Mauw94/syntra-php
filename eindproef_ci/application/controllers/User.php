@@ -151,7 +151,7 @@ class User extends Auth {
 
         if ($result) {
             $msg = "Succesfully applied!";
-            $this->favorite($msg);
+            $this->applications($msg);
         }
     }
 }
