@@ -51,13 +51,14 @@ class Company_model extends CI_Model {
         $contact_person = $this->input->post('contact_person');
         $looking_for = $this->input->post('looking_for');
         $email = $this->input->post('email');
-        $phone = $this->input->post('phone');
+        $phone = $this->input->post('phone');   
+        $id = $this->input->post('id');
 
         $sql = "UPDATE companies set contact_person = '$contact_person', 
-                    looking_for = '$looking_for', email = '$email', phone = '$phone'";
+                    looking_for = '$looking_for', email = '$email', phone = '$phone' WHERE id = ${id}";
         $result = $this->db->query($sql);
 
-        if ($this->db->affected_rows() == 1) {
+        if ($this->db->affected_rows() === 1) {
             return $result;
         } else {
             echo 'something went wrong';

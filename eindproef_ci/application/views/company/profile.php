@@ -2,8 +2,10 @@
     <h1 class="menu-title"><?php echo $company[0]->name;?>, profile page</h1>
     <div class="login-underline"></div>
     
-    <form>
+    <form action="<?php echo $action;?>" method="post">
+    <input type="hidden" name="id" value="<?php echo $company[0]->id; ?>">
     <div class="company-landing">
+
         <form action="<?php echo $action;?>" method="post" style="width: 50%;">
 
             <div class="form-group">
